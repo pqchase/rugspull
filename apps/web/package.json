@@ -1,0 +1,32 @@
+{
+  "name": "@rugspull/web",
+  "version": "0.4.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "test": "vitest run",
+    "build": "tsc -p tsconfig.json --noEmit && vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@fontsource/atkinson-hyperlegible": "^5.2.8",
+    "@fontsource/barriecito": "^5.2.8",
+    "@rugspull/contracts-ts": "0.4.0",
+    "@rugspull/economics": "0.4.0",
+    "@vitejs/plugin-react": "^6.0.3",
+    "lucide-react": "^1.21.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.185.1",
+    "viem": "^2.53.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/three": "^0.185.1",
+    "typescript": "^5.5.4",
+    "vite": "^8.1.0",
+    "vitest": "^3.2.6"
+  }
+}

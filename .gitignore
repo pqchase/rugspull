@@ -1,0 +1,26 @@
+.DS_Store
+node_modules/
+dist/
+dist-ts/
+out/
+cache/
+broadcast/
+.wrangler/
+.vite/
+coverage/
+lcov.info
+playwright-report/
+test-results/
+blob-report/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.env
+.env.*
+!.env.example
+
+# Local visual QA and Codex working artifacts
+.codex-*.png
+.qa-*.png
+audit/**/*.png

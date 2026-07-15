@@ -1,0 +1,22 @@
+{
+  "name": "@rugspull/api",
+  "version": "0.4.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@rugspull/contracts-ts": "0.4.0",
+    "viem": "^2.53.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260627.1",
+    "typescript": "^5.5.4",
+    "vitest": "^3.2.6",
+    "wrangler": "^4.105.0"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "rugspull",
+  "private": true,
+  "version": "0.4.0",
+  "description": "A disclosed rugpull parody protocol on BNB Smart Chain.",
+  "homepage": "https://rugspull.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitngel/rugspull.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bitngel/rugspull/issues"
+  },
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "workers/*"
+  ],
+  "scripts": {
+    "test": "npm run build -w @rugspull/contracts-ts && npm run test -w @rugspull/economics && npm run test -w @rugspull/web && npm run test -w @rugspull/api",
+    "build": "npm run build -w @rugspull/economics && npm run build -w @rugspull/contracts-ts && npm run build -w @rugspull/web && npm run build -w @rugspull/api",
+    "check:audit": "npm audit --audit-level=moderate",
+    "check:deploy:ready": "./scripts/check-deployment-readiness.sh",
+    "check:release:local": "./scripts/check-release-local.sh",
+    "check:local": "./scripts/check-local-all.sh",
+    "check:cloudflare:url": "./scripts/check-cloudflare-url.sh",
+    "check:cloudflare:render": "./scripts/check-cloudflare-render.sh",
+    "dev:web": "npm run dev -w @rugspull/web",
+    "dev:api": "npm run dev -w @rugspull/api",
+    "dev:cloudflare": "npm run build -w @rugspull/web && npm run dev -w @rugspull/api",
+    "deploy:cloudflare:remote": "./scripts/deploy-cloudflare-remote.sh",
+    "deploy:cloudflare": "npm run build && npm run deploy -w @rugspull/api"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "typescript": "^5.5.4",
+    "vitest": "^3.2.6"
+  },
+  "overrides": {
+    "vite": "8.1.0",
+    "ws": "8.21.0"
+  }
+}

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /ops
+Disallow: /account/
+
+Sitemap: https://rugspull.com/sitemap.xml

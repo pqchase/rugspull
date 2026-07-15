@@ -1,0 +1,34 @@
+name = "rugspull-api"
+main = "src/index.ts"
+compatibility_date = "2024-09-01"
+workers_dev = true
+routes = [
+  { pattern = "rugspull.com/*", zone_name = "rugspull.com" },
+  { pattern = "www.rugspull.com/*", zone_name = "rugspull.com" },
+]
+
+[triggers]
+crons = ["*/5 * * * *"]
+
+[assets]
+directory = "../../apps/web/dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+[vars]
+CHAIN_ID = "56"
+FACTORY_ADDRESS = "0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63"
+FACTORY_DEPLOY_BLOCK = "109991561"
+FACTORY_SOURCES = "0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63@109991561"
+RPC_URLS = "https://bsc.rpc.blxrbdn.com,https://rpc-bsc.48.club,https://bsc.drpc.org,https://bsc-dataseed-public.bnbchain.org"
+INDEXER_BLOCK_RANGE = "900"
+INDEXER_STALE_BLOCKS = "1200"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "rugspull"
+database_id = "b9e83028-7736-4e81-8c9f-19f7dddfa3df"
+
+[[r2_buckets]]
+binding = "R2"
+bucket_name = "rugspull-metadata"

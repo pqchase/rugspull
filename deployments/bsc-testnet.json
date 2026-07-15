@@ -1,0 +1,27 @@
+{
+  "chainId": 97,
+  "factory": "0x336245d97Abb2F06eb396d6A9d671D4029CE2e5d",
+  "txHash": "0xff613aeba58f3dfa5943702967f05f93503c401adba1ec26ac4fc83165f2b85a",
+  "deployer": "0xD7036acF848F00A03bA795C5225cbA367523Ad6e",
+  "wbnb": "0xae13d989dac2f0debff460ac112a837c89baa7cd",
+  "deployBlock": 118839588,
+  "deployedAt": "2026-07-13T06:05:30Z",
+  "version": "0.4.0-bsc-mvp",
+  "economics": {
+    "founderBps": 4500,
+    "swapFeeBps": 25,
+    "protocolFeeBps": 5,
+    "minLaunchBps": 3000,
+    "openingCapBps": 5000,
+    "openingDuration": 86400,
+    "founderUnlockDelay": 172800,
+    "creationFeeWei": "3000000000000000",
+    "minCreatorStakeWei": "100000000000000000",
+    "tokenTotalSupplyWei": "1000000000000000000000000000"
+  },
+  "sourceVerification": {
+    "provider": "Sourcify",
+    "status": "exact_match",
+    "verifiedAt": "2026-07-13T06:27:39Z"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "chainId": 56,
+  "factory": "0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63",
+  "txHash": "0x95426057625753b19dfbe3754c5e79bdff771e69159cf69a67977b24cd464cc6",
+  "deployer": "0xB614D5635a4f1a8B197762b62bD10401c0397f89",
+  "owner": "0x0326E94178402Ea733dD6faa8f9E88962E3DF4d2",
+  "protocolTreasury": "0x0326E94178402Ea733dD6faa8f9E88962E3DF4d2",
+  "wbnb": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+  "deployBlock": 109991561,
+  "deployedAt": "2026-07-14T18:59:04.000Z",
+  "version": "0.4.0-bsc-mvp",
+  "createPaused": false,
+  "runtimeCodeBytes": 21475,
+  "runtimeCodeHash": "0x1f01fc4c55be42ece062ee65e2b17904b9188a262ce8b614ae999f1377a99ea2",
+  "gas": {
+    "gasUsed": "4733768",
+    "effectiveGasPriceWei": "50000000",
+    "costWei": "236688400000000"
+  },
+  "economics": {
+    "founderBps": 4500,
+    "swapFeeBps": 25,
+    "protocolFeeBps": 5,
+    "minLaunchBps": 3000,
+    "openingCapBps": 5000,
+    "openingDuration": 86400,
+    "founderUnlockDelay": 172800,
+    "creationFeeWei": "3000000000000000",
+    "minCreatorStakeWei": "100000000000000000",
+    "tokenTotalSupplyWei": "1000000000000000000000000000"
+  },
+  "sourceVerification": {
+    "provider": "Sourcify",
+    "status": "exact_match",
+    "jobId": "a3bc976c-f6ea-42ca-8f52-fcf179c9d115",
+    "verifiedAt": "2026-07-14T19:01:00Z",
+    "bscScanMirror": {
+      "status": "exact_match",
+      "url": "https://bscscan.com/address/0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63#code",
+      "checkedAt": "2026-07-15T06:05:25Z"
+    }
+  },
+  "postDeployChecks": {
+    "twoIndependentRpcReads": true,
+    "constructorProfileMatched": true,
+    "mainnetForkE2E": "passed",
+    "coveredActions": [
+      "create and collect WBNB creation fee",
+      "contribute and finalize a successful opening",
+      "claim opening allocation and reject double claim",
+      "buy and sell with protocol fee collection",
+      "execute one-shot founder rug and reject double rug",
+      "trade after Rugged",
+      "match pool reserves to actual token and WBNB balances",
+      "finalize a failed opening and return creator stake once"
+    ],
+    "checkedAt": "2026-07-14T19:19:42Z"
+  },
+  "productionCutover": {
+    "primaryUrl": "https://rugspull.com",
+    "workerFallbackUrl": "https://rugspull-api.nanqz.workers.dev",
+    "workerVersion": "404b80c7-58b1-4b35-a071-d27a68255ffb",
+    "chainId": 56,
+    "factory": "0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63",
+    "indexerWarnings": 0,
+    "uploadsProtected": true,
+    "checkedAt": "2026-07-15T07:06:03Z"
+  },
+  "productionHotfixes": [
+    {
+      "id": "web-mainnet-wbnb-address",
+      "severity": "P0",
+      "status": "deployed",
+      "summary": "Removed BSC Testnet WBNB fallbacks from mainnet wrap, create, contribute, and trade approval paths.",
+      "workerVersion": "78f73ee3-54d2-48be-bc7c-cf16936b3531",
+      "verifiedBy": [
+        "web chain-config regression test",
+        "production bundle byte-for-byte match",
+        "production API chain and Factory check",
+        "BscScan transaction review of the former address"
+      ],
+      "impactReview": "No post-launch transaction to the former testnet WBNB address was found; its latest normal transaction was block 101644610, before Factory deploy block 109991561.",
+      "deployedAt": "2026-07-15T06:43:50Z"
+    }
+  ],
+  "openOperationalGates": [
+    "independent third-party audit",
+    "private RPC endpoints with SLA",
+    "content moderation and abuse response",
+    "legal and jurisdiction review"
+  ]
+}

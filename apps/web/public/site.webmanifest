@@ -1,0 +1,17 @@
+{
+  "name": "Rugspull",
+  "short_name": "Rugspull",
+  "description": "Disclosed rugpull parody on BNB Smart Chain.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#91a598",
+  "theme_color": "#d1aa3f",
+  "icons": [
+    {
+      "src": "/assets/rug-texture.jpg",
+      "sizes": "1024x1024",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

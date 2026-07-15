@@ -1,0 +1,69 @@
+{
+  "chainId": 97,
+  "shortDurationFactory": "0x8e6ba49e54F7bDa1a5499D143395116d3430ae3c",
+  "factoryTxHash": "0xec595840f04888cd94023a033e4cd57c59df9e119fab59d4e0d3a8925ad7178b",
+  "factoryDeployBlock": 118840328,
+  "protocolTreasury": "0x0000000000000000000000000000000000000777",
+  "testContributor": "0x02745B9Ef05F309A658Cb0f283F48928B663f63d",
+  "failedPathRug": "0xeD8F823839a115B26cA126C0b41a61eC38b606bd",
+  "successfulPathRug": "0xF8f2BC14FbB238D2AB7EAf0Eb548FA27D7e2ac7c",
+  "successfulPathToken": "0xdec35484bFF547Cc347441b9d881354Bd0c0dCbd",
+  "successfulPathPool": "0xFBb80c25Fc5Bb3E9e60949ce72Ffa9493513fE62",
+  "economics": {
+    "founderBps": 4500,
+    "swapFeeBps": 25,
+    "protocolFeeBps": 5,
+    "minLaunchBps": 3000,
+    "openingCapBps": 5000,
+    "openingDuration": 90,
+    "founderUnlockDelay": 90,
+    "creationFeeWei": "300000000000000",
+    "minCreatorStakeWei": "10000000000000000"
+  },
+  "status": {
+    "failedPathRug": "Failed",
+    "successfulPathRug": "Rugged",
+    "founderRemaining": "0",
+    "contributorClaimed": true
+  },
+  "protocolTreasuryWbnb": {
+    "afterCreation": "600000000000000",
+    "afterUserTrades": "600518686776929",
+    "afterFounderRugAndPostRugTrade": "604573004396918"
+  },
+  "finalPool": {
+    "reserveToken": "826961130829643363640339",
+    "reserveQuote": "7253391206162222",
+    "actualTokenBalance": "826961130829643363640339",
+    "actualWbnbBalance": "7253391206162222"
+  },
+  "sourceVerification": {
+    "provider": "Sourcify",
+    "status": "exact_match",
+    "contracts": [
+      "shortDurationFactory",
+      "failedPathRug",
+      "successfulPathRug",
+      "successfulPathToken",
+      "successfulPathPool"
+    ],
+    "verifiedAt": "2026-07-13T06:27:39Z"
+  },
+  "coveredActions": [
+    "deploy short-duration v0.4 factory",
+    "create failed-path rug",
+    "contribute below minimum launch",
+    "finalize failed-path rug",
+    "claim failed contribution refund",
+    "withdraw failed creator stake",
+    "create successful-path rug",
+    "contribute from non-creator account",
+    "finalize successful-path rug",
+    "claim opening allocation",
+    "buy from canonical pool and collect protocol fee",
+    "sell into canonical pool and collect protocol fee",
+    "creator one-shot rug and collect protocol fee",
+    "buy again after Rugged"
+  ],
+  "updatedAt": "2026-07-13T06:27:39Z"
+}
