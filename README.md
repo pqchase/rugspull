@@ -25,13 +25,6 @@ apps/web            React + Vite frontend MVP
 docs/               Technical specification package
 ```
 
-Launch operations:
-
-- `docs/DIRECTORY_SUBMISSION_PACK.md` contains the canonical directory copy, media inventory,
-  submission status, and honest eligibility blockers.
-- `docs/MARKETING_LAUNCH_PLAN.md` contains the risk-first positioning, 30-day channel plan,
-  launch-thread draft, SEO backlog, metrics, and paid-promotion gates.
-
 Report security issues privately to `info@rugspull.com`; see `SECURITY.md` before opening a public
 issue about a live vulnerability.
 
@@ -375,4 +368,4 @@ npm run deploy:cloudflare
 WORKER_URL=https://your-worker.example npm run check:cloudflare:url
 ```
 
-Operational response, ownership, monitoring, content-abuse, and mainnet launch gates are documented in `docs/SECURITY_OPERATIONS_RUNBOOK.md`. The July 2026 cross-functional audit is in `docs/AUDIT_2026-07-12.md`.
+Public vulnerability-reporting guidance is documented in `SECURITY.md`.
