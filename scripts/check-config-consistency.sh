@@ -13,6 +13,7 @@ const files = {
   contractsTs: readFileSync("packages/contracts-ts/src/index.ts", "utf8"),
   wrangler: readFileSync("workers/api/wrangler.toml", "utf8"),
   web: readFileSync("apps/web/src/main.tsx", "utf8"),
+  webChainConfig: readFileSync("apps/web/src/chain-config.ts", "utf8"),
 };
 
 function fail(message) {
@@ -53,7 +54,15 @@ const sources = tomlVar("FACTORY_SOURCES");
 const envSources = envVar("FACTORY_SOURCES");
 const wbnb = wbnbAddress(expectedChainId);
 
-if (!files.web.includes("const CHAIN_ID = 56;")) fail("Frontend CHAIN_ID constant is not 56.");
+if (!files.web.includes("const CHAIN_ID = ACTIVE_CHAIN_ID;")) {
+  fail("Frontend no longer uses the shared active chain configuration.");
+}
+if (!files.webChainConfig.includes("export const ACTIVE_CHAIN_ID = bscMainnet.id;")) {
+  fail("Frontend active chain is not BSC Mainnet.");
+}
+if (!files.webChainConfig.includes("export const ACTIVE_WBNB_ADDRESS = WBNB_ADDRESSES[ACTIVE_CHAIN_ID];")) {
+  fail("Frontend active WBNB no longer follows the active chain.");
+}
 if (!files.web.includes("VITE_FACTORY_ADDRESS ?? DEPLOYMENTS[56].rugFactory")) {
   fail("Frontend no longer falls back to DEPLOYMENTS[56].rugFactory.");
 }

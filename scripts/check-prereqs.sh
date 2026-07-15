@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
 missing=0
 
 need() {
@@ -27,4 +29,4 @@ npm --version
 forge --version | head -n 1
 cast --version | head -n 1
 rg --version | head -n 1
-npx wrangler --version
+(cd "$ROOT/workers/api" && npx --no-install wrangler --version)
