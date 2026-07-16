@@ -6,10 +6,10 @@
   "homepage": "https://rugspull.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitngel/rugspull.git"
+    "url": "https://github.com/pqchase/rugspull.git"
   },
   "bugs": {
-    "url": "https://github.com/bitngel/rugspull/issues"
+    "url": "https://github.com/pqchase/rugspull/issues"
   },
   "type": "module",
   "workspaces": [
