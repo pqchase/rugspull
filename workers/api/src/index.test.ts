@@ -640,6 +640,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/what-does-settled-mean-for-claims-and-refunds",
       robots: "index, follow",
     });
+    await expect(seoForPath("/how-to-verify-claims-and-refunds-on-bscscan")).resolves.toMatchObject({
+      title: "How to Verify Claims and Refunds on BscScan | Rugspull",
+      canonical: "https://rugspull.com/how-to-verify-claims-and-refunds-on-bscscan",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/verified-source-code-does-not-mean-audited")).resolves.toMatchObject({
       title: "Verified Source Code Is Not an Audit | Rugspull",
       canonical: "https://rugspull.com/verified-source-code-does-not-mean-audited",

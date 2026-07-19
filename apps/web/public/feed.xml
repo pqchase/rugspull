@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 14:43:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 14:53:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to verify claims and refunds on BscScan</title>
+      <link>https://rugspull.com/how-to-verify-claims-and-refunds-on-bscscan</link>
+      <guid isPermaLink="true">https://rugspull.com/how-to-verify-claims-and-refunds-on-bscscan</guid>
+      <pubDate>Sun, 19 Jul 2026 14:53:00 GMT</pubDate>
+      <description>A practical evidence workflow for reconstructing contributors from events, checking successful claim and refund receipts, reading one-shot flags, verifying the separate Creator withdrawal, and reconciling amounts at one cutoff.</description>
+    </item>
     <item>
       <title>Office Counter report 023 — 2026-07-19</title>
       <link>https://rugspull.com/office-counter</link>
@@ -69,13 +76,6 @@
       <guid isPermaLink="true">https://rugspull.com/what-does-founder-token-immobility-mean</guid>
       <pubDate>Sun, 19 Jul 2026 13:05:00 GMT</pubDate>
       <description>A Builder guide to protocol-held Founder Allocation custody, the distinction between fungible RugToken and allocation provenance, unlock behavior, the direct-to-pool one-shot sale, invariant scope, and evidence limits.</description>
-    </item>
-    <item>
-      <title>What does reserve reconciliation mean?</title>
-      <link>https://rugspull.com/what-does-reserve-reconciliation-mean</link>
-      <guid isPermaLink="true">https://rugspull.com/what-does-reserve-reconciliation-mean</guid>
-      <pubDate>Sun, 19 Jul 2026 12:50:00 GMT</pubDate>
-      <description>A Builder guide to canonical RugPool stored reserves, actual token and WBNB balances, buy and sell bookkeeping, atomic rollback, invariant scope, direct-transfer surplus, and evidence limits.</description>
     </item>
   </channel>
 </rss>
