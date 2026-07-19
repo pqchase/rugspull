@@ -4,7 +4,8 @@ BSC-first MVP for transparent one-shot founder-rug launches.
 
 [Live app](https://rugspull.com) | [Risk disclosure](https://rugspull.com/docs/risk) |
 [BscScan](https://bscscan.com/address/0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63#code) |
-[X](https://x.com/rugspull)
+[X](https://x.com/rugspull) | [Evidence feed](https://rugspull.com/feed.xml) |
+[Security contact](https://rugspull.com/.well-known/security.txt)
 
 Rugspull is high-risk satire, not a safe investment, yield product, or promise of returns. The
 creator may sell the entire disclosed founder allocation once after unlock, and total loss remains
