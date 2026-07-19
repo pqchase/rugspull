@@ -157,6 +157,7 @@ const EVERGREEN_ROUTE_LABELS = {
   "/constant-product-amm-explained": "Constant-product AMM explained",
   "/what-is-liquidity-on-bnb-chain": "What is liquidity on BNB Chain?",
   "/how-to-read-amm-reserves-on-bscscan": "How to read AMM reserves on BscScan",
+  "/what-is-mev-on-bnb-chain": "What is MEV on BNB Chain?",
   "/testnet-lifecycle": "BSC Testnet lifecycle evidence",
   "/office-counter": "Office Counter — evidence snapshot",
   "/lifecycle-templates": "Lifecycle artifact templates",
@@ -285,6 +286,8 @@ function useDocumentMetadata(path: string) {
                         ? { title: "What Is Liquidity on BNB Chain? | Rugspull", description: "Learn how token and WBNB reserve depth affects price impact, execution, Founder sales, and canonical-pool risk without guaranteeing an exit.", robots: "index, follow" }
                       : path.startsWith("/how-to-read-amm-reserves-on-bscscan")
                         ? { title: "How to Read AMM Reserves on BscScan | Rugspull", description: "Verify a RugPool address, read stored token and WBNB reserves, reconcile balances and Swap events, and distinguish canonical liquidity from surplus or alternative pools.", robots: "index, follow" }
+                      : path.startsWith("/what-is-mev-on-bnb-chain")
+                        ? { title: "What Is MEV on BNB Chain? | Rugspull", description: "Learn how transaction ordering can change RugPool reserves, swap output, slippage checks, deadlines, Founder sales, and AMM execution risk.", robots: "index, follow" }
                       : path.startsWith("/testnet-lifecycle")
                         ? { title: "BSC Testnet Lifecycle Evidence | Rugspull", description: "Inspect two clearly labeled BSC Testnet E2E paths: Failed with refund completion and Rugged with post-rug trading and reserve reconciliation.", robots: "index, follow" }
                       : path.startsWith("/office-counter")
@@ -370,7 +373,7 @@ function socialImageForPath(pathname: string) {
   if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/failed-opening-refund-guide") || pathname.startsWith("/what-if-founder-never-rugs") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
     return "https://rugspull.com/assets/og-security.png";
   }
-  if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/why-trading-continues-after-rugged") || pathname.startsWith("/24-hour-opening-explained") || pathname.startsWith("/creator-stake-risk-explained") || pathname.startsWith("/why-founder-cannot-sell-in-parts") || pathname.startsWith("/can-the-creator-contribute") || pathname.startsWith("/can-the-creator-cancel-opening") || pathname.startsWith("/what-happens-to-excess-contributions") || pathname.startsWith("/who-can-finalize-an-opening") || pathname.startsWith("/how-to-claim-opening-tokens") || pathname.startsWith("/what-is-wbnb") || pathname.startsWith("/what-is-a-token-approval") || pathname.startsWith("/what-is-slippage-on-bnb-chain") || pathname.startsWith("/constant-product-amm-explained") || pathname.startsWith("/what-is-liquidity-on-bnb-chain") || pathname.startsWith("/how-to-read-amm-reserves-on-bscscan") || pathname.startsWith("/docs/risk")) {
+  if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/why-trading-continues-after-rugged") || pathname.startsWith("/24-hour-opening-explained") || pathname.startsWith("/creator-stake-risk-explained") || pathname.startsWith("/why-founder-cannot-sell-in-parts") || pathname.startsWith("/can-the-creator-contribute") || pathname.startsWith("/can-the-creator-cancel-opening") || pathname.startsWith("/what-happens-to-excess-contributions") || pathname.startsWith("/who-can-finalize-an-opening") || pathname.startsWith("/how-to-claim-opening-tokens") || pathname.startsWith("/what-is-wbnb") || pathname.startsWith("/what-is-a-token-approval") || pathname.startsWith("/what-is-slippage-on-bnb-chain") || pathname.startsWith("/constant-product-amm-explained") || pathname.startsWith("/what-is-liquidity-on-bnb-chain") || pathname.startsWith("/how-to-read-amm-reserves-on-bscscan") || pathname.startsWith("/what-is-mev-on-bnb-chain") || pathname.startsWith("/docs/risk")) {
     return "https://rugspull.com/assets/og-mechanism.png";
   }
   return "https://rugspull.com/assets/community-hall-stage.jpg";
@@ -576,6 +579,7 @@ function Shell({ children, path, wallet }: { children: React.ReactNode; path: st
                   <li><a href="/constant-product-amm-explained">Constant-product AMM</a></li>
                   <li><a href="/what-is-liquidity-on-bnb-chain">Liquidity and reserve depth</a></li>
                   <li><a href="/how-to-read-amm-reserves-on-bscscan">Read AMM reserves on BscScan</a></li>
+                  <li><a href="/what-is-mev-on-bnb-chain">MEV and transaction ordering</a></li>
                 </ul>
               </section>
               <section className="footer-link-group footer-paperwork">
@@ -2300,6 +2304,23 @@ const FACT_PAGES = {
       ["A reserve ratio is not the execution quote", "reserveQuote divided by reserveToken is only a spot-like ratio. A real order changes both reserves, applies the deployed fees, and rounds integer output down. Estimate execution with the contract's amount-out arithmetic, then apply minimum output and deadline constraints; do not present a reserve ratio as a guaranteed price."],
       ["Keep alternative pools separate", "A RugToken is an ordinary ERC-20, so third parties can create other pools. Their pair addresses, reserve assets, routers, LP controls, fees, events, and balances are independent. Do not combine external liquidity with RugPool reserves or imply that an alternative market is canonical, protocol-controlled, locked, or endorsed."],
       ["Reserve verification is not a safety verdict", "Correct addresses and reconciled values do not guarantee contract correctness, reserve depth, stable price, fair ordering, transaction inclusion, MEV protection, wallet security, a buyer, an exit, or recovery. Founder selling, related wallets, slippage, alternative pools, phishing, key compromise, volatility, and total loss remain possible. Independent audit and organized mainnet activation remain pending."],
+    ],
+  },
+  "/what-is-mev-on-bnb-chain": {
+    eyebrow: "BNB Chain · MEV and transaction-ordering guide",
+    title: "THE QUOTE IS A SNAPSHOT. THE CHAIN CHOOSES AN ORDER.",
+    intro: "A swap estimate describes one current reserve state. Before a transaction executes, another confirmed transaction can change those reserves and therefore the output. Minimum output and deadlines bound what your call will accept; they do not guarantee ordering, inclusion, price, or protection from MEV.",
+    sections: [
+      ["MEV is an ordering risk, not a Rugspull feature", "MEV commonly describes value that can be extracted by choosing, observing, or reacting to transaction order. Rugspull does not expose a special MEV function, but its canonical AMM is stateful: earlier confirmed swaps change the reserves used by later swaps. A public transaction being submitted first does not prove it will execute first."],
+      ["A quote ages as soon as state can change", "The interface estimates output from the current RugPool reserves and deployed fee parameters. That estimate is not reserved for the wallet. A buy, sell, full Founder Allocation sale, or other state-changing transaction confirmed before yours can make the estimate stale even when your calldata is unchanged."],
+      ["Earlier swaps move the later execution curve", "A confirmed buy reduces token reserve and increases WBNB reserve; a confirmed sell does the opposite. The next amount-out calculation starts from the new pair. Thin reserves, a large order, and several nearby transactions can amplify the difference between the displayed estimate and eventual execution."],
+      ["Minimum output is a rejection boundary", "RugPool reverts when calculated output is below the submitted minimum. A tighter minimum can reject more adverse state changes; a wider tolerance can permit a worse fill. Neither setting guarantees a fair price, blocks a sandwich pattern, prevents reordering, or creates reserve depth."],
+      ["A deadline limits time, not position", "RugPool rejects a swap only when block.timestamp is later than its submitted deadline. The deadline does not reserve a block position, force prompt inclusion, guarantee that the transaction will be seen privately, or ensure that reserves remain unchanged until execution."],
+      ["A revert is atomic but not costless", "If the deadline, minimum-output, allowance, balance, or caller checks fail, the swap does not commit token transfers, a Swap event, or reserve changes. The submitted transaction may still consume gas, and a revert does not restore a missed opportunity, recover another trade, or compensate the wallet."],
+      ["AMM fees do not remove ordering risk", "RugPool's nominal fee changes the amount-out arithmetic and sends the protocol portion in WBNB, while the retained portion contributes to nondecreasing reserve product. Those mechanics do not encrypt pending intent, guarantee fair sequencing, stop competing transactions, or make a stale quote current."],
+      ["The Founder sale shares the same execution boundary", "After unlock, rug() attempts one full sale of the protocol-held Founder Allocation through the canonical RugPool with minimum-output and deadline inputs. The sale is disclosed but voluntary and unscheduled. Transactions confirmed before it can change its output, and the sale can itself materially change reserves seen by later traders."],
+      ["Alternative pools are separate ordering domains", "Third parties can create other markets for a RugToken. Their routers, reserves, fees, ordering, liquidity controls, and transaction paths are independent of RugPool. Cross-market activity can create additional price differences, but it must not be merged into a claim that the canonical route is protected, synchronized, or endorsed."],
+      ["Verify the receipt and keep the limits visible", "Before signing, verify chain id 56, exact contracts, current reserves, estimated output, minimum output, deadline, and approvals. After confirmation, inspect status, calldata, transfers, Swap event, fees, and post-swap reserves. These checks improve evidence; they do not guarantee inclusion, ordering, liquidity, wallet security, a buyer, an exit, or recovery. Independent audit and organized mainnet activation remain pending; total loss remains possible."],
     ],
   },
   "/testnet-lifecycle": {

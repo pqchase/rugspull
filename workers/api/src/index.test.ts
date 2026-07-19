@@ -560,6 +560,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/how-to-read-amm-reserves-on-bscscan",
       robots: "index, follow",
     });
+    await expect(seoForPath("/what-is-mev-on-bnb-chain")).resolves.toMatchObject({
+      title: "What Is MEV on BNB Chain? | Rugspull",
+      canonical: "https://rugspull.com/what-is-mev-on-bnb-chain",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/ops")).resolves.toMatchObject({ robots: "noindex, nofollow" });
   });
 
