@@ -234,6 +234,7 @@
   "x-rugspull-resources": {
     "humanGuide": "https://github.com/pqchase/rugspull/blob/main/docs/INTEGRATION.md",
     "postmanCollection": "https://rugspull.com/rugspull-read.postman_collection.json",
-    "apisJson": "https://rugspull.com/.well-known/apis.json"
+    "apisJson": "https://rugspull.com/.well-known/apis.json",
+    "apiOnboarding": "https://rugspull.com/.well-known/api-onboarding"
   }
 }

@@ -25,7 +25,8 @@
       {"type": "PostmanCollection", "url": "https://rugspull.com/rugspull-read.postman_collection.json", "mediaType": "application/json"},
       {"type": "LlmsText", "url": "https://rugspull.com/llms.txt", "mediaType": "text/plain"},
       {"type": "Security", "url": "https://rugspull.com/.well-known/security.txt", "mediaType": "text/plain"},
-      {"type": "GitHubRepository", "url": "https://github.com/pqchase/rugspull"}
+      {"type": "GitHubRepository", "url": "https://github.com/pqchase/rugspull"},
+      {"type": "X-APIOnboarding", "url": "https://rugspull.com/.well-known/api-onboarding", "mediaType": "application/json"}
     ]
   }]
 }

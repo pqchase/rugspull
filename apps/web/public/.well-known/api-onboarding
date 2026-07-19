@@ -1,0 +1,53 @@
+{
+  "aod": "0.1",
+  "provider": {
+    "name": "Rugspull",
+    "url": "https://rugspull.com",
+    "portalUrl": "https://github.com/pqchase/rugspull/blob/main/docs/INTEGRATION.md",
+    "apisJsonUrl": "https://rugspull.com/.well-known/apis.json"
+  },
+  "maturity": "self-serve",
+  "account": {
+    "required": false,
+    "agentPolicy": "allowed",
+    "prerequisites": [],
+    "termsOfService": {"acceptance": "none"}
+  },
+  "verification": [],
+  "registration": {
+    "applicationNoun": "none",
+    "owner": "user",
+    "mechanisms": [{
+      "type": "open",
+      "description": "No registration, account, API key, wallet signature, or payment is required for the nine GET-only discovery-cache endpoints.",
+      "baseUrl": "https://rugspull.com",
+      "docsUrls": [
+        "https://github.com/pqchase/rugspull/blob/main/docs/INTEGRATION.md",
+        "https://rugspull.com/openapi.json",
+        "https://rugspull.com/rugspull-read.postman_collection.json"
+      ],
+      "auth": "none"
+    }]
+  },
+  "authentication": {
+    "methods": [{
+      "id": "none",
+      "type": "none",
+      "bootstrap": "",
+      "notes": "Read access is anonymous. BSC contracts and matching event history remain financial truth."
+    }]
+  },
+  "credentials": [],
+  "scopes": {
+    "model": "none",
+    "notes": "No authorization scopes exist because this descriptor covers read-only public cache endpoints only."
+  },
+  "economics": {
+    "freeTier": "Anonymous reads; no numeric rate-limit or uptime SLA is offered."
+  },
+  "gaps": [
+    "Independent audit is pending.",
+    "Total loss remains possible for protocol users; this read API is not a safety signal or price oracle.",
+    "Organized new mainnet activity remains NO-GO."
+  ]
+}
