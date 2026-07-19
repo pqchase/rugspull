@@ -655,6 +655,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/how-to-read-event-logs-on-bscscan",
       robots: "index, follow",
     });
+    await expect(seoForPath("/how-to-run-foundry-invariant-tests")).resolves.toMatchObject({
+      title: "How to Run Foundry Invariant Tests | Rugspull",
+      canonical: "https://rugspull.com/how-to-run-foundry-invariant-tests",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/verified-source-code-does-not-mean-audited")).resolves.toMatchObject({
       title: "Verified Source Code Is Not an Audit | Rugspull",
       canonical: "https://rugspull.com/verified-source-code-does-not-mean-audited",

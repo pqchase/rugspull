@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 15:44:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 16:22:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to run Foundry invariant tests</title>
+      <link>https://rugspull.com/how-to-run-foundry-invariant-tests</link>
+      <guid isPermaLink="true">https://rugspull.com/how-to-run-foundry-invariant-tests</guid>
+      <pubDate>Sun, 19 Jul 2026 16:22:00 GMT</pubDate>
+      <description>A reproducible Solidity review guide covering pinned source revisions, toolchains, full-suite runs, invariant handlers, run depth, failure seeds, deployment configuration, and the boundary between project-authored tests and an independent audit.</description>
+    </item>
     <item>
       <title>How to read event logs on BscScan</title>
       <link>https://rugspull.com/how-to-read-event-logs-on-bscscan</link>

@@ -10,6 +10,7 @@ BSC-first MVP for transparent one-shot founder-rug launches.
 [Liquidity and reserve-depth guide](https://rugspull.com/what-is-liquidity-on-bnb-chain) |
 [Transaction receipt guide](https://rugspull.com/what-is-a-transaction-receipt-on-bnb-chain) |
 [Event-log guide](https://rugspull.com/how-to-read-event-logs-on-bscscan) |
+[Foundry invariant-test guide](https://rugspull.com/how-to-run-foundry-invariant-tests) |
 [Claim/refund verification](https://rugspull.com/how-to-verify-claims-and-refunds-on-bscscan) |
 [Settlement evidence semantics](https://rugspull.com/what-does-settled-mean-for-claims-and-refunds) |
 [Evidence prerelease](https://github.com/pqchase/rugspull/releases/tag/v0.4.0-evidence.1) |

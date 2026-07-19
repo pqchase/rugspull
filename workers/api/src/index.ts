@@ -128,6 +128,7 @@ const EVERGREEN_ROUTE_LABELS = {
   "/how-to-verify-claims-and-refunds-on-bscscan": "How to verify claims and refunds on BscScan",
   "/what-is-a-transaction-receipt-on-bnb-chain": "What is a transaction receipt on BNB Chain?",
   "/how-to-read-event-logs-on-bscscan": "How to read event logs on BscScan",
+  "/how-to-run-foundry-invariant-tests": "How to run Foundry invariant tests",
   "/verified-source-code-does-not-mean-audited": "Why verified source code is not an audit",
   "/why-d1-is-not-financial-truth": "Why D1 is not financial truth",
   "/testnet-lifecycle": "BSC Testnet lifecycle evidence",
@@ -506,6 +507,9 @@ export async function seoForPath(pathname: string, env?: Pick<Env, "DB" | "FACTO
   }
   if (pathname.startsWith("/how-to-read-event-logs-on-bscscan")) {
     return { title: "How to Read Event Logs on BscScan | Rugspull", description: "Learn how BNB Chain event logs encode the emitter, signature topics, indexed fields, data, log order, and removed-log risk—and what logs cannot prove alone.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/how-to-run-foundry-invariant-tests")) {
+    return { title: "How to Run Foundry Invariant Tests | Rugspull", description: "Reproduce Rugspull's public Foundry unit, fuzz, invariant, and scenario tests; inspect run counts, handlers, selectors, and failure seeds; and keep project-authored tests separate from an audit.", robots: "index, follow", canonical };
   }
   if (pathname.startsWith("/verified-source-code-does-not-mean-audited")) {
     return { title: "Verified Source Code Is Not an Audit | Rugspull", description: "Learn what explorer source verification proves, what it leaves unreviewed, and how to check compiler settings, configuration, contracts, tests, and audit scope.", robots: "index, follow", canonical };

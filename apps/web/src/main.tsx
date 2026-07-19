@@ -176,6 +176,7 @@ const EVERGREEN_ROUTE_LABELS = {
   "/how-to-verify-claims-and-refunds-on-bscscan": "How to verify claims and refunds on BscScan",
   "/what-is-a-transaction-receipt-on-bnb-chain": "What is a transaction receipt on BNB Chain?",
   "/how-to-read-event-logs-on-bscscan": "How to read event logs on BscScan",
+  "/how-to-run-foundry-invariant-tests": "How to run Foundry invariant tests",
   "/verified-source-code-does-not-mean-audited": "Why verified source code is not an audit",
   "/why-d1-is-not-financial-truth": "Why D1 is not financial truth",
   "/testnet-lifecycle": "BSC Testnet lifecycle evidence",
@@ -344,6 +345,8 @@ function useDocumentMetadata(path: string) {
                         ? { title: "What Is a Transaction Receipt on BNB Chain? | Rugspull", description: "Learn what a BNB Chain transaction receipt proves, how success differs from submission or simulation, and how logs, gas, transfers, and current state fit together.", robots: "index, follow" }
                       : path.startsWith("/how-to-read-event-logs-on-bscscan")
                         ? { title: "How to Read Event Logs on BscScan | Rugspull", description: "Learn how BNB Chain event logs encode the emitter, signature topics, indexed fields, data, log order, and removed-log risk—and what logs cannot prove alone.", robots: "index, follow" }
+                      : path.startsWith("/how-to-run-foundry-invariant-tests")
+                        ? { title: "How to Run Foundry Invariant Tests | Rugspull", description: "Reproduce Rugspull's public Foundry unit, fuzz, invariant, and scenario tests; inspect run counts, handlers, selectors, and failure seeds; and keep project-authored tests separate from an audit.", robots: "index, follow" }
                       : path.startsWith("/verified-source-code-does-not-mean-audited")
                         ? { title: "Verified Source Code Is Not an Audit | Rugspull", description: "Learn what explorer source verification proves, what it leaves unreviewed, and how to check compiler settings, configuration, contracts, tests, and audit scope.", robots: "index, follow" }
                       : path.startsWith("/why-d1-is-not-financial-truth")
@@ -660,6 +663,7 @@ function Shell({ children, path, wallet }: { children: React.ReactNode; path: st
                   <li><a href="/how-to-verify-claims-and-refunds-on-bscscan">Verify claims and refunds</a></li>
                   <li><a href="/what-is-a-transaction-receipt-on-bnb-chain">Transaction receipts</a></li>
                   <li><a href="/how-to-read-event-logs-on-bscscan">Read event logs</a></li>
+                  <li><a href="/how-to-run-foundry-invariant-tests">Run Foundry invariant tests</a></li>
                 </ul>
               </section>
               <section className="footer-link-group footer-paperwork">
@@ -2708,6 +2712,23 @@ const FACT_PAGES = {
       ["Use block finality and removed-log handling", "An explorer may display an included transaction before operational consumers consider it sufficiently confirmed. RPC subscriptions can also report a log as removed after a reorganization. For durable reporting, name a cutoff block, wait for the chosen confirmation policy, fetch the canonical receipt again, and ensure the block hash still agrees. This is an evidence policy, not a guarantee that reorganization risk is zero."],
       ["Complete the record with current reads", "Logs are historical and cannot prove the current status, balances, allowances, claimed flags, founderRemaining, creatorStakeWithdrawn, or stored reserves after later transactions. Read the relevant contract views and actual RugToken and WBNB balances at a named cutoff, then explain any direct-transfer surplus, rounding residue, or later state transition."],
       ["State the evidence boundary", "Correctly decoded logs do not prove source correctness, exhaustive event emission, honest keys, identity, adequate liquidity, fair ordering, absence of MEV, safe alternative pools, an audit, or recoverability. Use verified source, calldata, logs, token movements, and current state together. Independent audit and organized mainnet activation remain pending; total loss remains possible."],
+    ],
+  },
+  "/how-to-run-foundry-invariant-tests": {
+    eyebrow: "Solidity review desk · reproducible tests",
+    title: "RUN THE TESTS. READ THE HARNESS. KEEP THE CLAIM NARROW.",
+    intro: "Rugspull publishes Foundry unit, fuzz, invariant, and scenario tests so another developer can reproduce project-authored evidence from a named source revision. A green run is useful evidence about the tested code and configuration; it is not an independent audit, safety certificate, or prediction of every reachable state.",
+    sections: [
+      ["Pin the source revision first", "Clone the public repository, fetch tags, and check out the exact commit or evidence-release tag you intend to review. Record git rev-parse HEAD and confirm the worktree is clean before installing dependencies. A test result from moving main, local edits, or an unnamed archive is not a reproducible result."],
+      ["Install the declared toolchain", "Use the repository prerequisite check and the Foundry version expected by its workflow, then install the tagged dependency revisions. Compiler version, optimizer settings, EVM target, remappings, and library commits can affect compilation and behavior; record them with the result."],
+      ["Start with the full contract suite", "Run forge test from the repository root and retain the complete summary, not only a screenshot of selected passes. The suite covers unit, fuzz, invariant, and scenario families. A filtered command is useful for diagnosis, but it cannot stand in for the unfiltered result."],
+      ["Inspect the invariant harness", "Read the handler contract, targetContract and targetSelector configuration, bounded inputs, actor model, time changes, token approvals, expected-revert handling, and any excluded calls. An invariant only explores transitions the harness can generate; an unreachable action in the harness is an untested action, not a proven-safe one."],
+      ["Record runs, depth, calls, and reverts", "For each invariant campaign, preserve the configured runs and depth plus Foundry's total calls and reverts. More calls can explore more sequences but do not create exhaustive proof. Unexpectedly high reverts may mean the handler spends most of its budget on invalid transitions and deserves review."],
+      ["Read every property as an exact claim", "The public state-machine suite checks seven scoped properties: token conservation, WBNB conservation, reserve reconciliation, Founder Token immobility, protocol-fee destination, non-decreasing canonical AMM k, and lifecycle/economic consistency. Read each assertion and its accounting boundary rather than inferring broad protocol safety from the property name."],
+      ["Keep one-shot scenario checks visible", "Separate tests cover no double claim, no double rug, Failed-launch refunds, Creator restrictions, Opening settlement, canonical swaps, and post-Rugged behavior. Verify the expected success and revert paths, including which wallet calls, which status is required, and whether balances and flags agree after execution."],
+      ["Re-run failures from the seed", "When Foundry reports a failing sequence or fuzz counterexample, save the seed, calldata sequence, sender identities, block or timestamp changes, and source revision. Reproduce before simplifying. A failure that disappears after changing the harness, bounds, or configuration has not been explained."],
+      ["Compare tests with deployed configuration", "Project-authored tests run against source and test fixtures. Separately verify the production Factory address, exact-match bytecode, constructor profile, WBNB address, fee destinations, and immutable parameters. Passing local tests do not prove that a different address or configuration is equivalent."],
+      ["Publish the limits beside the result", "State who ran the tests, when, at which commit, with which tool versions and commands, and what failed or was skipped. Do not call project-authored tests an audit or imply adoption, endorsement, liquidity, fair ordering, key safety, or recoverability. Independent audit and organized mainnet activation remain pending; total loss remains possible."],
     ],
   },
   "/verified-source-code-does-not-mean-audited": {

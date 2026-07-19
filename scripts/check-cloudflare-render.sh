@@ -80,6 +80,7 @@ const routes = [
   { path: "/how-to-verify-claims-and-refunds-on-bscscan", text: "FOLLOW EVENTS. READ FLAGS. RECONCILE EVERY CLAIM" },
   { path: "/what-is-a-transaction-receipt-on-bnb-chain", text: "A HASH MEANS SUBMITTED. A SUCCESSFUL RECEIPT MEANS EXECUTED" },
   { path: "/how-to-read-event-logs-on-bscscan", text: "THE EVENT NAME IS A LABEL. THE EMITTER AND TOPICS ARE THE EVIDENCE" },
+  { path: "/how-to-run-foundry-invariant-tests", text: "RUN THE TESTS. READ THE HARNESS. KEEP THE CLAIM NARROW" },
   { path: "/verified-source-code-does-not-mean-audited", text: "MATCHED BYTECODE IS EVIDENCE. IT IS NOT AN AUDIT" },
   { path: "/why-d1-is-not-financial-truth", text: "THE DATABASE REMEMBERS. THE CONTRACT DECIDES" },
   { path: "/ops", text: "BACKSTAGE" },

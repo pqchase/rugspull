@@ -48,6 +48,7 @@
 - [BscScan claim and refund verification workflow](https://rugspull.com/how-to-verify-claims-and-refunds-on-bscscan)
 - [BNB Chain transaction receipt and execution evidence](https://rugspull.com/what-is-a-transaction-receipt-on-bnb-chain)
 - [BscScan event-log decoding guide](https://rugspull.com/how-to-read-event-logs-on-bscscan)
+- [Reproducible Foundry invariant-test review guide](https://rugspull.com/how-to-run-foundry-invariant-tests)
 - [Verified-source and independent-audit boundary](https://rugspull.com/verified-source-code-does-not-mean-audited)
 - [Cloudflare D1 and on-chain financial-truth boundary](https://rugspull.com/why-d1-is-not-financial-truth)
 - [Third-party data integration package](https://rugspull.com/integration.json)
