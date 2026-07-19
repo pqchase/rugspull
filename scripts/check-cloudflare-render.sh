@@ -55,6 +55,7 @@ const routes = [
   { path: "/what-happens-to-excess-contributions", text: "THE CAP ACCEPTS LESS. CLAIM THE REST" },
   { path: "/who-can-finalize-an-opening", text: "THE CLOCK ENDS. A TRANSACTION SETTLES" },
   { path: "/how-to-claim-opening-tokens", text: "FINALIZED IS NOT CLAIMED" },
+  { path: "/what-is-wbnb", text: "BNB PAYS GAS. WBNB ENTERS THE CONTRACT" },
   { path: "/ops", text: "BACKSTAGE" },
 ];
 

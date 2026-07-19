@@ -530,6 +530,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/how-to-claim-opening-tokens",
       robots: "index, follow",
     });
+    await expect(seoForPath("/what-is-wbnb")).resolves.toMatchObject({
+      title: "What Is WBNB? BNB Chain Quote Asset Guide | Rugspull",
+      canonical: "https://rugspull.com/what-is-wbnb",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/ops")).resolves.toMatchObject({ robots: "noindex, nofollow" });
   });
 
