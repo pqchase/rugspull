@@ -74,6 +74,8 @@ const jsonHeaders = {
   "access-control-allow-methods": "GET, POST, OPTIONS",
   "access-control-allow-headers": "authorization, content-type, cf-turnstile-response, x-turnstile-token",
   "access-control-max-age": "86400",
+  "access-control-expose-headers": "link",
+  "link": "</.well-known/api-catalog>; rel=\"api-catalog\", </openapi.json>; rel=\"service-desc\", <https://github.com/pqchase/rugspull/blob/main/docs/INTEGRATION.md>; rel=\"service-doc\"",
 };
 const imageMimeTypes = new Set(["image/png", "image/jpeg", "image/webp", "image/gif"]);
 const maxImageBytes = 2 * 1024 * 1024;

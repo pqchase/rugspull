@@ -530,6 +530,10 @@ describe("rugspull worker", () => {
     const health = await worker.fetch(new Request("https://rugspull.test/api/health"), env());
     expect(health.status).toBe(200);
     expect(health.headers.get("access-control-allow-origin")).toBe("*");
+    expect(health.headers.get("access-control-expose-headers")).toBe("link");
+    expect(health.headers.get("link")).toContain('rel="api-catalog"');
+    expect(health.headers.get("link")).toContain('rel="service-desc"');
+    expect(health.headers.get("link")).toContain('rel="service-doc"');
     expect(await json(health)).toMatchObject({ ok: true, service: "rugspull-api" });
 
     const config = await worker.fetch(new Request("https://rugspull.test/api/config"), env());
