@@ -545,6 +545,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/what-is-slippage-on-bnb-chain",
       robots: "index, follow",
     });
+    await expect(seoForPath("/constant-product-amm-explained")).resolves.toMatchObject({
+      title: "What Is a Constant-Product AMM? | Rugspull",
+      canonical: "https://rugspull.com/constant-product-amm-explained",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/ops")).resolves.toMatchObject({ robots: "noindex, nofollow" });
   });
 

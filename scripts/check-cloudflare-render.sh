@@ -58,6 +58,7 @@ const routes = [
   { path: "/what-is-wbnb", text: "BNB PAYS GAS. WBNB ENTERS THE CONTRACT" },
   { path: "/what-is-a-token-approval", text: "APPROVAL IS PERMISSION. VERIFY THE SPENDER" },
   { path: "/what-is-slippage-on-bnb-chain", text: "THE QUOTE MOVES. MINIMUM OUTPUT DECIDES" },
+  { path: "/constant-product-amm-explained", text: "THE PRODUCT STAYS. THE PRICE MOVES" },
   { path: "/ops", text: "BACKSTAGE" },
 ];
 
