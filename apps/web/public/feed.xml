@@ -5,21 +5,21 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 14:36:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 14:43:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Office Counter report 023 — 2026-07-19</title>
+      <link>https://rugspull.com/office-counter</link>
+      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
+      <pubDate>Sun, 19 Jul 2026 14:43:00 GMT</pubDate>
+      <description>Search Console accepted the 56-URL sitemap and reports 56 discovered pages. The new claim-and-refund-settlement guide is not indexed because Google cannot recognize the URL and has no referring sitemap or page; a priority indexing request was initiated. IndexNow accepted 67 URLs. Discovery and request activity do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
+    </item>
     <item>
       <title>What does settled mean for claims and refunds?</title>
       <link>https://rugspull.com/what-does-settled-mean-for-claims-and-refunds</link>
       <guid isPermaLink="true">https://rugspull.com/what-does-settled-mean-for-claims-and-refunds</guid>
       <pubDate>Sun, 19 Jul 2026 14:36:00 GMT</pubDate>
       <description>An evidence guide to successful-Opening claim completion, Failed contributor refunds and Creator withdrawal, eligible/completed/outstanding reporting, receipts and flags, rounding residue, and why settled is not a lifecycle or safety status.</description>
-    </item>
-    <item>
-      <title>Office Counter report 022 — 2026-07-19</title>
-      <link>https://rugspull.com/office-counter</link>
-      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
-      <pubDate>Sun, 19 Jul 2026 14:27:00 GMT</pubDate>
-      <description>Search Console accepted the 55-URL sitemap and reports 55 discovered pages. The new pro-rata-claim-rounding guide is not indexed because Google cannot recognize the URL and has no referring sitemap or page; a priority indexing request was initiated. IndexNow accepted 66 URLs. Discovery and request activity do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
     </item>
     <item>
       <title>Why can pro-rata claims leave rounding residue?</title>
