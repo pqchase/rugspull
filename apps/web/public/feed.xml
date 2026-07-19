@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rugspull Evidence Updates</title>
+    <link>https://rugspull.com/</link>
+    <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
+    <language>en</language>
+    <lastBuildDate>Sun, 19 Jul 2026 02:45:00 GMT</lastBuildDate>
+    <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Office Counter report 002 — 2026-07-19</title>
+      <link>https://rugspull.com/office-counter</link>
+      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
+      <pubDate>Sun, 19 Jul 2026 02:42:00 GMT</pubDate>
+      <description>DappBay, RootData, DappRadar, public-directory, GitHub feedback, BNB Chain Awesome PR 13, email, and activation-gate evidence at a named cutoff. Pending states are not approvals or endorsements.</description>
+    </item>
+    <item>
+      <title>Stage 0 Day 7 Gate Review — HOLD / NO-GO</title>
+      <link>https://rugspull.com/stage-0-review</link>
+      <guid isPermaLink="true">https://rugspull.com/stage-0-review</guid>
+      <pubDate>Fri, 17 Jul 2026 01:51:25 GMT</pubDate>
+      <description>The published gate review preserves unresolved audit, jurisdiction, custody, RPC, moderation, incident, email, and analytics conditions. Organized new mainnet activity remains NO-GO.</description>
+    </item>
+    <item>
+      <title>Community safety and anti-impersonation boundaries</title>
+      <link>https://rugspull.com/community-safety</link>
+      <guid isPermaLink="true">https://rugspull.com/community-safety</guid>
+      <pubDate>Fri, 17 Jul 2026 01:00:00 GMT</pubDate>
+      <description>Official channels, no-support-DM rules, correction handling, criticism policy, phishing boundaries, and the limits of the currently unstaffed response process.</description>
+    </item>
+    <item>
+      <title>BSC Testnet lifecycle evidence — TESTNET ONLY</title>
+      <link>https://rugspull.com/testnet-lifecycle</link>
+      <guid isPermaLink="true">https://rugspull.com/testnet-lifecycle</guid>
+      <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Controlled Failed and Rugged BSC Testnet paths with reserve reconciliation. These are not mainnet users, volume, adoption, or an independent audit.</description>
+    </item>
+  </channel>
+</rss>

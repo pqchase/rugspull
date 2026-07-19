@@ -127,6 +127,30 @@ async function waitForSuccess(hash: `0x${string}`) {
 }
 
 const statusLabels: Status[] = ["Opening", "Failed", "Active", "Rugged"];
+const EVERGREEN_ROUTE_LABELS = {
+  "/how-it-works": "How it works",
+  "/contracts": "Contracts",
+  "/fees": "Fees",
+  "/transparency": "Transparency",
+  "/security-model": "Security model",
+  "/founder-allocation-explained": "Founder Allocation explained",
+  "/how-to-check-a-smart-contract-on-bscscan": "How to check a BSC smart contract",
+  "/crypto-rug-pull-red-flags": "Crypto rug-pull red flags",
+  "/what-is-a-crypto-rug-pull": "What is a crypto rug pull?",
+  "/rug-pull-vs-liquidity-pull": "Rug pull vs liquidity pull",
+  "/testnet-lifecycle": "BSC Testnet lifecycle evidence",
+  "/office-counter": "Office Counter — evidence snapshot",
+  "/lifecycle-templates": "Lifecycle artifact templates",
+  "/creator-handbook": "Creator handbook",
+  "/community-safety": "Community safety rules",
+  "/stage-0-review": "Stage 0 Day 7 gate review",
+} as const;
+type EvergreenRoute = keyof typeof EVERGREEN_ROUTE_LABELS;
+
+function evergreenRouteForPath(pathname: string): EvergreenRoute | null {
+  return (Object.keys(EVERGREEN_ROUTE_LABELS) as EvergreenRoute[])
+    .find((route) => pathname === route || pathname.startsWith(`${route}/`)) ?? null;
+}
 
 function App() {
   const wallet = useWallet();
@@ -146,6 +170,10 @@ function App() {
   }
   if (path.startsWith("/docs/risk")) {
     return <Shell path={path} wallet={wallet}><RiskPage /></Shell>;
+  }
+  const evergreenRoute = evergreenRouteForPath(path);
+  if (evergreenRoute) {
+    return <Shell path={path} wallet={wallet}><FactPage path={evergreenRoute} /></Shell>;
   }
   return <Shell path={path} wallet={wallet}><HomePage /></Shell>;
 }
@@ -180,22 +208,115 @@ function useDocumentMetadata(path: string) {
         ? { title: "Inspect a Rug | Rugspull", description: "Inspect chain state, act directly with your wallet, and read the public receipts.", robots: "index, follow" }
         : path.startsWith("/docs/risk")
           ? { title: "Risk Disclosure | Rugspull", description: "Read the economics, founder sell rules, and total-loss risks before touching a Rug.", robots: "index, follow" }
+          : path.startsWith("/how-it-works")
+            ? { title: "How Rugspull Works | Rugspull", description: "Inspect the Opening, founder lock, one-shot sell, and internal WBNB pool rules.", robots: "index, follow" }
+            : path.startsWith("/contracts")
+              ? { title: "Rugspull Contracts | Rugspull", description: "Verify the deployed BNB Smart Chain Factory, source, and immutable configuration.", robots: "index, follow" }
+              : path.startsWith("/fees")
+                ? { title: "Rugspull Fees | Rugspull", description: "Read the creation fee and canonical pool fee split with worked WBNB examples.", robots: "index, follow" }
+                : path.startsWith("/transparency")
+                  ? { title: "Rugspull Transparency | Rugspull", description: "See deployment facts, open operational gates, and what the indexer does not control.", robots: "index, follow" }
+                  : path.startsWith("/security-model")
+                    ? { title: "Rugspull Security Model | Rugspull", description: "Inspect the tested invariants, settlement boundary, founder-token controls, and unresolved security gates.", robots: "index, follow" }
+                    : path.startsWith("/founder-allocation-explained")
+                      ? { title: "Founder Allocation Explained | Rugspull", description: "Understand Rugspull's 45% protocol-held Founder Allocation, 48-hour lock, one full sell, and limits of that rule.", robots: "index, follow" }
+                      : path.startsWith("/how-to-check-a-smart-contract-on-bscscan")
+                        ? { title: "How to Check a BSC Smart Contract | Rugspull", description: "A practical BscScan checklist for addresses, verified source, constructor values, privileged functions, balances, events, and audit limits.", robots: "index, follow" }
+                        : path.startsWith("/crypto-rug-pull-red-flags")
+                          ? { title: "Crypto Rug Pull Red Flags | Rugspull", description: "Inspect token controls, liquidity permissions, insider concentration, treasury access, public claims, and the limits of every warning sign.", robots: "index, follow" }
+                    : path.startsWith("/what-is-a-crypto-rug-pull")
+                      ? { title: "What Is a Crypto Rug Pull? | Rugspull", description: "A neutral guide to liquidity pulls, founder sells, hidden token controls, and the limits of on-chain warning signs.", robots: "index, follow" }
+                      : path.startsWith("/rug-pull-vs-liquidity-pull")
+                        ? { title: "Rug Pull vs Liquidity Pull | Rugspull", description: "Compare founder token selling with reserve withdrawal and inspect Rugspull's canonical-pool boundary.", robots: "index, follow" }
+                      : path.startsWith("/testnet-lifecycle")
+                        ? { title: "BSC Testnet Lifecycle Evidence | Rugspull", description: "Inspect two clearly labeled BSC Testnet E2E paths: Failed with refund completion and Rugged with post-rug trading and reserve reconciliation.", robots: "index, follow" }
+                      : path.startsWith("/office-counter")
+                        ? { title: "Office Counter — Evidence Snapshot | Rugspull", description: "A dated, evidence-first Rugspull status report covering chain state, tests, TESTNET evidence, distribution, pending reviews, and open operational gates.", robots: "index, follow" }
+                      : path.startsWith("/lifecycle-templates")
+                        ? { title: "Lifecycle Artifact Templates | Rugspull", description: "Reusable, fact-reviewed Permit, Failed, Active, Still Waiting, and Rugged record templates with explicit evidence and risk boundaries.", robots: "index, follow" }
+                      : path.startsWith("/creator-handbook")
+                        ? { title: "Creator Handbook | Rugspull", description: "A TESTNET-first mechanism readback, qualification, disclosure, metadata, communication, and incident checklist for Rugspull Creators.", robots: "index, follow" }
+                      : path.startsWith("/community-safety")
+                        ? { title: "Community Safety Rules | Rugspull", description: "Read Rugspull's public rules for criticism, impersonation, phishing, malicious links, corrections, moderation limits, and stop-amplification triggers.", robots: "index, follow" }
+                      : path.startsWith("/stage-0-review")
+                        ? { title: "Stage 0 Day 7 Gate Review | Rugspull", description: "A dated, evidence-backed review of Rugspull's Telegram, measurement, outreach, incident, staffing, and mainnet activation gates.", robots: "index, follow" }
           : path.startsWith("/ops")
             ? { title: "Backstage | Rugspull", description: "Indexer and deployment diagnostics for Rugspull.", robots: "noindex, nofollow" }
             : path.startsWith("/account/")
               ? { title: "My Chair | Rugspull", description: "View Rugs and positions associated with a wallet.", robots: "noindex, nofollow" }
               : { title: "Rugspull | Disclosed Rugpull Parody on BNB Smart Chain", description: "A public parody of rugpull incentives: one disclosed founder sell, no pool-reserve withdrawal, and on-chain settlement.", robots: "index, follow" };
-    const canonical = `https://rugspull.com${path === "/" ? "/" : path}`;
+    const canonicalPath = evergreenRouteForPath(path) ?? path;
+    const canonical = `https://rugspull.com${canonicalPath === "/" ? "/" : canonicalPath}`;
+    const socialImage = socialImageForPath(path);
     document.title = route.title;
     setMeta("meta[name='description']", "content", route.description);
     setMeta("meta[name='robots']", "content", route.robots);
     setMeta("meta[property='og:title']", "content", route.title);
     setMeta("meta[property='og:description']", "content", route.description);
     setMeta("meta[property='og:url']", "content", canonical);
+    setMeta("meta[property='og:image']", "content", socialImage);
     setMeta("meta[name='twitter:title']", "content", route.title);
     setMeta("meta[name='twitter:description']", "content", route.description);
+    setMeta("meta[name='twitter:image']", "content", socialImage);
     setMeta("link[rel='canonical']", "href", canonical);
+    setStructuredData(path, route.title, route.description, canonical);
   }, [path]);
+}
+
+function setStructuredData(pathname: string, title: string, description: string, canonical: string) {
+  const script = document.querySelector<HTMLScriptElement>("script[type='application/ld+json']");
+  if (!script) return;
+  script.textContent = JSON.stringify(structuredDataForPath(pathname, title, description, canonical));
+}
+
+function structuredDataForPath(pathname: string, title: string, description: string, canonical: string) {
+  const website = {
+    "@type": "WebSite",
+    "@id": "https://rugspull.com/#website",
+    name: "Rugspull",
+    url: "https://rugspull.com/",
+    sameAs: ["https://x.com/rugspull", "https://t.me/rugspullcom", "https://github.com/pqchase/rugspull"],
+    contactPoint: { "@type": "ContactPoint", contactType: "customer support", email: "info@rugspull.com" },
+  };
+  const evergreenRoute = evergreenRouteForPath(pathname);
+  if (!evergreenRoute) return { "@context": "https://schema.org", "@graph": [website] };
+  const headline = title.replace(/ \| Rugspull$/, "");
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      website,
+      {
+        "@type": "Article",
+        headline,
+        description,
+        url: canonical,
+        inLanguage: "en",
+        mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+        isPartOf: { "@id": "https://rugspull.com/#website" },
+        publisher: { "@type": "Organization", name: "Rugspull", url: "https://rugspull.com/" },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Rugspull", item: "https://rugspull.com/" },
+          { "@type": "ListItem", position: 2, name: EVERGREEN_ROUTE_LABELS[evergreenRoute], item: canonical },
+        ],
+      },
+    ],
+  };
+}
+
+function socialImageForPath(pathname: string) {
+  if (pathname.startsWith("/what-is-a-crypto-rug-pull") || pathname.startsWith("/rug-pull-vs-liquidity-pull") || pathname.startsWith("/crypto-rug-pull-red-flags")) {
+    return "https://rugspull.com/assets/og-education.png";
+  }
+  if (pathname.startsWith("/security-model") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
+    return "https://rugspull.com/assets/og-security.png";
+  }
+  if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/docs/risk")) {
+    return "https://rugspull.com/assets/og-mechanism.png";
+  }
+  return "https://rugspull.com/assets/community-hall-stage.jpg";
 }
 
 function setMeta(selector: string, attribute: string, value: string) {
@@ -368,19 +489,29 @@ function Shell({ children, path, wallet }: { children: React.ReactNode; path: st
                 <h2>Before the bad idea</h2>
                 <ul>
                   <li><a href="/docs/risk">Read risk first</a></li>
-                  <li><a href="/">Browse rugs</a></li>
+                  <li><a href="/security-model">Security model</a></li>
+                  <li><a href="/founder-allocation-explained">Founder allocation</a></li>
+                  <li><a href="/how-to-check-a-smart-contract-on-bscscan">Contract check</a></li>
                 </ul>
               </section>
               <section className="footer-link-group">
-                <h2>Office doors</h2>
+                <h2>Rugpull field guide</h2>
                 <ul>
-                  <li><a href="/create">Host a rug</a></li>
-                  <li><a href="/ops">Backstage</a></li>
+                  <li><a href="/crypto-rug-pull-red-flags">Risk signals</a></li>
+                  <li><a href="/what-is-a-crypto-rug-pull">Rug pull guide</a></li>
+                  <li><a href="/rug-pull-vs-liquidity-pull">Sell vs liquidity pull</a></li>
                 </ul>
               </section>
-              <section className="footer-desk-note">
-                <h2>Support desk rule</h2>
-                <p>Official support never asks for a seed phrase, private key, direct transfer, or mystery wallet connection.</p>
+              <section className="footer-link-group footer-paperwork">
+                <h2>Public paperwork pile</h2>
+                <ul>
+                  <li><a href="/testnet-lifecycle">TESTNET evidence</a></li>
+                  <li><a href="/office-counter">Office counter</a></li>
+                  <li><a href="/lifecycle-templates">Lifecycle templates</a></li>
+                  <li><a href="/creator-handbook">Creator handbook</a></li>
+                  <li><a href="/community-safety">Community safety</a></li>
+                  <li><a href="/stage-0-review">Stage 0 review</a></li>
+                </ul>
               </section>
             </nav>
           </div>
@@ -540,6 +671,26 @@ function HomePage() {
         <span>No pool-reserve withdrawal.</span>
         <span>0.30% total trading fee.</span>
         <span>Every settlement stays on-chain.</span>
+      </section>
+
+      <section className="testnet-evidence-callout" aria-labelledby="testnet-evidence-title">
+        <div className="testnet-evidence-copy">
+          <span className="testnet-evidence-stamp"><FlaskConical size={16} />BSC TESTNET ONLY</span>
+          <h2 id="testnet-evidence-title">Inspect two complete lifecycle paths.</h2>
+          <p>
+            Read the contracts, transaction receipts, and decoded events for a failed opening refund and
+            post-Rug trading. This is testnet evidence—not mainnet activity, an audit, or a safety guarantee.
+          </p>
+        </div>
+        <div className="testnet-evidence-paths" aria-label="Documented testnet paths">
+          <span><strong>Failed</strong> contribution returned after the opening misses launch conditions.</span>
+          <span><strong>Rugged</strong> founder action settles once; pool trading remains available afterward.</span>
+        </div>
+        <div className="testnet-evidence-actions">
+          <a className="primary" href="/testnet-lifecycle"><ClipboardList size={18} />Inspect TESTNET evidence</a>
+          <a className="secondary" href="/docs/risk"><ShieldAlert size={18} />Read risk disclosures</a>
+          <small>Historical receipts are incomplete. Exact-match checks are not an audit.</small>
+        </div>
       </section>
 
       <section className="notice-board page-board" id="rugs">
@@ -1714,6 +1865,252 @@ function RiskPage() {
           <h2>The booth takes a fee</h2>
           <p>Every canonical-pool trade charges 0.30% total. The pool retains 0.25%; the protocol treasury receives 0.05% in WBNB. Tiny trades may round the protocol portion down to zero.</p>
         </article>
+      </section>
+    </main>
+  );
+}
+
+const FACT_PAGES = {
+  "/how-it-works": {
+    eyebrow: "Mechanism notice",
+    title: "THE RUG FILES PAPERWORK.",
+    intro: "Rugspull turns a familiar founder exit into a disclosed, inspectable sequence. The joke is optional; the rules are not.",
+    sections: [
+      ["01 · Opening", "The creator stakes at least 0.1 WBNB. A 24-hour Opening accepts a unified batch of contributions, with a 30% minimum and 50% cap relative to creator stake."],
+      ["02 · Lock", "If the Opening succeeds, the token and internal WBNB RugPool are initialized. The 45% Founder Allocation remains in RugInstance through the Opening and a further 48-hour lock."],
+      ["03 · One-shot exit", "After unlock, the creator may call rug() once to sell the entire protocol-held Founder Allocation into the canonical pool. Partial founder sells do not exist."],
+      ["04 · After Rugged", "The canonical pool has no reserve-withdraw function and keeps trading. Rugged does not create a refund right, price floor, or safety guarantee."],
+    ],
+  },
+  "/contracts": {
+    eyebrow: "Verification counter",
+    title: "CHECK THE ADDRESS.",
+    intro: "The production Factory is immutable v0.4 on BNB Smart Chain. Exact-match source verification is evidence for inspection, not an independent audit.",
+    sections: [
+      ["Factory", "0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63"],
+      ["Chain and quote", "BNB Smart Chain mainnet · chain id 56 · WBNB 0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
+      ["Deployment", "Block 109991561 · tx 0x95426057625753b19dfbe3754c5e79bdff771e69159cf69a67977b24cd464cc6"],
+      ["Inspect", "BscScan and the public repository are linked below. Read the constructor profile and deployed bytecode before treating any social post as evidence."],
+    ],
+  },
+  "/fees": {
+    eyebrow: "Public fee notice",
+    title: "THE BOOTH TAKES A FEE.",
+    intro: "Fees are fixed by the deployed Factory. Tiny trades can round the protocol portion down; no fee page changes settlement.",
+    sections: [
+      ["Create", "0.003 WBNB is charged when a Rug is created. The creator stake minimum is 0.1 WBNB. A failed launch does not refund the creation fee."],
+      ["Canonical trade", "Nominal total is 0.30%: 0.25% remains in RugPool and 0.05% WBNB goes to the immutable protocol treasury."],
+      ["Worked example", "On a 1.000 WBNB quoted trade, the nominal split is 0.0025 WBNB retained by the pool and 0.0005 WBNB to the treasury, subject to contract rounding."],
+      ["Not a promise", "Fees do not reduce volatility, slippage, MEV, alternative-pool risk, or the possibility of total loss."],
+    ],
+  },
+  "/transparency": {
+    eyebrow: "Public records desk",
+    title: "WHAT WE KNOW. WHAT WE DON'T.",
+    intro: "The chain is financial truth. D1 and the Worker are rebuildable discovery and metadata layers, not settlement authorities.",
+    sections: [
+      ["Verified", "Mainnet Factory source is exact-match verified on BscScan and Sourcify. Mainnet fork E2E and two-RPC deployment reads are recorded in the repository."],
+      ["Current public state", "The production deployment is live, but the indexed mainnet Rug list currently has no public lifecycle sample. We will not manufacture volume, contributors, holders, or testimonials."],
+      ["Still open", "Independent audit, private RPC endpoints with SLA, legal and jurisdiction review, and content moderation / abuse response remain open gates."],
+      ["Operations", "Financial actions are signed by user wallets. The Worker never buys, sells, rugs, claims, or refunds on behalf of users."],
+    ],
+  },
+  "/security-model": {
+    eyebrow: "Security claims register",
+    title: "WHAT THE TESTS PROVE.",
+    intro: "Rugspull treats economic rules as consensus-critical. These are tested properties and explicit trust boundaries—not a safety badge, guarantee, or substitute for independent audit.",
+    sections: [
+      ["Asset conservation", "Unit, fuzz, invariant, and scenario tests cover token conservation and WBNB conservation across Opening, Failed, Active, and Rugged lifecycle paths."],
+      ["One action means one", "Tests reject double claim and double rug paths. Creator cancellation is unavailable after Opening starts, and Failed contributors claim their own recorded contribution."],
+      ["Founder Token custody", "The 45% Founder Allocation stays in RugInstance. It is not sent to the creator wallet and has one contract-defined exit: a single full sale through rug() after unlock."],
+      ["Canonical pool boundary", "RugPool is a non-upgradeable internal constant-product pool. Its recorded reserves are tested against actual balances, and no reserve-withdraw function or LP token exists."],
+      ["Settlement boundary", "Create, contribute, claim, buy, sell, and rug transactions are signed by user wallets. The Worker, D1 cache, metadata, and AI copy cannot authorize or settle financial actions."],
+      ["What remains unresolved", "Independent audit, two production RPC providers with SLA, legal and jurisdiction review, multisig custody, and staffed incident response remain open. MEV, slippage, alternative pools, key compromise, and total loss remain possible."],
+    ],
+  },
+  "/testnet-lifecycle": {
+    eyebrow: "TESTNET lifecycle archive",
+    title: "TWO PATHS. ZERO MAINNET CLAIMS.",
+    intro: "This controlled BSC Testnet E2E demonstrates Failed and Rugged outcomes. It is test evidence—not mainnet activity, users, volume, adoption, an audit, or a safety finding.",
+    sections: [
+      ["TESTNET ONLY · chain id 97", "The demo Factory uses a 90-second Opening and 90-second founder-lock delay so the complete flow can be tested. Production uses a 24-hour Opening and a further 48-hour lock; never substitute these demo timings for mainnet rules."],
+      ["Factory record", "Short-duration E2E Factory 0x8e6ba49e54F7bDa1a5499D143395116d3430ae3c · deployment block 118840328 · deployment tx 0xec595840f04888cd94023a033e4cd57c59df9e119fab59d4e0d3a8925ad7178b."],
+      ["Failed path", "Rug 0xeD8F823839a115B26cA126C0b41a61eC38b606bd finalized Failed with 0.001 WBNB contributed against a 0.003 WBNB minimum. No token or pool exists; the recorded contributor claimed the refund and creatorStakeWithdrawn is true."],
+      ["Rugged path", "Rug 0xF8f2BC14FbB238D2AB7EAf0Eb548FA27D7e2ac7c finalized successfully, the recorded contributor claimed, the full protocol-held Founder Allocation exited once, founderRemaining is zero, and canonical trading continued after Rugged."],
+      ["Reserve reconciliation", "Pool 0xFBb80c25Fc5Bb3E9e60949ce72Ffa9493513fE62 records 826961130829643363640339 token units and 7253391206162222 WBNB wei. Both reserves equal the pool's actual balances exactly in the 2026-07-17 read-only RPC check."],
+      ["Evidence boundary", "Current contract state and balances were reverified through read-only RPC. Historical lifecycle transaction hashes other than the Factory deployment were not recovered from retained broadcasts or available archive endpoints, so this is not described as a complete transaction-receipt packet. Sourcify exact match is not an independent audit."],
+    ],
+  },
+  "/office-counter": {
+    eyebrow: "Office Counter · report 002",
+    title: "EVIDENCE, NOT GROWTH THEATER.",
+    intro: "A dated public snapshot of what is deployed, what was tested, what was published, and what remains unresolved. Counts below use a 2026-07-19 CST cutoff and are not live analytics.",
+    sections: [
+      ["Mainnet chain record", "BNB Smart Chain mainnet · chain id 56 · Factory 0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63. The production index returned zero current-Factory Rugs at the report cutoff. This is a dated observation, not a promise that the count remains zero."],
+      ["Contract test record", "Foundry reran 41 tests across unit, fuzz, invariant, and scenario families on 2026-07-17: 41 passed and zero failed. Passing project-authored tests are evidence, not an independent audit or safety finding."],
+      ["Lifecycle evidence", "Two controlled BSC Testnet paths are published: Failed with contributor refund and creator-stake withdrawal, and Rugged with contributor claim, one founder exit, post-rug trading, and reserve reconciliation. They are not mainnet users, volume, adoption, or complete historical receipts."],
+      ["Public evidence inventory", "Fourteen evergreen mechanism, security, education, lifecycle-template, Creator-readback, community-safety, and gate-review pages plus the TESTNET lifecycle archive are public with this report. The sitemap contains 19 URLs; every submission remains subject to crawl and indexing decisions outside Rugspull's control."],
+      ["Distribution record", "Four verified X URLs and final Telegram correction post 9 are recorded in the execution log. Post 9 contains three publicly verified HTTPS links and was verified as the current pinned message in the logged-in desktop channel on 2026-07-17. Earlier Telegram posts 5 and 7 have malformed links and post 6 is title-only; they remain visible and are not counted as successful linked content. X account recovery is complete and the next approved item remains time-gated."],
+      ["Review and directory state", "DappBay My Projects still shows Security Reviewing, while its official search returns No related dApps or campaigns for Rugspull; this is pending review with no public listing result. RootData's prior dashboard session expired, so its last authenticated Pending Review state was not promoted to a newer claim. DappRadar's official submit link and Developers route both redirect to its homepage, which exposes no submit entry. Focused public searches found no Rugspull detail page on those services, MathWallet, Magic Store, or Moralis Web3 Wiki. BNB Chain Awesome PR #13 is open and clean with an automated documentation-only bot comment; it is not merged or human-reviewed. GitHub Issue 1 and Electric Capital PR #2932 still have no external human review or comments. None of these states is an audit, listing approval, independent review, recommendation, partnership, or BNB Chain endorsement."],
+      ["Measurement boundary", "No production behavior beacon, visitor/session identifier, advertising pixel, or wallet-profile tracker is deployed. 16 approved UTM links describe distribution intent only; they do not prove visits, qualified sessions, conversions, consent, people, or correct publication."],
+      ["Open activation gates", "Independent audit, written jurisdiction review, two SLA-backed production RPC providers, multisig custody, moderation, a named backup incident contact, staffed incident response, and an authenticated project outbound-email sender remain unresolved. Organized new mainnet activity is not being requested."],
+      ["Incident line", "No real security incident was created for promotion. A fake-Factory/fake-support tabletop prepared holding copy by simulated T+22. X recovery, real two-channel publication, and final Telegram pin verification are complete; backup staffing, inbound support-email timing, and two-channel incident timing remain open."],
+    ],
+  },
+  "/lifecycle-templates": {
+    eyebrow: "Public records toolkit · v1.0.0",
+    title: "FIVE STATES. NO INVENTED STORY.",
+    intro: "Reusable Permit, Failed, Active, Still Waiting, and Rugged templates turn verified chain state into public records. A blank template is not evidence, approval, an audit, or a request to transact.",
+    sections: [
+      ["01 · Rug Permit / Opening", "Use only while status is Opening. Record the creation receipt, full addresses, metadata hash, stake, fee, contribution minimum and cap, Opening times, 45% Founder Allocation, and unlock calculation. Say that no Failed or Active result exists yet."],
+      ["02 · Failed Opening Receipt", "Use only after Failed finalization. No Token or Pool is created. Report eligible, claimed, and outstanding contributor refunds separately from eligible, withdrawn, and outstanding Creator stake. The creation fee is not refunded."],
+      ["03 · Active Opening Receipt", "Use only after Active finalization. Publish Token and Pool addresses, accepted contribution, claim progress, founder remaining and unlock, plus canonical reserves reconciled to actual balances at a named cutoff. Active does not mean every claim is complete."],
+      ["04 · Still Waiting", "Use only when status remains Active after unlock. State a UTC and block cutoff, founder remaining, RPC checks, and that no Rugged event was observed by that cutoff. The cutoff is not a protocol deadline or a promise about future Creator behavior."],
+      ["05 · Rugged / Autopsy", "Use only after verifying the rug() receipt and Rugged event. Report Founder Tokens sold, Creator WBNB received, fee, founder remaining, reserve reconciliation, post-rug trading evidence if any, and outstanding contributor claims. Rugged creates no refund right."],
+      ["Publication boundary", "Every completed artifact must label MAINNET or TESTNET, disclose project/Creator relationships and stake source, publish full identifiers and raw amounts, separate eligible/claimed/outstanding values, and link Risk and source. Tests and TESTNET evidence are not an independent audit. Total loss remains possible."],
+    ],
+  },
+  "/creator-handbook": {
+    eyebrow: "Creator desk · TESTNET first",
+    title: "READ IT BACK BEFORE YOU HOST IT.",
+    intro: "A public mechanism, disclosure, and incident checklist for Creator interviews. It is not an invitation to create, fund, trade, promote, or execute a mainnet Rug. Organized mainnet Creator activity remains NO-GO until every activation gate has written evidence.",
+    sections: [
+      ["01 · Ten-point readback", "Explain stake and the non-refundable fee; 24-hour batch Opening; related-wallet limits; Failed claims; 45% protocol custody and 48-hour lock; optional one-shot rug(); founder sale versus reserve withdrawal; no Rugged refund; ordinary associated-wallet tokens; and why tests or TESTNET are not an audit."],
+      ["02 · Thirty-minute TESTNET walkthrough", "Inspect identity and scope, Opening economics, Failed, Active, and Rugged evidence, then finish with an unprompted red-team readback of MEV, related-wallet, alternative-pool, key, and total-loss risk. No stake or gas reimbursement is offered."],
+      ["03 · Qualification", "Score mechanism comprehension 25%, historical credibility 20%, original communication 20%, audience fit 15%, operational response 10%, and brand safety 10%. Below 70/100 is not qualified for organized mainnet collaboration; serious fraud or hidden compensation is an automatic stop."],
+      ["04 · Communication boundary", "Use Read, Inspect, Review, Verify, and Critique calls to action. Do not use return, urgency, price, safety, audit, endorsement, reward, trading, or execute-rug incentives. Every project post labels MAINNET or TESTNET and links Risk."],
+      ["05 · Relationship and compensation", "Publish the full Creator wallet, controller, stake source, Rugspull role, and all benefits. Rugspull provides no stake, gas, Founder Tokens, paid posts, guaranteed reposts, referral fees, market making, fake activity, custody, or backend financial actions."],
+      ["06 · Metadata and identity", "Reject impersonation, unlicensed assets, fake badges, promises, and uncontrolled links. Verify name, symbol, image rights, description, official domains, metadata URI, and full hash before public announcement; immutable metadata cannot be silently corrected."],
+      ["07 · State communications", "Publish only the state that exists. Failed separates refunds and Creator withdrawal. Active includes claims, founder remaining, unlock, and reserves. Still Waiting uses a cutoff, not a deadline. Rugged verifies the sale, remaining claims, and balances; it is not a liquidity pull or refund."],
+      ["08 · Stop and correct", "If an address, link, state, or security claim is wrong: stop amplification, preserve evidence, publish a factual correction, repair every derivative, and resume only when the canonical source and queue agree. Official support never asks for keys, remote access, or direct transfers."],
+      ["09 · Mainnet remains gated", "Handbook comprehension is necessary but never sufficient. Independent audit, written legal/geographic review, two SLA-backed RPC providers, degradation drills, moderation and incident staffing, privacy-approved analytics, relationship disclosure, and zero unresolved P0/P1 remain required."],
+    ],
+  },
+  "/community-safety": {
+    eyebrow: "Community safety desk · rules v1.0",
+    title: "CRITICISM STAYS. SCAMS GO.",
+    intro: "Public rules for Rugspull channels and project-controlled surfaces. Publishing these rules does not create 24/7 moderation, an incident response SLA, an audit, safety, or BNB Chain endorsement.",
+    sections: [
+      ["01 · Criticism is allowed", "Negative reviews, mechanism criticism, loss reports, competing analysis, and uncomfortable questions remain visible unless they also contain scams, targeted harassment, exposed secrets, or unlawful material. Disagreement with Rugspull is not a moderation violation."],
+      ["02 · No fake support or impersonation", "Do not impersonate Rugspull, a Creator, BNB Chain, an auditor, or community support. Official support never asks for a seed phrase, private key, remote access, direct transfer, or a wallet connection through a support message."],
+      ["03 · No price or engagement manipulation", "Price targets, pump coordination, paid calls, referral trading, fake testimonials, invented holders or volume, and coordinated fake comments are prohibited on project-controlled surfaces. Rugspull does not manufacture adoption evidence."],
+      ["04 · Address and link discipline", "Treat rugspull.com, the full production Factory address, and the public source repository as canonical references. A wrong address, malicious link, chain mismatch, or altered risk page triggers stop amplification, evidence preservation, and a factual correction before promotion resumes."],
+      ["05 · Malicious and unlawful content", "Phishing, malware, hateful or targeted harassment, impersonation, unlawful metadata, and exposed credentials may be removed and reported. Removing discovery content does not edit deployed contracts, reverse transactions, refund losses, or otherwise change on-chain settlement."],
+      ["06 · Evidence before enforcement claims", "Preserve the timestamp, URL, account, screenshot, transaction or address, and available hashes before describing an incident. Clearly distinguish what was observed, what is alleged, and what has been confirmed."],
+      ["07 · Stop-amplification triggers", "Pause project promotion and Creator outreach for an unresolved P0/P1 issue, wrong address, chain or page mismatch, compromised official channel, unavailable risk disclosure, or unresolved geographic or legal notice. User-signed claim and refund paths remain governed by the contracts."],
+      ["08 · Coverage boundary", "Telegram is currently an announcement-only channel in public preview; X and GitHub provide public critique surfaces. Primary and backup moderation owners remain unassigned. There is no 24/7 moderation promise, guaranteed response time, or incident SLA."],
+      ["09 · Report route", "Send a factual report to info@rugspull.com without secrets, seed phrases, private keys, or unnecessary personal data. One Google Forms receipt addressed to this project inbox was observed on 2026-07-17. That proves one inbound delivery, not delivery latency, an outbound project sender, DMARC/DKIM alignment, response timing, retention, staffed ownership, or an SLA."],
+    ],
+  },
+  "/stage-0-review": {
+    eyebrow: "Day 7 gate review · 2026-07-17",
+    title: "HOLD MEANS HOLD.",
+    intro: "Stage 0 is not complete. This dated review separates verified groundwork from external actions that have not happened and keeps organized mainnet promotion at NO-GO.",
+    sections: [
+      ["Overall result · HOLD", "Six Stage 0 Must requirements were reviewed against public pages, repository records, production state, and channel evidence. Claims guidance, measurement specifications, and a publicly verified and pinned Telegram correction exist, but final Telegram profile and permission checks, outreach results, and staffed incident readiness do not."],
+      ["Verified groundwork", "The canonical identity pack, approved-claims boundaries, prohibited language, risk tail, Creator/media fact sheet, 16 UTM-intent links, five lifecycle templates, Creator Handbook, public Community Safety rules, incident templates, and TESTNET lifecycle evidence are published or versioned. The rules publish criticism, impersonation, phishing, correction, and stop-amplification boundaries; they do not prove staffed moderation or an SLA. GitHub Issue 1 is pinned as a public mechanism-critique thread with a reproducible evidence index; this project-opened thread is critique infrastructure, not an independent review or outreach result. X account recovery is complete and the reviewed boundary post is public. The verified BNB Chain Discord server has been joined, but its member-screening/role step still blocks submit-project. Prepared assets and joined channels are not review, endorsement, or distribution results."],
+      ["Telegram · PARTIAL", "Final correction post 9 is public, all three exact HTTPS links passed public verification, and the logged-in desktop channel showed it as the current pinned message on 2026-07-17. Older posts 5 and 7 have malformed links and post 6 is title-only; none is counted as successful linked content. The public channel preview exposes no reply or comment controls, but administrator permission configuration remains unverified. The avatar remains the letter R and the approved public description is not yet applied."],
+      ["Creator / Builder outreach · INCOMPLETE", "The research queue contains 15 targets and five sendable one-to-one critique drafts. At this cutoff the result remains 0 sent and 0 booked. The project-opened public GitHub Issue 1 does not count as a one-to-one invitation or booked review. Research and drafts are not interviews, consent, independent review, endorsement, or adoption."],
+      ["Incident path · PARTIAL", "A fake-Factory/fake-support tabletop produced holding copy at simulated T+22. X recovery and Telegram final pin verification are complete. A later four-host public RPC check had one 3-of-4 run with a transient HTTP 429, followed by one 4-of-4 matching run; this is not provider independence, SLA, archive, degradation, claim/refund, or future-availability proof. Authoritative DNS shows three Cloudflare Email Routing MX records and SPF softfail, but no DMARC TXT record. One Google Forms receipt addressed to info@rugspull.com reached the monitored inbox on 2026-07-17. Delivery latency, authenticated project outbound email, response timing, DKIM alignment, primary and backup staffing, and real incident publication time remain unproven."],
+      ["Measurement · SPECIFIED, DISABLED", "Analytics governance v0.1 aligns 14 event names with the strategy and keeps all 12 activation gates false. Risk, contract/source proof, wallet, create, and claim/refund transaction-lifecycle events are specified with bot, internal, QA, and controlled-wallet separation. No production behavior beacon, visitor identifier, wallet profiler, or analytics write endpoint is deployed while privacy, legal, geographic, retention, deletion, ownership, and abuse controls remain open."],
+      ["Mainnet activation · NO-GO", "Geographic matrix v0.1 now makes the default explicit: every market remains NO-GO, the website is publicly reachable without market approval, geoblocking and sanctions screening are not evidenced, and every legal owner and opinion date is unassigned. Independent audit, written legal review, two SLA-backed production RPC providers, moderation, named incident staffing and backup, privacy-approved analytics, and complete relationship controls are also not all evidenced. TESTNET, source inspection, risk education, corrections, and read-only reporting may continue."],
+      ["What changes the result", "Complete BNB Chain Discord member screening and send the reviewed one-time cooperation request; set and verify the approved Telegram avatar, public description, and announcement-only permissions; record three eligible one-to-one critique invitations and an actual booking outcome; assign the operating roles; test inbound response timing and configure authenticated project outbound email; repeat the incident drill with two independent RPCs and two usable channels; satisfy every remaining activation gate in writing."],
+    ],
+  },
+  "/founder-allocation-explained": {
+    eyebrow: "Founder allocation register",
+    title: "45% HELD BY THE PROTOCOL. ONE EXIT.",
+    intro: "Rugspull's Founder Allocation is deliberately large and dangerous. Its custody and exit rules are fixed so the specific risk can be inspected before anyone participates.",
+    sections: [
+      ["Where the 45% sits", "The Founder Allocation is held by RugInstance, not transferred to the creator wallet. It remains there through the 24-hour Opening and the additional 48-hour post-Opening lock."],
+      ["The contract-defined exit", "After unlock, the creator may call rug() once. That call sells the entire remaining protocol-held Founder Allocation into the canonical RugPool. The creator cannot use rug() for a partial sale."],
+      ["What the creator receives", "The swap sends the resulting WBNB to the creator after the canonical trade fee. Price impact can be extreme because the full protocol-held allocation enters the pool in one transaction."],
+      ["What does not happen", "The creator does not redeem an LP position or withdraw pool reserves. RugPool has no reserve-withdraw function and issues no LP token. The pool remains available for trading after Rugged."],
+      ["The rule is not identity control", "The one-shot restriction applies only to the Founder Allocation held by RugInstance. Creator-controlled or associated wallets can still acquire ordinary RugToken and trade it like other holders; the protocol cannot reliably identify related wallets."],
+      ["The rule is not safety", "A disclosed lock and one-shot sale do not prevent total loss, MEV, slippage, alternative pools, key compromise, misleading promotion, or off-chain abandonment. Inspect the deployed contracts and risk disclosure, not just this explanation."],
+    ],
+  },
+  "/how-to-check-a-smart-contract-on-bscscan": {
+    eyebrow: "Public inspection checklist",
+    title: "CHECK THE CONTRACT. THEN CHECK THE CLAIMS.",
+    intro: "BscScan can expose deployed code, transactions, balances, and events on BNB Smart Chain. It helps you inspect evidence; it does not certify that a contract, team, or market is safe.",
+    sections: [
+      ["01 · Confirm chain and address", "Start from an official project source, then independently confirm the BNB Smart Chain address. Lookalike names and copied interfaces can point to unrelated contracts. Compare the full address, not only its first and last characters."],
+      ["02 · Read source status precisely", "Source Code Verified means published source compiles to the deployed bytecode under the recorded settings. Exact match is stronger evidence than a partial match, but neither status is an independent security audit or an endorsement."],
+      ["03 · Inspect constructor and immutables", "Check the constructor arguments, linked libraries, owner, treasury, quote asset, fee profile, and deployment transaction. A readable contract can still be configured with dangerous destinations or privileges."],
+      ["04 · Search privileged paths", "Look for minting, pausing, blacklisting, fee changes, ownership transfer, upgrades, reserve withdrawal, emergency withdrawal, arbitrary calls, and token-recovery functions. Then trace which address can call each path."],
+      ["05 · Follow assets and events", "Use token transfers, internal transactions, event logs, contract balances, and pool reserves to verify what actually moved. Labels and dashboard summaries are conveniences, not financial truth."],
+      ["06 · Check what code cannot prove", "Verified code cannot prove honest operators, uncompromised keys, accurate social claims, legitimate related wallets, safe alternative pools, adequate liquidity, or future price. Treat missing evidence and unexplained control as risk, not as a puzzle to rationalize away."],
+    ],
+  },
+  "/crypto-rug-pull-red-flags": {
+    eyebrow: "Risk-signal field guide",
+    title: "RED FLAGS ARE QUESTIONS, NOT A SAFETY SCORE.",
+    intro: "No checklist can prove that a token is safe. Risk signals are prompts to inspect permissions, assets, identities, and claims before deciding whether the remaining uncertainty is acceptable.",
+    sections: [
+      ["Hidden or flexible token controls", "Unexplained minting, transfer restrictions, blacklists, adjustable taxes, privileged routers, upgrade paths, or arbitrary calls can change who is able to buy, sell, or move value."],
+      ["Liquidity nobody can explain", "Identify the actual pool, reserve assets, LP ownership or withdrawal path, lock terms, and alternative pools. A token lock is not a liquidity lock, and a liquidity lock does not prevent insider selling."],
+      ["Concentrated or obscured inventory", "Large balances, related-wallet clusters, fresh transfers, and allocations held outside the disclosed mechanism can create sell pressure. Wallet distribution alone cannot prove common control, so combine it with funding and transaction evidence."],
+      ["Administrative and treasury reach", "Map owners, multisigs, treasuries, fee recipients, pausers, and operators. Ask what each key can change, whether changes affect existing economics, and what happens if the key is compromised or abandoned."],
+      ["Claims that exceed the evidence", "Treat guaranteed returns, safe-liquidity claims, audit-like badges, fake affiliations, urgent countdowns, unexplained volume, and unverifiable testimonials as reasons to stop and verify. Source verification is not an audit."],
+      ["A clean checklist is still not safety", "MEV, slippage, market concentration, alternative pools, off-chain deception, legal restrictions, key compromise, and total loss can remain even when obvious red flags are absent. The correct conclusion may still be not to participate."],
+    ],
+  },
+  "/what-is-a-crypto-rug-pull": {
+    eyebrow: "Neutral field guide",
+    title: "WHAT IS A CRYPTO RUG PULL?",
+    intro: "Rug pull is an umbrella term, not one contract function. It usually describes insiders using control, inventory, liquidity, or misleading promises to leave other participants with severe losses.",
+    sections: [
+      ["Liquidity withdrawal", "A controller removes some or all assets from a trading pool. The available liquidity collapses, and remaining holders may be unable to exit at a meaningful price."],
+      ["Founder or insider sell", "An insider sells a large token inventory into existing liquidity. Pool reserves may remain, but their composition changes and the token price can fall sharply."],
+      ["Hidden token controls", "Minting, transfer restrictions, blacklist rules, fees, or privileged routing can make a token behave differently from what buyers expected. Source verification helps inspection but is not an audit."],
+      ["Off-chain abandonment", "Teams can disappear, stop delivering, remove social channels, or misrepresent affiliations even when contract code has no reserve-withdraw function."],
+      ["What to inspect", "Check deployed code, privileged roles, actual pool balances, liquidity ownership, token distribution, transaction receipts, and whether public claims match the contract. No single badge or scanner proves safety."],
+      ["Rugspull's disclosed case", "Rugspull intentionally exposes one protocol-held Founder Allocation sale path. That makes a specific action inspectable; it does not prevent manipulation, losses, alternative pools, or other operational failures."],
+    ],
+  },
+  "/rug-pull-vs-liquidity-pull": {
+    eyebrow: "Mechanism comparison",
+    title: "SELLING TOKENS IS NOT WITHDRAWING RESERVES.",
+    intro: "Both actions can destroy a market price, but they move different assets through different permissions. Treating them as identical hides the exact control that should be inspected.",
+    sections: [
+      ["Founder sell", "The founder or a contract sends tokens into a pool and receives quote assets through a swap. The pool still holds reserves, but more tokens and fewer quote assets remain, so price and exit depth deteriorate."],
+      ["Liquidity pull", "A privileged liquidity holder removes reserve assets directly or redeems an LP position. The pool loses trading inventory without an ordinary market swap."],
+      ["Why the distinction matters", "A token lock does not automatically lock liquidity, and locked liquidity does not prevent a large holder from selling. Each permission and asset path must be checked separately."],
+      ["Rugspull canonical boundary", "RugPool exposes no reserve-withdraw function and issues no LP token. Its protocol-held 45% Founder Allocation can still be sold once in full through rug() after unlock."],
+      ["What Rugspull cannot control", "Third parties can create alternative pools, builders can extract MEV, wallets or keys can be compromised, and market participants can sell their own allocations. The canonical-pool boundary is not a market-wide guarantee."],
+      ["How to verify an event", "Inspect the called function, token transfers, WBNB transfers, pool reserve changes, and the transaction receipt. A label such as Rugged or Safe is not a substitute for tracing the assets."],
+    ],
+  },
+} as const;
+
+function FactPage({ path }: { path: EvergreenRoute }) {
+  const page = FACT_PAGES[path];
+  const isTestnetLifecycle = path === "/testnet-lifecycle";
+  const isSecurityModel = path === "/security-model";
+  const isLifecycleTemplates = path === "/lifecycle-templates";
+  const critiqueIssueUrl = "https://github.com/pqchase/rugspull/issues/1";
+  return (
+    <main className="page fact-page">
+      <section className="page-intro">
+        <span className="eyebrow">{page.eyebrow}</span>
+        <h1>{page.title}</h1>
+        <p>{page.intro}</p>
+      </section>
+      <section className="fact-grid">
+        {page.sections.map(([heading, copy]) => <article className="panel" key={heading}><span className="eyebrow">{heading}</span><p>{copy}</p></article>)}
+      </section>
+      <section className="panel fact-actions">
+        <strong>{isSecurityModel ? "Challenge a claim with evidence." : "Read risk first."}</strong>
+        <span>{isSecurityModel ? "Submit a minimal reproduction, counterexample, missing invariant, or disclosure correction. Sensitive funds-at-risk reports belong in private email, not a public issue." : "Rugspull is high-risk satire, not a safe investment or promise of returns. Total loss remains possible."}</span>
+        <div>
+          <a className="primary" href="/docs/risk">Risk disclosure</a>
+          <a className="secondary" href={isTestnetLifecycle ? "https://testnet.bscscan.com/address/0x8e6ba49e54F7bDa1a5499D143395116d3430ae3c" : "https://bscscan.com/address/0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63#code"} target="_blank" rel="noreferrer">{isTestnetLifecycle ? "Testnet Factory" : "BscScan source"}</a>
+          <a className="secondary" href="https://github.com/pqchase/rugspull" target="_blank" rel="noreferrer">GitHub</a>
+          {isLifecycleTemplates ? <a className="primary" href="/lifecycle-artifact-templates.json" download>Download JSON templates</a> : null}
+          {isLifecycleTemplates ? <a className="secondary" href="/assets/rug-permit-template.svg" download>Download Permit SVG</a> : null}
+          {isSecurityModel ? <a className="primary" href={critiqueIssueUrl} target="_blank" rel="noreferrer"><ExternalLink size={16} />Join public critique thread</a> : null}
+        </div>
       </section>
     </main>
   );

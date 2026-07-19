@@ -1,0 +1,8 @@
+# Rugspull has no security bounty or response-time SLA.
+# Do not send seed phrases, private keys, credentials, or unnecessary personal data.
+# Do not publish an unpatched funds-at-risk exploit before a coordinated disclosure attempt.
+Contact: mailto:info@rugspull.com
+Expires: 2027-07-19T00:00:00.000Z
+Preferred-Languages: en, zh
+Canonical: https://rugspull.com/.well-known/security.txt
+Policy: https://rugspull.com/community-safety

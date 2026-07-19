@@ -3,4 +3,20 @@
   <url><loc>https://rugspull.com/</loc><changefreq>hourly</changefreq><priority>1.0</priority></url>
   <url><loc>https://rugspull.com/create</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://rugspull.com/docs/risk</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rugspull.com/how-it-works</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rugspull.com/contracts</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rugspull.com/fees</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rugspull.com/transparency</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rugspull.com/security-model</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rugspull.com/founder-allocation-explained</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rugspull.com/how-to-check-a-smart-contract-on-bscscan</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rugspull.com/crypto-rug-pull-red-flags</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rugspull.com/what-is-a-crypto-rug-pull</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rugspull.com/rug-pull-vs-liquidity-pull</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rugspull.com/testnet-lifecycle</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rugspull.com/office-counter</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rugspull.com/lifecycle-templates</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rugspull.com/creator-handbook</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rugspull.com/community-safety</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rugspull.com/stage-0-review</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>

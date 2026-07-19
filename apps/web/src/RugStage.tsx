@@ -8,18 +8,32 @@ export function RugStage() {
     const mount = mountRef.current;
     if (!mount) return;
 
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("webgl2", { alpha: true, antialias: true, preserveDrawingBuffer: true })
+      ?? canvas.getContext("webgl", { alpha: true, antialias: true, preserveDrawingBuffer: true });
+    if (!context) {
+      mount.dataset.renderMode = "static";
+      return;
+    }
+
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
     camera.position.set(0, 3.15, 7.6);
     camera.lookAt(0, -0.65, -0.2);
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, preserveDrawingBuffer: true });
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: true,
+      canvas,
+      context,
+      preserveDrawingBuffer: true,
+    });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.setClearColor(0x000000, 0);
-    renderer.domElement.className = "rug-stage-canvas";
+    canvas.className = "rug-stage-canvas";
     renderer.domElement.setAttribute("aria-hidden", "true");
-    mount.prepend(renderer.domElement);
+    mount.prepend(canvas);
 
     const renderScene = () => renderer.render(scene, camera);
     const loader = new THREE.TextureLoader();
@@ -121,7 +135,7 @@ export function RugStage() {
       peopleTexture.dispose();
       founderTexture.dispose();
       renderer.dispose();
-      renderer.domElement.remove();
+      canvas.remove();
     };
   }, []);
 

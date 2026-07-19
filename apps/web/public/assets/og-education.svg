@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Founder sell versus liquidity pull</title>
+  <desc id="desc">Selling tokens is not withdrawing reserves. Trace the assets and do not trust a safety badge.</desc>
+  <rect width="1200" height="630" fill="#91a598"/>
+  <rect x="42" y="38" width="1116" height="554" fill="#e7dcc2" stroke="#1b1714" stroke-width="9"/>
+  <rect x="72" y="68" width="1056" height="82" fill="#332b25" stroke="#1b1714" stroke-width="6"/>
+  <text x="600" y="105" text-anchor="middle" fill="#fff8e9" font-family="Arial, sans-serif" font-size="25" font-weight="700" letter-spacing="5">RUGSPULL OFFICE OF BAD DECISIONS</text>
+  <text x="600" y="135" text-anchor="middle" fill="#f0c94d" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="3">NEUTRAL FIELD GUIDE · TRACE THE ASSETS</text>
+  <text x="82" y="238" fill="#1b1714" font-family="Arial, sans-serif" font-size="59" font-weight="900">SELLING TOKENS IS NOT</text>
+  <text x="82" y="309" fill="#1b1714" font-family="Arial, sans-serif" font-size="59" font-weight="900">WITHDRAWING RESERVES.</text>
+  <g transform="translate(82 355)">
+    <rect width="490" height="108" fill="#d1aa3f" stroke="#1b1714" stroke-width="6"/>
+    <text x="24" y="42" fill="#1b1714" font-family="Arial, sans-serif" font-size="23" font-weight="700">FOUNDER SELL</text>
+    <text x="24" y="77" fill="#1b1714" font-family="Arial, sans-serif" font-size="19">TOKENS IN · QUOTE ASSET OUT</text>
+  </g>
+  <g transform="translate(624 355)">
+    <rect width="494" height="108" fill="#d59a8d" stroke="#1b1714" stroke-width="6"/>
+    <text x="24" y="42" fill="#1b1714" font-family="Arial, sans-serif" font-size="23" font-weight="700">LIQUIDITY PULL</text>
+    <text x="24" y="77" fill="#1b1714" font-family="Arial, sans-serif" font-size="19">RESERVES REMOVED DIRECTLY</text>
+  </g>
+  <line x1="82" y1="510" x2="1118" y2="510" stroke="#1b1714" stroke-width="4"/>
+  <text x="82" y="550" fill="#5a2420" font-family="Arial, sans-serif" font-size="19" font-weight="700">NO SINGLE BADGE OR SCANNER PROVES SAFETY</text>
+  <text x="1118" y="550" text-anchor="end" fill="#1b1714" font-family="Arial, sans-serif" font-size="18">rugspull.com/rug-pull-vs-liquidity-pull</text>
+</svg>

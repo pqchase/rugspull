@@ -1,0 +1,162 @@
+{
+  "schemaVersion": "1.0.0",
+  "publishedAt": "2026-07-17",
+  "purpose": "Reusable fact fields for Rugspull lifecycle artifacts. This file is a template, not evidence of any Rug.",
+  "publishable": false,
+  "globalBoundaries": [
+    "Label TESTNET and MAINNET materials explicitly and never combine their counts.",
+    "Use full addresses, transaction hashes, block numbers, UTC timestamps, raw integer amounts, and display-unit amounts.",
+    "State the creator/project relationship and stake source when Rugspull or a collaborator controls the creator wallet.",
+    "Project-authored tests, source verification, indexer output, and TESTNET flows are not an independent audit or safety finding.",
+    "Do not call a lifecycle settled unless every eligible contributor claim or refund and every eligible creator withdrawal is evidenced.",
+    "Total loss remains possible. No artifact is a recommendation, endorsement, price claim, or request to transact."
+  ],
+  "commonRequiredFields": [
+    "artifact_type",
+    "artifact_version",
+    "generated_at_utc",
+    "chain_name",
+    "chain_id",
+    "network_label",
+    "factory_address",
+    "rug_address",
+    "rug_name",
+    "rug_symbol",
+    "metadata_uri",
+    "metadata_hash",
+    "creator_address",
+    "creator_relationship",
+    "creator_stake_source",
+    "creator_stake_wei",
+    "creation_fee_wei",
+    "quote_asset_symbol",
+    "quote_asset_address",
+    "opening_start_utc",
+    "opening_end_utc",
+    "founder_allocation_bps",
+    "founder_unlock_utc",
+    "canonical_url",
+    "risk_url",
+    "source_url",
+    "evidence_cutoff_block",
+    "evidence_cutoff_utc",
+    "limitations"
+  ],
+  "templates": [
+    {
+      "artifactType": "permit",
+      "publicLabel": "Rug Permit / Opening",
+      "allowedStatus": ["Opening"],
+      "requiredFields": [
+        "creation_tx_hash",
+        "creation_block",
+        "minimum_launch_wei",
+        "accepted_contribution_cap_wei",
+        "current_total_contributed_wei",
+        "creator_can_cancel_after_opening",
+        "founder_sell_rule"
+      ],
+      "requiredStatements": [
+        "Opening is still in progress; no Failed or Active result is implied.",
+        "The creator cannot cancel after Opening starts.",
+        "If Active, the protocol-held Founder Allocation remains locked until the published unlock time and may later be sold once in full."
+      ]
+    },
+    {
+      "artifactType": "failed",
+      "publicLabel": "Failed Opening Receipt",
+      "allowedStatus": ["Failed"],
+      "requiredFields": [
+        "finalize_tx_hash",
+        "finalize_block",
+        "total_contributed_wei",
+        "minimum_launch_wei",
+        "token_address",
+        "pool_address",
+        "eligible_refund_wei",
+        "claimed_refund_wei",
+        "outstanding_refund_wei",
+        "creator_stake_withdrawal_eligible_wei",
+        "creator_stake_withdrawn_wei",
+        "creator_stake_outstanding_wei"
+      ],
+      "requiredStatements": [
+        "Failed creates no RugToken or RugPool.",
+        "Contributors claim their own recorded contributions; the Worker does not refund on their behalf.",
+        "The creation fee is not refunded."
+      ]
+    },
+    {
+      "artifactType": "active",
+      "publicLabel": "Active Opening Receipt",
+      "allowedStatus": ["Active"],
+      "requiredFields": [
+        "finalize_tx_hash",
+        "finalize_block",
+        "token_address",
+        "pool_address",
+        "total_contributed_wei",
+        "accepted_contribution_wei",
+        "opening_token_allocation_units",
+        "eligible_claim_contribution_wei",
+        "claimed_contribution_wei",
+        "outstanding_claim_contribution_wei",
+        "founder_remaining_units",
+        "pool_token_reserve_units",
+        "pool_quote_reserve_wei",
+        "actual_pool_token_balance_units",
+        "actual_pool_quote_balance_wei"
+      ],
+      "requiredStatements": [
+        "Active is not Rugged and does not imply that every eligible contributor has claimed.",
+        "The canonical pool has no reserve-withdraw path, but trading still carries slippage, MEV, alternative-pool, and total-loss risk.",
+        "The founder sell is optional and has no forced deadline."
+      ]
+    },
+    {
+      "artifactType": "still_waiting",
+      "publicLabel": "Still Waiting Observation",
+      "allowedStatus": ["Active"],
+      "requiredFields": [
+        "report_cutoff_utc",
+        "report_cutoff_block",
+        "founder_unlock_utc",
+        "founder_remaining_units",
+        "rug_event_observed",
+        "last_checked_rpc_count"
+      ],
+      "requiredStatements": [
+        "No Rugged event was observed by the stated cutoff; this is not a promise about future creator behavior.",
+        "The report cutoff is not a protocol deadline.",
+        "Do not pressure, reward, or provoke the creator to execute rug() for content."
+      ]
+    },
+    {
+      "artifactType": "rugged",
+      "publicLabel": "Rugged / Autopsy Receipt",
+      "allowedStatus": ["Rugged"],
+      "requiredFields": [
+        "rug_tx_hash",
+        "rug_block",
+        "founder_tokens_sold_units",
+        "creator_quote_received_wei",
+        "protocol_fee_quote_wei",
+        "founder_remaining_units",
+        "pool_token_reserve_units",
+        "pool_quote_reserve_wei",
+        "actual_pool_token_balance_units",
+        "actual_pool_quote_balance_wei",
+        "post_rug_trade_observed",
+        "post_rug_trade_tx_hash",
+        "eligible_claim_contribution_wei",
+        "claimed_contribution_wei",
+        "outstanding_claim_contribution_wei"
+      ],
+      "requiredStatements": [
+        "Rugged means the protocol-held Founder Allocation was sold once in full; it is not a liquidity-reserve withdrawal.",
+        "Canonical trading may continue and no refund right is created by Rugged.",
+        "Do not describe claims as settled while any eligible contribution remains outstanding."
+      ]
+    }
+  ]
+}

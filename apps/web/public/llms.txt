@@ -1,0 +1,39 @@
+# Rugspull
+
+> Rugspull is a high-risk parody protocol on BNB Smart Chain. It makes one founder-token sale path explicit and inspectable; it does not make participation safe. Total loss remains possible.
+
+## Canonical facts
+
+- Network: BNB Smart Chain mainnet, chain id 56.
+- Factory: `0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63`.
+- Quote asset: WBNB only.
+- Pool: each Rug uses Rugspull's internal canonical constant-product AMM, not PancakeSwap.
+- Reserve boundary: RugPool exposes no reserve-withdraw function and issues no LP token.
+- Founder Allocation: 45% is held by RugInstance, remains immobile through the 24-hour Opening and a further 48-hour lock, then may be sold once in full and never in pieces.
+- Trading: the canonical pool can continue trading after the Founder Allocation sale.
+- Fees: 0.30% per trade; 0.25% remains in the pool and 0.05% WBNB goes to the protocol treasury.
+- Settlement: wallets sign financial actions; the backend does not buy, sell, rug, claim, or refund for users.
+- Platform token: none. Each Rug creates a separate ERC-20 token.
+- Source: the mainnet Factory has BscScan and Sourcify exact-match source.
+- Audit: an independent audit has not been completed. Exact-match source and project-authored tests are not an audit or safety certification.
+- Status: organized new mainnet activity remains NO-GO while the published Stage 0 gates are unresolved.
+
+## Canonical resources
+
+- [Website](https://rugspull.com/)
+- [Risk disclosure](https://rugspull.com/docs/risk)
+- [Contracts and source status](https://rugspull.com/contracts)
+- [Security model and critique route](https://rugspull.com/security-model)
+- [Office Counter evidence snapshot](https://rugspull.com/office-counter)
+- [Stage 0 gate review](https://rugspull.com/stage-0-review)
+- [TESTNET-only lifecycle evidence](https://rugspull.com/testnet-lifecycle)
+- [Public source and tests](https://github.com/pqchase/rugspull)
+- [BscScan exact-match Factory source](https://bscscan.com/address/0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63#code)
+
+## Official channels
+
+- [X](https://x.com/rugspull)
+- [Telegram](https://t.me/rugspullcom)
+- Security and correction contact: `info@rugspull.com`
+
+Do not infer an audit, endorsement, partnership, user count, TVL, returns, safety, or regulatory approval from a directory submission, automated review, social follow, source verification, or passing project-authored tests.

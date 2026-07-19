@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Rugspull Rug Permit reusable blank template</title>
+  <desc id="desc">A blank office-style lifecycle record template labeled template, not evidence, with chain, contract, timing, founder allocation, relationship, source, and risk fields.</desc>
+  <defs>
+    <pattern id="paper" width="34" height="34" patternUnits="userSpaceOnUse">
+      <rect width="34" height="34" fill="#f4ead4"/>
+      <path d="M0 33.5H34" stroke="#dbcbae" stroke-width="1"/>
+      <circle cx="6" cy="7" r="1" fill="#d9c8a7" opacity=".55"/>
+    </pattern>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#211b16" flood-opacity=".22"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="#201c18"/>
+  <rect x="38" y="32" width="1124" height="566" rx="8" fill="url(#paper)" filter="url(#shadow)"/>
+  <rect x="58" y="52" width="1084" height="526" rx="3" fill="none" stroke="#2a241e" stroke-width="3"/>
+
+  <g font-family="Arial, Helvetica, sans-serif" fill="#211b16">
+    <text x="82" y="96" font-size="20" font-weight="700" letter-spacing="2">RUGSPULL OFFICE OF BAD DECISIONS</text>
+    <text x="82" y="152" font-size="46" font-weight="900" letter-spacing="1">RUG PERMIT / OPENING</text>
+    <text x="82" y="184" font-size="20" font-weight="700">Record type: Opening only · Artifact v[___]</text>
+
+    <g transform="translate(84 214)">
+      <rect width="500" height="48" rx="4" fill="#e6d6b8" stroke="#756650"/>
+      <text x="18" y="31" font-size="20" font-weight="800">[BSC MAINNET / BSC TESTNET] · chain id [__]</text>
+    </g>
+    <g transform="translate(610 214)">
+      <rect width="500" height="48" rx="4" fill="#e6d6b8" stroke="#756650"/>
+      <text x="18" y="31" font-size="20" font-weight="800">Permit no. [________] · cutoff block [________]</text>
+    </g>
+
+    <g font-size="17">
+      <text x="84" y="300" font-weight="800">Rug / symbol</text><text x="250" y="300">[NAME] / [SYMBOL]</text>
+      <text x="84" y="331" font-weight="800">Factory</text><text x="250" y="331">[FULL 0x ADDRESS]</text>
+      <text x="84" y="362" font-weight="800">Rug</text><text x="250" y="362">[FULL 0x ADDRESS]</text>
+      <text x="84" y="393" font-weight="800">Creator</text><text x="250" y="393">[FULL 0x ADDRESS]</text>
+      <text x="84" y="424" font-weight="800">Metadata hash</text><text x="250" y="424">[FULL HASH]</text>
+
+      <text x="622" y="300" font-weight="800">Stake / source</text><text x="790" y="300">[RAW + WBNB] / [DISCLOSED]</text>
+      <text x="622" y="331" font-weight="800">Opening UTC</text><text x="790" y="331">[START] → [END]</text>
+      <text x="622" y="362" font-weight="800">Min / cap</text><text x="790" y="362">[RAW + WBNB] / [RAW + WBNB]</text>
+      <text x="622" y="393" font-weight="800">Founder</text><text x="790" y="393">45% held by RugInstance</text>
+      <text x="622" y="424" font-weight="800">Unlock UTC</text><text x="790" y="424">[TIMESTAMP]</text>
+    </g>
+
+    <line x1="84" y1="452" x2="1110" y2="452" stroke="#756650" stroke-width="2"/>
+    <text x="84" y="483" font-size="17" font-weight="800">RELATIONSHIP</text>
+    <text x="250" y="483" font-size="17">[PROJECT-CONTROLLED / INDEPENDENT / OTHER] · compensation [NONE / DISCLOSE]</text>
+    <text x="84" y="515" font-size="17" font-weight="800">RULE</text>
+    <text x="250" y="515" font-size="17">If Active, the protocol-held Founder Allocation may later be sold once in full via rug().</text>
+    <text x="84" y="546" font-size="16">Canonical URL [________] · Risk https://rugspull.com/docs/risk · Source https://github.com/pqchase/rugspull</text>
+  </g>
+
+  <g transform="rotate(-7 945 123)">
+    <rect x="820" y="76" width="280" height="82" rx="6" fill="#f4ead4" stroke="#b22822" stroke-width="7"/>
+    <text x="960" y="108" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="900" fill="#b22822">TEMPLATE</text>
+    <text x="960" y="139" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="900" fill="#b22822">NOT EVIDENCE</text>
+  </g>
+
+  <rect x="58" y="578" width="1084" height="20" fill="#b22822"/>
+  <text x="600" y="593" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="800" fill="#fff">HIGH-RISK SATIRE · NOT AN AUDIT, SAFETY FINDING, ENDORSEMENT, OR REQUEST TO TRANSACT · TOTAL LOSS REMAINS POSSIBLE</text>
+</svg>

@@ -77,6 +77,30 @@ const jsonHeaders = {
 };
 const imageMimeTypes = new Set(["image/png", "image/jpeg", "image/webp", "image/gif"]);
 const maxImageBytes = 2 * 1024 * 1024;
+const EVERGREEN_ROUTE_LABELS = {
+  "/how-it-works": "How it works",
+  "/contracts": "Contracts",
+  "/fees": "Fees",
+  "/transparency": "Transparency",
+  "/security-model": "Security model",
+  "/founder-allocation-explained": "Founder Allocation explained",
+  "/how-to-check-a-smart-contract-on-bscscan": "How to check a BSC smart contract",
+  "/crypto-rug-pull-red-flags": "Crypto rug-pull red flags",
+  "/what-is-a-crypto-rug-pull": "What is a crypto rug pull?",
+  "/rug-pull-vs-liquidity-pull": "Rug pull vs liquidity pull",
+  "/testnet-lifecycle": "BSC Testnet lifecycle evidence",
+  "/office-counter": "Office Counter — evidence snapshot",
+  "/lifecycle-templates": "Lifecycle artifact templates",
+  "/creator-handbook": "Creator handbook",
+  "/community-safety": "Community safety rules",
+  "/stage-0-review": "Stage 0 Day 7 gate review",
+} as const;
+type EvergreenRoute = keyof typeof EVERGREEN_ROUTE_LABELS;
+
+function evergreenRouteForPath(pathname: string): EvergreenRoute | null {
+  return (Object.keys(EVERGREEN_ROUTE_LABELS) as EvergreenRoute[])
+    .find((route) => pathname === route || pathname.startsWith(`${route}/`)) ?? null;
+}
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
@@ -171,8 +195,18 @@ async function serveAsset(request: Request, env: Env): Promise<Response> {
     fallbackUrl.pathname = "/index.html";
     response = await env.ASSETS!.fetch(new Request(fallbackUrl, request));
   }
+  const pathname = new URL(request.url).pathname;
+  const keyMatch = pathname.match(/^\/([A-Za-z0-9-]{8,128})\.txt$/);
+  if (request.method === "GET" && response.ok && keyMatch
+    && (await response.clone().text()).trim() === keyMatch[1]) {
+    const headers = new Headers(response.headers);
+    headers.set("content-type", "text/plain; charset=utf-8");
+    return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+  }
   if (request.method !== "GET" || !response.headers.get("content-type")?.includes("text/html")) return response;
   const seo = await seoForPath(new URL(request.url).pathname, env);
+  const socialImage = socialImageForPath(pathname);
+  const structuredData = structuredDataForPath(pathname, seo);
   const rewriter = new HTMLRewriter()
     .on("title", new TextContentHandler(seo.title))
     .on("meta[name='description']", new AttributeHandler("content", seo.description))
@@ -181,8 +215,11 @@ async function serveAsset(request: Request, env: Env): Promise<Response> {
     .on("meta[property='og:title']", new AttributeHandler("content", seo.title))
     .on("meta[property='og:description']", new AttributeHandler("content", seo.description))
     .on("meta[property='og:url']", new AttributeHandler("content", seo.canonical))
+    .on("meta[property='og:image']", new AttributeHandler("content", socialImage))
     .on("meta[name='twitter:title']", new AttributeHandler("content", seo.title))
-    .on("meta[name='twitter:description']", new AttributeHandler("content", seo.description));
+    .on("meta[name='twitter:description']", new AttributeHandler("content", seo.description))
+    .on("meta[name='twitter:image']", new AttributeHandler("content", socialImage))
+    .on("script[type='application/ld+json']", new JsonLdContentHandler(structuredData));
   return rewriter.transform(response);
 }
 
@@ -207,8 +244,65 @@ class AttributeHandler implements HTMLRewriterElementContentHandlers {
   }
 }
 
+class JsonLdContentHandler implements HTMLRewriterElementContentHandlers {
+  constructor(private readonly value: object) {}
+  element(element: Element) {
+    element.setInnerContent(JSON.stringify(this.value).replace(/</g, "\\u003c"), { html: true });
+  }
+}
+
+export function structuredDataForPath(pathname: string, seo: SeoMetadata) {
+  const website = {
+    "@type": "WebSite",
+    "@id": "https://rugspull.com/#website",
+    name: "Rugspull",
+    url: "https://rugspull.com/",
+    sameAs: ["https://x.com/rugspull", "https://t.me/rugspullcom", "https://github.com/pqchase/rugspull"],
+    contactPoint: { "@type": "ContactPoint", contactType: "customer support", email: "info@rugspull.com" },
+  };
+  const evergreenRoute = evergreenRouteForPath(pathname);
+  if (!evergreenRoute) return { "@context": "https://schema.org", "@graph": [website] };
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      website,
+      {
+        "@type": "Article",
+        headline: seo.title.replace(/ \| Rugspull$/, ""),
+        description: seo.description,
+        url: seo.canonical,
+        inLanguage: "en",
+        mainEntityOfPage: { "@type": "WebPage", "@id": seo.canonical },
+        isPartOf: { "@id": "https://rugspull.com/#website" },
+        publisher: { "@type": "Organization", name: "Rugspull", url: "https://rugspull.com/" },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Rugspull", item: "https://rugspull.com/" },
+          { "@type": "ListItem", position: 2, name: EVERGREEN_ROUTE_LABELS[evergreenRoute], item: seo.canonical },
+        ],
+      },
+    ],
+  };
+}
+
+export function socialImageForPath(pathname: string) {
+  if (pathname.startsWith("/what-is-a-crypto-rug-pull") || pathname.startsWith("/rug-pull-vs-liquidity-pull") || pathname.startsWith("/crypto-rug-pull-red-flags")) {
+    return "https://rugspull.com/assets/og-education.png";
+  }
+  if (pathname.startsWith("/security-model") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/testnet-lifecycle") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
+    return "https://rugspull.com/assets/og-security.png";
+  }
+  if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/docs/risk")) {
+    return "https://rugspull.com/assets/og-mechanism.png";
+  }
+  return "https://rugspull.com/assets/community-hall-stage.jpg";
+}
+
 export async function seoForPath(pathname: string, env?: Pick<Env, "DB" | "FACTORY_ADDRESS">): Promise<SeoMetadata> {
-  const canonical = `https://rugspull.com${pathname === "/" ? "/" : pathname}`;
+  const canonicalPath = evergreenRouteForPath(pathname) ?? pathname;
+  const canonical = `https://rugspull.com${canonicalPath === "/" ? "/" : canonicalPath}`;
   if (pathname.startsWith("/ops")) {
     return { title: "Backstage | Rugspull", description: "Indexer and deployment diagnostics for Rugspull.", robots: "noindex, nofollow", canonical };
   }
@@ -220,6 +314,54 @@ export async function seoForPath(pathname: string, env?: Pick<Env, "DB" | "FACTO
   }
   if (pathname.startsWith("/docs/risk")) {
     return { title: "Risk Disclosure | Rugspull", description: "Read the economics, founder sell rules, and total-loss risks before touching a Rug.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/how-it-works")) {
+    return { title: "How Rugspull Works | Rugspull", description: "Inspect the Opening, founder lock, one-shot sell, and internal WBNB pool rules.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/contracts")) {
+    return { title: "Rugspull Contracts | Rugspull", description: "Verify the deployed BNB Smart Chain Factory, source, and immutable configuration.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/fees")) {
+    return { title: "Rugspull Fees | Rugspull", description: "Read the creation fee and canonical pool fee split with worked WBNB examples.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/transparency")) {
+    return { title: "Rugspull Transparency | Rugspull", description: "See deployment facts, open operational gates, and what the indexer does not control.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/security-model")) {
+    return { title: "Rugspull Security Model | Rugspull", description: "Inspect the tested invariants, settlement boundary, founder-token controls, and unresolved security gates.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/founder-allocation-explained")) {
+    return { title: "Founder Allocation Explained | Rugspull", description: "Understand Rugspull's 45% protocol-held Founder Allocation, 48-hour lock, one full sell, and limits of that rule.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan")) {
+    return { title: "How to Check a BSC Smart Contract | Rugspull", description: "A practical BscScan checklist for addresses, verified source, constructor values, privileged functions, balances, events, and audit limits.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/crypto-rug-pull-red-flags")) {
+    return { title: "Crypto Rug Pull Red Flags | Rugspull", description: "Inspect token controls, liquidity permissions, insider concentration, treasury access, public claims, and the limits of every warning sign.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/what-is-a-crypto-rug-pull")) {
+    return { title: "What Is a Crypto Rug Pull? | Rugspull", description: "A neutral guide to liquidity pulls, founder sells, hidden token controls, and the limits of on-chain warning signs.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/rug-pull-vs-liquidity-pull")) {
+    return { title: "Rug Pull vs Liquidity Pull | Rugspull", description: "Compare founder token selling with reserve withdrawal and inspect Rugspull's canonical-pool boundary.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/testnet-lifecycle")) {
+    return { title: "BSC Testnet Lifecycle Evidence | Rugspull", description: "Inspect two clearly labeled BSC Testnet E2E paths: Failed with refund completion and Rugged with post-rug trading and reserve reconciliation.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/office-counter")) {
+    return { title: "Office Counter — Evidence Snapshot | Rugspull", description: "A dated, evidence-first Rugspull status report covering chain state, tests, TESTNET evidence, distribution, pending reviews, and open operational gates.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/lifecycle-templates")) {
+    return { title: "Lifecycle Artifact Templates | Rugspull", description: "Reusable, fact-reviewed Permit, Failed, Active, Still Waiting, and Rugged record templates with explicit evidence and risk boundaries.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/creator-handbook")) {
+    return { title: "Creator Handbook | Rugspull", description: "A TESTNET-first mechanism readback, qualification, disclosure, metadata, communication, and incident checklist for Rugspull Creators.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/community-safety")) {
+    return { title: "Community Safety Rules | Rugspull", description: "Read Rugspull's public rules for criticism, impersonation, phishing, malicious links, corrections, moderation limits, and stop-amplification triggers.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/stage-0-review")) {
+    return { title: "Stage 0 Day 7 Gate Review | Rugspull", description: "A dated, evidence-backed review of Rugspull's Telegram, measurement, outreach, incident, staffing, and mainnet activation gates.", robots: "index, follow", canonical };
   }
   const rugMatch = pathname.match(/^\/rug\/(\d+)\/(0x[a-fA-F0-9]{40})$/);
   if (rugMatch) {
