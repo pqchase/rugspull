@@ -500,6 +500,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/create",
       robots: "index, follow",
     });
+    await expect(seoForPath("/api-reference")).resolves.toMatchObject({
+      title: "Read API Reference | Rugspull",
+      canonical: "https://rugspull.com/api-reference",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/ops")).resolves.toMatchObject({ robots: "noindex, nofollow" });
   });
 

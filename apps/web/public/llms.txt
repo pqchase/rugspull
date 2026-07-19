@@ -24,6 +24,7 @@
 - [Risk disclosure](https://rugspull.com/docs/risk)
 - [Contracts and source status](https://rugspull.com/contracts)
 - [Third-party data integration package](https://rugspull.com/integration.json)
+- [Human-readable Read API reference](https://rugspull.com/api-reference)
 - [Read-only OpenAPI 3.1 specification](https://rugspull.com/openapi.json)
 - [Read-only Postman Collection](https://rugspull.com/rugspull-read.postman_collection.json)
 - [APIs.json discovery index](https://rugspull.com/.well-known/apis.json)

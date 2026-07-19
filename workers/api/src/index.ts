@@ -85,6 +85,7 @@ const EVERGREEN_ROUTE_LABELS = {
   "/fees": "Fees",
   "/transparency": "Transparency",
   "/security-model": "Security model",
+  "/api-reference": "Read API reference",
   "/founder-allocation-explained": "Founder Allocation explained",
   "/how-to-check-a-smart-contract-on-bscscan": "How to check a BSC smart contract",
   "/crypto-rug-pull-red-flags": "Crypto rug-pull red flags",
@@ -299,7 +300,7 @@ export function socialImageForPath(pathname: string) {
   if (pathname.startsWith("/what-is-a-crypto-rug-pull") || pathname.startsWith("/rug-pull-vs-liquidity-pull") || pathname.startsWith("/crypto-rug-pull-red-flags")) {
     return "https://rugspull.com/assets/og-education.png";
   }
-  if (pathname.startsWith("/security-model") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/testnet-lifecycle") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
+  if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/testnet-lifecycle") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
     return "https://rugspull.com/assets/og-security.png";
   }
   if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/docs/risk")) {
@@ -337,6 +338,9 @@ export async function seoForPath(pathname: string, env?: Pick<Env, "DB" | "FACTO
   }
   if (pathname.startsWith("/security-model")) {
     return { title: "Rugspull Security Model | Rugspull", description: "Inspect the tested invariants, settlement boundary, founder-token controls, and unresolved security gates.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/api-reference")) {
+    return { title: "Read API Reference | Rugspull", description: "Inspect Rugspull's nine GET-only discovery-cache endpoints, machine-readable specifications, and financial-truth boundaries.", robots: "index, follow", canonical };
   }
   if (pathname.startsWith("/founder-allocation-explained")) {
     return { title: "Founder Allocation Explained | Rugspull", description: "Understand Rugspull's 45% protocol-held Founder Allocation, 48-hour lock, one full sell, and limits of that rule.", robots: "index, follow", canonical };

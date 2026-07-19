@@ -31,6 +31,7 @@
   },
   "source": {
     "repository": "https://github.com/pqchase/rugspull",
+    "apiReference": "https://rugspull.com/api-reference",
     "humanGuide": "https://github.com/pqchase/rugspull/blob/main/docs/INTEGRATION.md",
     "openapi": "https://rugspull.com/openapi.json",
     "postmanCollection": "https://rugspull.com/rugspull-read.postman_collection.json",

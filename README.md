@@ -7,6 +7,7 @@ BSC-first MVP for transparent one-shot founder-rug launches.
 [X](https://x.com/rugspull) | [Evidence feed](https://rugspull.com/feed.xml) |
 [Security contact](https://rugspull.com/.well-known/security.txt) |
 [Integration package](https://rugspull.com/integration.json) |
+[API Reference](https://rugspull.com/api-reference) |
 [OpenAPI](https://rugspull.com/openapi.json) |
 [Postman Collection](https://rugspull.com/rugspull-read.postman_collection.json) |
 [APIs.json](https://rugspull.com/.well-known/apis.json) |

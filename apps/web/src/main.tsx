@@ -133,6 +133,7 @@ const EVERGREEN_ROUTE_LABELS = {
   "/fees": "Fees",
   "/transparency": "Transparency",
   "/security-model": "Security model",
+  "/api-reference": "Read API reference",
   "/founder-allocation-explained": "Founder Allocation explained",
   "/how-to-check-a-smart-contract-on-bscscan": "How to check a BSC smart contract",
   "/crypto-rug-pull-red-flags": "Crypto rug-pull red flags",
@@ -218,6 +219,8 @@ function useDocumentMetadata(path: string) {
                   ? { title: "Rugspull Transparency | Rugspull", description: "See deployment facts, open operational gates, and what the indexer does not control.", robots: "index, follow" }
                   : path.startsWith("/security-model")
                     ? { title: "Rugspull Security Model | Rugspull", description: "Inspect the tested invariants, settlement boundary, founder-token controls, and unresolved security gates.", robots: "index, follow" }
+                    : path.startsWith("/api-reference")
+                      ? { title: "Read API Reference | Rugspull", description: "Inspect Rugspull's nine GET-only discovery-cache endpoints, machine-readable specifications, and financial-truth boundaries.", robots: "index, follow" }
                     : path.startsWith("/founder-allocation-explained")
                       ? { title: "Founder Allocation Explained | Rugspull", description: "Understand Rugspull's 45% protocol-held Founder Allocation, 48-hour lock, one full sell, and limits of that rule.", robots: "index, follow" }
                       : path.startsWith("/how-to-check-a-smart-contract-on-bscscan")
@@ -310,7 +313,7 @@ function socialImageForPath(pathname: string) {
   if (pathname.startsWith("/what-is-a-crypto-rug-pull") || pathname.startsWith("/rug-pull-vs-liquidity-pull") || pathname.startsWith("/crypto-rug-pull-red-flags")) {
     return "https://rugspull.com/assets/og-education.png";
   }
-  if (pathname.startsWith("/security-model") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
+  if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
     return "https://rugspull.com/assets/og-security.png";
   }
   if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/docs/risk")) {
@@ -490,6 +493,7 @@ function Shell({ children, path, wallet }: { children: React.ReactNode; path: st
                 <ul>
                   <li><a href="/docs/risk">Read risk first</a></li>
                   <li><a href="/security-model">Security model</a></li>
+                  <li><a href="/api-reference">Read API</a></li>
                   <li><a href="/founder-allocation-explained">Founder allocation</a></li>
                   <li><a href="/how-to-check-a-smart-contract-on-bscscan">Contract check</a></li>
                 </ul>
@@ -1928,6 +1932,20 @@ const FACT_PAGES = {
       ["What remains unresolved", "Independent audit, two production RPC providers with SLA, legal and jurisdiction review, multisig custody, and staffed incident response remain open. MEV, slippage, alternative pools, key compromise, and total loss remain possible."],
     ],
   },
+  "/api-reference": {
+    eyebrow: "Developer reference · GET only",
+    title: "READ THE CACHE. VERIFY THE CHAIN.",
+    intro: "Nine public GET endpoints expose rebuildable discovery, indexed events, market observations, and immutable public objects. They do not settle transactions, move funds, sign wallet messages, or replace BNB Smart Chain as financial truth.",
+    sections: [
+      ["Service · 3 endpoints", "GET /api/health reports process liveness only. GET /api/config exposes public chain and Factory configuration. GET /api/indexer/status reports checkpoints, stale thresholds, and warnings. None proves complete history, RPC health, price accuracy, or an uptime SLA."],
+      ["Rug discovery · 3 endpoints", "GET /api/rugs lists current-Factory cache rows. GET /api/rugs/{chainId}/{rugAddress} returns one indexed Rug. GET /api/rugs/{chainId}/{rugAddress}/events returns ordered cached events. Verify addresses, state, balances, and matching event history on BNB Smart Chain."],
+      ["Market observations · 2 endpoints", "GET /api/rugs/{chainId}/{rugAddress}/market returns event-derived points and a Rug marker. GET /api/market/sparklines returns bounded recent price samples. These observations are not a price oracle, execution quote, liquidity guarantee, or investment signal."],
+      ["Public objects · 1 endpoint", "GET /api/r2/{key} returns a public immutable metadata or image object only when its key passes the public-key policy. Content availability does not authenticate a Creator, prove rights ownership, or certify a Rug."],
+      ["No execution surface", "The Read API exposes no buy, sell, rug, claim, refund, contribute, create, approval, signature, or transaction-proxy operation. Wallets call deployed contracts directly. The Worker and D1 remain rebuildable index and metadata layers."],
+      ["Machine-readable resources", "OpenAPI 3.1, a GET-only Postman Collection, APIs.json, API Onboarding, and an RFC 9727 API Catalog are public discovery aids. Their publication does not prove third-party integration, review, partnership, recommendation, endorsement, indexing, or use."],
+      ["Operational boundary", "No numeric rate limit or uptime SLA is offered. Independent audit remains pending, total loss remains possible, and organized new mainnet activity remains NO-GO while the published activation gates are unresolved."],
+    ],
+  },
   "/testnet-lifecycle": {
     eyebrow: "TESTNET lifecycle archive",
     title: "TWO PATHS. ZERO MAINNET CLAIMS.",
@@ -1949,7 +1967,7 @@ const FACT_PAGES = {
       ["Mainnet chain record", "BNB Smart Chain mainnet · chain id 56 · Factory 0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63. The production index returned zero current-Factory Rugs at the report cutoff. This is a dated observation, not a promise that the count remains zero."],
       ["Contract test record", "Foundry reran 41 tests across unit, fuzz, invariant, and scenario families on 2026-07-17: 41 passed and zero failed. Passing project-authored tests are evidence, not an independent audit or safety finding."],
       ["Lifecycle evidence", "Two controlled BSC Testnet paths are published: Failed with contributor refund and creator-stake withdrawal, and Rugged with contributor claim, one founder exit, post-rug trading, and reserve reconciliation. They are not mainnet users, volume, adoption, or complete historical receipts."],
-      ["Public evidence inventory", "Fourteen evergreen mechanism, security, education, lifecycle-template, Creator-readback, community-safety, and gate-review pages plus the TESTNET lifecycle archive are public with this report. The sitemap contains 19 URLs. Google Search Console last read it on 2026-07-18 and reports all 19 URLs discovered with 0 videos; its indexing report remains processing and the overview reports 0 web-search clicks. Discovery is not indexing, ranking, impressions, traffic, or adoption."],
+      ["Public evidence inventory", "Fifteen evergreen mechanism, security, API-reference, education, lifecycle-template, Creator-readback, community-safety, and gate-review pages plus the TESTNET lifecycle archive and this dated Office Counter are public. The sitemap contains 20 URLs. Google Search Console last read the prior sitemap on 2026-07-18 and reports 19 URLs discovered with 0 videos; its indexing report remains processing and the overview reports 0 web-search clicks. The new API Reference has been submitted for discovery but is not claimed as discovered, indexed, ranked, visited, or used."],
       ["Distribution record", "Four verified X URLs and final Telegram correction post 9 are recorded in the execution log. Post 9 contains three publicly verified HTTPS links and was verified as the current pinned message in the logged-in desktop channel on 2026-07-17. Earlier Telegram posts 5 and 7 have malformed links and post 6 is title-only; they remain visible and are not counted as successful linked content. X account recovery is complete and the next approved item remains time-gated."],
       ["Review and directory state", "DappBay My Projects still shows Security Reviewing, while its official search returns No related dApps or campaigns for Rugspull; this is pending review with no public listing result. RootData's prior dashboard session expired, so its last authenticated Pending Review state was not promoted to a newer claim. DappRadar's official submit link and Developers route both redirect to its homepage, which exposes no submit entry. Focused public searches found no Rugspull detail page on those services, MathWallet, Magic Store, or Moralis Web3 Wiki. BNB Chain Awesome PR #13 is open and clean with an automated documentation-only bot comment; it is not merged or human-reviewed. GitHub Issue 1 and Electric Capital PR #2932 still have no external human review or comments. None of these states is an audit, listing approval, independent review, recommendation, partnership, or BNB Chain endorsement."],
       ["Deployment continuity record", "A README-only GitHub push exposed source drift and temporarily caused most sampled edges to serve an older three-URL sitemap while some still served 19 URLs. The public deployment source subset was synchronized in commit df8177b. Two subsequent GitHub-triggered deployments produced stable 19-URL sitemap samples across SIN and NRT edges; the latest checked version is 2b713249-babd-455b-aa78-ffd513df8670. This is a recovery observation, not an uptime SLA or future-availability promise."],
@@ -2091,6 +2109,7 @@ function FactPage({ path }: { path: EvergreenRoute }) {
   const isTestnetLifecycle = path === "/testnet-lifecycle";
   const isSecurityModel = path === "/security-model";
   const isLifecycleTemplates = path === "/lifecycle-templates";
+  const isApiReference = path === "/api-reference";
   const critiqueIssueUrl = "https://github.com/pqchase/rugspull/issues/1";
   return (
     <main className="page fact-page">
@@ -2103,12 +2122,18 @@ function FactPage({ path }: { path: EvergreenRoute }) {
         {page.sections.map(([heading, copy]) => <article className="panel" key={heading}><span className="eyebrow">{heading}</span><p>{copy}</p></article>)}
       </section>
       <section className="panel fact-actions">
-        <strong>{isSecurityModel ? "Challenge a claim with evidence." : "Read risk first."}</strong>
-        <span>{isSecurityModel ? "Submit a minimal reproduction, counterexample, missing invariant, or disclosure correction. Sensitive funds-at-risk reports belong in private email, not a public issue." : "Rugspull is high-risk satire, not a safe investment or promise of returns. Total loss remains possible."}</span>
+        <strong>{isSecurityModel ? "Challenge a claim with evidence." : isApiReference ? "Choose a read-only artifact." : "Read risk first."}</strong>
+        <span>{isSecurityModel ? "Submit a minimal reproduction, counterexample, missing invariant, or disclosure correction. Sensitive funds-at-risk reports belong in private email, not a public issue." : isApiReference ? "Use the chain for financial truth and the API only for discovery. No artifact below creates an audit, SLA, endorsement, or execution service." : "Rugspull is high-risk satire, not a safe investment or promise of returns. Total loss remains possible."}</span>
         <div>
           <a className="primary" href="/docs/risk">Risk disclosure</a>
           <a className="secondary" href={isTestnetLifecycle ? "https://testnet.bscscan.com/address/0x8e6ba49e54F7bDa1a5499D143395116d3430ae3c" : "https://bscscan.com/address/0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63#code"} target="_blank" rel="noreferrer">{isTestnetLifecycle ? "Testnet Factory" : "BscScan source"}</a>
           <a className="secondary" href="https://github.com/pqchase/rugspull" target="_blank" rel="noreferrer">GitHub</a>
+          {isApiReference ? <a className="primary" href="/openapi.json">OpenAPI 3.1</a> : null}
+          {isApiReference ? <a className="secondary" href="/rugspull-read.postman_collection.json">Postman Collection</a> : null}
+          {isApiReference ? <a className="secondary" href="/.well-known/apis.json">APIs.json</a> : null}
+          {isApiReference ? <a className="secondary" href="/.well-known/api-onboarding">API Onboarding</a> : null}
+          {isApiReference ? <a className="secondary" href="/.well-known/api-catalog">API Catalog</a> : null}
+          {isApiReference ? <a className="secondary" href="https://github.com/pqchase/rugspull/blob/main/docs/INTEGRATION.md" target="_blank" rel="noreferrer">Integration guide</a> : null}
           {isLifecycleTemplates ? <a className="primary" href="/lifecycle-artifact-templates.json" download>Download JSON templates</a> : null}
           {isLifecycleTemplates ? <a className="secondary" href="/assets/rug-permit-template.svg" download>Download Permit SVG</a> : null}
           {isSecurityModel ? <a className="primary" href={critiqueIssueUrl} target="_blank" rel="noreferrer"><ExternalLink size={16} />Join public critique thread</a> : null}

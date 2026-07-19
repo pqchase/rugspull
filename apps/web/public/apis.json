@@ -17,10 +17,11 @@
     "description": "Nine GET-only endpoints over a rebuildable index and metadata cache; no settlement or transaction-proxy operations.",
     "image": "https://rugspull.com/assets/og-mechanism.png",
     "baseURL": "https://rugspull.com",
-    "humanURL": "https://github.com/pqchase/rugspull/blob/main/docs/INTEGRATION.md",
+    "humanURL": "https://rugspull.com/api-reference",
     "tags": ["bsc", "wbnb", "read-only", "discovery-cache"],
     "properties": [
-      {"type": "Documentation", "url": "https://github.com/pqchase/rugspull/blob/main/docs/INTEGRATION.md"},
+      {"type": "Documentation", "url": "https://rugspull.com/api-reference"},
+      {"type": "X-IntegrationGuide", "url": "https://github.com/pqchase/rugspull/blob/main/docs/INTEGRATION.md"},
       {"type": "OpenAPI", "url": "https://rugspull.com/openapi.json", "mediaType": "application/json"},
       {"type": "PostmanCollection", "url": "https://rugspull.com/rugspull-read.postman_collection.json", "mediaType": "application/json"},
       {"type": "LlmsText", "url": "https://rugspull.com/llms.txt", "mediaType": "text/plain"},

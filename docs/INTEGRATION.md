@@ -19,6 +19,7 @@ activation gates are unresolved.
 | Exact-match source | [BscScan](https://bscscan.com/address/0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63#code) |
 | Machine integration package | [`integration.json`](https://rugspull.com/integration.json) |
 | OpenAPI 3.1 | [`openapi.json`](https://rugspull.com/openapi.json) |
+| Human-readable API Reference | [`/api-reference`](https://rugspull.com/api-reference) |
 | Risk disclosure | [rugspull.com/docs/risk](https://rugspull.com/docs/risk) |
 
 Each `RugCreated` event introduces a separate RugInstance. Token and RugPool addresses exist only

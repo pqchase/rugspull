@@ -15,8 +15,8 @@
     { "url": "https://rugspull.com" }
   ],
   "externalDocs": {
-    "description": "Canonical integration identity, events, reconstruction rules, and claim boundaries",
-    "url": "https://rugspull.com/integration.json"
+    "description": "Human-readable GET-only endpoint reference and trust boundaries",
+    "url": "https://rugspull.com/api-reference"
   },
   "tags": [
     { "name": "Service", "description": "Liveness and public configuration." },
@@ -232,6 +232,7 @@
     "thirdPartyIntegrationClaimed": false
   },
   "x-rugspull-resources": {
+    "apiReference": "https://rugspull.com/api-reference",
     "humanGuide": "https://github.com/pqchase/rugspull/blob/main/docs/INTEGRATION.md",
     "postmanCollection": "https://rugspull.com/rugspull-read.postman_collection.json",
     "apisJson": "https://rugspull.com/.well-known/apis.json",
