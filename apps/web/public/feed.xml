@@ -5,21 +5,21 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 11:54:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 11:59:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Office Counter report 011 — 2026-07-19</title>
+      <link>https://rugspull.com/office-counter</link>
+      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
+      <pubDate>Sun, 19 Jul 2026 11:59:00 GMT</pubDate>
+      <description>Search Console accepted the 44-URL sitemap and reports 44 discovered pages. The new token-conservation guide is not indexed because Google cannot recognize the URL, with no referring sitemap, referring page, or last crawl; a priority indexing request was accepted. IndexNow accepted 55 URLs. Discovery and request receipts do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
+    </item>
     <item>
       <title>What does token conservation mean?</title>
       <link>https://rugspull.com/what-does-token-conservation-mean</link>
       <guid isPermaLink="true">https://rugspull.com/what-does-token-conservation-mean</guid>
       <pubDate>Sun, 19 Jul 2026 11:54:00 GMT</pubDate>
       <description>A Builder guide to RugToken's one-time fixed supply, formula-based launch allocation, Opening claims, canonical swaps, the full Founder sale, holder accounting, and the limits of conservation evidence.</description>
-    </item>
-    <item>
-      <title>Office Counter report 010 — 2026-07-19</title>
-      <link>https://rugspull.com/office-counter</link>
-      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
-      <pubDate>Sun, 19 Jul 2026 11:46:00 GMT</pubDate>
-      <description>Search Console accepted the 43-URL sitemap and reports 43 discovered pages. The new invariant-testing guide is discovered but not indexed, with sitemap.xml recognized, no referring page or last crawl, and a priority indexing request accepted. IndexNow accepted 54 URLs. Discovery and request receipts do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
     </item>
     <item>
       <title>What are smart contract invariants?</title>
