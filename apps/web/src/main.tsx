@@ -158,6 +158,7 @@ const EVERGREEN_ROUTE_LABELS = {
   "/what-is-liquidity-on-bnb-chain": "What is liquidity on BNB Chain?",
   "/how-to-read-amm-reserves-on-bscscan": "How to read AMM reserves on BscScan",
   "/what-is-mev-on-bnb-chain": "What is MEV on BNB Chain?",
+  "/verified-source-code-does-not-mean-audited": "Why verified source code is not an audit",
   "/testnet-lifecycle": "BSC Testnet lifecycle evidence",
   "/office-counter": "Office Counter — evidence snapshot",
   "/lifecycle-templates": "Lifecycle artifact templates",
@@ -288,6 +289,8 @@ function useDocumentMetadata(path: string) {
                         ? { title: "How to Read AMM Reserves on BscScan | Rugspull", description: "Verify a RugPool address, read stored token and WBNB reserves, reconcile balances and Swap events, and distinguish canonical liquidity from surplus or alternative pools.", robots: "index, follow" }
                       : path.startsWith("/what-is-mev-on-bnb-chain")
                         ? { title: "What Is MEV on BNB Chain? | Rugspull", description: "Learn how transaction ordering can change RugPool reserves, swap output, slippage checks, deadlines, Founder sales, and AMM execution risk.", robots: "index, follow" }
+                      : path.startsWith("/verified-source-code-does-not-mean-audited")
+                        ? { title: "Verified Source Code Is Not an Audit | Rugspull", description: "Learn what explorer source verification proves, what it leaves unreviewed, and how to check compiler settings, configuration, contracts, tests, and audit scope.", robots: "index, follow" }
                       : path.startsWith("/testnet-lifecycle")
                         ? { title: "BSC Testnet Lifecycle Evidence | Rugspull", description: "Inspect two clearly labeled BSC Testnet E2E paths: Failed with refund completion and Rugged with post-rug trading and reserve reconciliation.", robots: "index, follow" }
                       : path.startsWith("/office-counter")
@@ -370,7 +373,7 @@ function socialImageForPath(pathname: string) {
   if (pathname.startsWith("/what-is-a-crypto-rug-pull") || pathname.startsWith("/rug-pull-vs-liquidity-pull") || pathname.startsWith("/crypto-rug-pull-red-flags")) {
     return "https://rugspull.com/assets/og-education.png";
   }
-  if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/failed-opening-refund-guide") || pathname.startsWith("/what-if-founder-never-rugs") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
+  if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/verified-source-code-does-not-mean-audited") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/failed-opening-refund-guide") || pathname.startsWith("/what-if-founder-never-rugs") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
     return "https://rugspull.com/assets/og-security.png";
   }
   if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/why-trading-continues-after-rugged") || pathname.startsWith("/24-hour-opening-explained") || pathname.startsWith("/creator-stake-risk-explained") || pathname.startsWith("/why-founder-cannot-sell-in-parts") || pathname.startsWith("/can-the-creator-contribute") || pathname.startsWith("/can-the-creator-cancel-opening") || pathname.startsWith("/what-happens-to-excess-contributions") || pathname.startsWith("/who-can-finalize-an-opening") || pathname.startsWith("/how-to-claim-opening-tokens") || pathname.startsWith("/what-is-wbnb") || pathname.startsWith("/what-is-a-token-approval") || pathname.startsWith("/what-is-slippage-on-bnb-chain") || pathname.startsWith("/constant-product-amm-explained") || pathname.startsWith("/what-is-liquidity-on-bnb-chain") || pathname.startsWith("/how-to-read-amm-reserves-on-bscscan") || pathname.startsWith("/what-is-mev-on-bnb-chain") || pathname.startsWith("/docs/risk")) {
@@ -553,6 +556,7 @@ function Shell({ children, path, wallet }: { children: React.ReactNode; path: st
                   <li><a href="/api-reference">Read API</a></li>
                   <li><a href="/founder-allocation-explained">Founder allocation</a></li>
                   <li><a href="/how-to-check-a-smart-contract-on-bscscan">Contract check</a></li>
+                  <li><a href="/verified-source-code-does-not-mean-audited">Verified source ≠ audit</a></li>
                 </ul>
               </section>
               <section className="footer-link-group">
@@ -2321,6 +2325,23 @@ const FACT_PAGES = {
       ["The Founder sale shares the same execution boundary", "After unlock, rug() attempts one full sale of the protocol-held Founder Allocation through the canonical RugPool with minimum-output and deadline inputs. The sale is disclosed but voluntary and unscheduled. Transactions confirmed before it can change its output, and the sale can itself materially change reserves seen by later traders."],
       ["Alternative pools are separate ordering domains", "Third parties can create other markets for a RugToken. Their routers, reserves, fees, ordering, liquidity controls, and transaction paths are independent of RugPool. Cross-market activity can create additional price differences, but it must not be merged into a claim that the canonical route is protected, synchronized, or endorsed."],
       ["Verify the receipt and keep the limits visible", "Before signing, verify chain id 56, exact contracts, current reserves, estimated output, minimum output, deadline, and approvals. After confirmation, inspect status, calldata, transfers, Swap event, fees, and post-swap reserves. These checks improve evidence; they do not guarantee inclusion, ordering, liquidity, wallet security, a buyer, an exit, or recovery. Independent audit and organized mainnet activation remain pending; total loss remains possible."],
+    ],
+  },
+  "/verified-source-code-does-not-mean-audited": {
+    eyebrow: "BNB Chain · source-verification and audit boundary",
+    title: "MATCHED BYTECODE IS EVIDENCE. IT IS NOT AN AUDIT.",
+    intro: "Explorer source verification helps connect published Solidity to deployed bytecode under specific compiler settings. It does not mean an independent reviewer assessed the design, economics, configuration, integrations, operating controls, or every reachable failure mode.",
+    sections: [
+      ["Source verification answers an identity question", "A successful exact or full match supports the claim that submitted source, compiler version, optimizer settings, metadata, and constructor inputs reproduce the deployed bytecode under the verifier's method. It makes code inspection easier. It does not state that the code is correct, safe, complete, or suitable for a user's purpose."],
+      ["Compiler settings and constructor inputs are part of the evidence", "Compare the exact compiler release, optimizer status and runs, EVM target, linked libraries, metadata treatment, and constructor arguments. A familiar source file compiled or initialized differently can produce materially different behavior. Read the deployed address and configuration, not a repository file in isolation."],
+      ["Readable code can still contain dangerous behavior", "Verification does not test access control, arithmetic, state transitions, token behavior, reentrancy boundaries, denial of service, economic manipulation, rounding, liveness, or integration assumptions. A harmful or flawed contract can be perfectly verified because verification checks correspondence, not quality."],
+      ["Configuration can be as important as the Solidity", "Inspect owners, treasuries, quote assets, fee parameters, timing, limits, linked contract addresses, pause scope, and immutable values. Correct source with an unexpected owner or destination remains an unexpected deployment. Labels, project names, and explorer badges are not substitutes for reading the actual values."],
+      ["Review the whole contract system", "Rugspull settlement spans RugFactory, RugInstance, RugToken, RugPool, and canonical WBNB. Reviewing only one verified address can miss authorization and asset flows across the others. Derive child addresses from the canonical Factory and instance records, then follow transfers, calls, events, and stored state across the complete path."],
+      ["No proxy does not mean no risk", "The Rugspull MVP deliberately has no upgradeable proxy, so implementation-slot and upgrade-admin checks are not part of its deployed design. That narrows one class of review; it does not validate the immutable economics, remove owner or treasury risk, prove reserve accounting, or prevent losses from ordinary contract behavior."],
+      ["Project-authored tests are evidence, not independence", "Unit, fuzz, invariant, and scenario tests can demonstrate specified properties on a stated revision. They remain written and selected by the project unless an independent party owns the review. Passing tests do not prove exhaustive state coverage, eliminate specification mistakes, or transform source verification into an audit."],
+      ["An audit needs a named scope and revision", "A meaningful audit claim should identify the independent firm or reviewer, exact commit or bytecode, contracts and dependencies in scope, methodology, dates, findings, severity treatment, remediation status, and any excluded assumptions. A logo, scanner score, informal comment, automated bot result, or audit of a different revision is not equivalent."],
+      ["Rugspull's current evidence keeps the boundary explicit", "The project publishes Solidity, deployed identities, exact-match verification evidence, Foundry tests, mechanism guides, and open counterexample requests. Independent audit remains pending, and organized new mainnet activation remains NO-GO. None of the public source, tests, directory submissions, automated comments, or chain readbacks is promoted as an audit or safety finding."],
+      ["Use verification as the start of review", "Confirm chain id 56 and the full address, reproduce or inspect the verified build, read constructor and immutable values, map privileged roles, trace assets and events, compare the deployed revision with tests and documentation, and look for an independently scoped audit. These checks improve evidence; they do not guarantee contract correctness, liquidity, fair ordering, wallet security, an exit, recovery, or safety. Total loss remains possible."],
     ],
   },
   "/testnet-lifecycle": {

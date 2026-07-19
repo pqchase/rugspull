@@ -62,6 +62,7 @@ const routes = [
   { path: "/what-is-liquidity-on-bnb-chain", text: "LIQUIDITY IS INVENTORY. DEPTH CHANGES THE TRADE" },
   { path: "/how-to-read-amm-reserves-on-bscscan", text: "READ THE CONTRACT. THEN RECONCILE THE BALANCES" },
   { path: "/what-is-mev-on-bnb-chain", text: "THE QUOTE IS A SNAPSHOT. THE CHAIN CHOOSES AN ORDER" },
+  { path: "/verified-source-code-does-not-mean-audited", text: "MATCHED BYTECODE IS EVIDENCE. IT IS NOT AN AUDIT" },
   { path: "/ops", text: "BACKSTAGE" },
 ];
 
