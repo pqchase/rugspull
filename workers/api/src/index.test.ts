@@ -537,6 +537,20 @@ describe("rugspull worker", () => {
     expect(await json(config)).toMatchObject({ chainId: 97, financialTruth: "BSC contracts", uploadsProtected: false });
   });
 
+  it("serves the extensionless API Onboarding well-known as JSON", async () => {
+    const assets = {
+      fetch: vi.fn().mockResolvedValue(new Response('{"aod":"0.1"}', { status: 200 })),
+    };
+    const response = await worker.fetch(
+      new Request("https://rugspull.test/.well-known/api-onboarding"),
+      env({ ASSETS: assets as unknown as Fetcher }),
+    );
+    expect(response.status).toBe(200);
+    expect(response.headers.get("content-type")).toBe("application/json; charset=utf-8");
+    expect(response.headers.get("x-content-type-options")).toBe("nosniff");
+    await expect(response.json()).resolves.toEqual({ aod: "0.1" });
+  });
+
   it("answers API CORS preflight for split frontend/API deployments", async () => {
     const response = await worker.fetch(new Request("https://rugspull.test/api/metadata/finalize", {
       method: "OPTIONS",

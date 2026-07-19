@@ -196,6 +196,12 @@ async function serveAsset(request: Request, env: Env): Promise<Response> {
     response = await env.ASSETS!.fetch(new Request(fallbackUrl, request));
   }
   const pathname = new URL(request.url).pathname;
+  if (["GET", "HEAD"].includes(request.method) && response.ok && pathname === "/.well-known/api-onboarding") {
+    const headers = new Headers(response.headers);
+    headers.set("content-type", "application/json; charset=utf-8");
+    headers.set("x-content-type-options", "nosniff");
+    return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+  }
   const keyMatch = pathname.match(/^\/([A-Za-z0-9-]{8,128})\.txt$/);
   if (request.method === "GET" && response.ok && keyMatch
     && (await response.clone().text()).trim() === keyMatch[1]) {
