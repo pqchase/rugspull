@@ -54,6 +54,7 @@ const routes = [
   { path: "/can-the-creator-cancel-opening", text: "OPENING HAS NO CANCEL BUTTON" },
   { path: "/what-happens-to-excess-contributions", text: "THE CAP ACCEPTS LESS. CLAIM THE REST" },
   { path: "/who-can-finalize-an-opening", text: "THE CLOCK ENDS. A TRANSACTION SETTLES" },
+  { path: "/how-to-claim-opening-tokens", text: "FINALIZED IS NOT CLAIMED" },
   { path: "/ops", text: "BACKSTAGE" },
 ];
 

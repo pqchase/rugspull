@@ -525,6 +525,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/who-can-finalize-an-opening",
       robots: "index, follow",
     });
+    await expect(seoForPath("/how-to-claim-opening-tokens")).resolves.toMatchObject({
+      title: "How to Claim Opening Tokens | Rugspull",
+      canonical: "https://rugspull.com/how-to-claim-opening-tokens",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/ops")).resolves.toMatchObject({ robots: "noindex, nofollow" });
   });
 
