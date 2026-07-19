@@ -33,6 +33,7 @@
     "repository": "https://github.com/pqchase/rugspull",
     "humanGuide": "https://github.com/pqchase/rugspull/blob/main/docs/INTEGRATION.md",
     "openapi": "https://rugspull.com/openapi.json",
+    "postmanCollection": "https://rugspull.com/rugspull-read.postman_collection.json",
     "abi": "https://github.com/pqchase/rugspull/blob/main/packages/contracts-ts/src/abi.ts",
     "chainConstants": "https://github.com/pqchase/rugspull/blob/main/packages/contracts-ts/src/index.ts",
     "economics": "https://github.com/pqchase/rugspull/blob/main/packages/economics/src/index.ts",
@@ -52,6 +53,7 @@
   "readApi": {
     "baseUrl": "https://rugspull.com",
     "openapi": "https://rugspull.com/openapi.json",
+    "postmanCollection": "https://rugspull.com/rugspull-read.postman_collection.json",
     "executionEndpoints": false,
     "numericRateLimitSla": false,
     "endpoints": [

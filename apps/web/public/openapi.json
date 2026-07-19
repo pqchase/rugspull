@@ -230,5 +230,9 @@
     "independentAuditCompleted": false,
     "organizedMainnetPromotion": "NO-GO",
     "thirdPartyIntegrationClaimed": false
+  },
+  "x-rugspull-resources": {
+    "humanGuide": "https://github.com/pqchase/rugspull/blob/main/docs/INTEGRATION.md",
+    "postmanCollection": "https://rugspull.com/rugspull-read.postman_collection.json"
   }
 }

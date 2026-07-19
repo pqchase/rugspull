@@ -1,0 +1,71 @@
+{
+  "info": {
+    "name": "Rugspull Read API",
+    "description": "Nine read-only requests for Rugspull's rebuildable discovery cache on BNB Smart Chain. BSC contracts and matching event history remain financial truth. This collection contains no buy, sell, rug, claim, refund, upload, registration, indexer-run, or other write request. Independent audit is pending, total loss remains possible, no numeric rate-limit or uptime SLA is offered, and organized new mainnet activity remains NO-GO.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://rugspull.com", "type": "string" },
+    { "key": "chainId", "value": "56", "type": "string" },
+    { "key": "rugAddress", "value": "0x0000000000000000000000000000000000000000", "type": "string", "description": "Replace with an Instance address actually emitted by the configured Factory. The zero address is only a non-secret placeholder." },
+    { "key": "r2Key", "value": "metadata/0x0000000000000000000000000000000000000000000000000000000000000000.json", "type": "string", "description": "Replace with a public immutable key returned by Rugspull metadata publication." }
+  ],
+  "item": [
+    {
+      "name": "Service",
+      "item": [
+        {
+          "name": "Health",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/health", "description": "Process liveness only; not chain, RPC, indexer, or financial-state health." }
+        },
+        {
+          "name": "Public config",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/config", "description": "Current chain, Factory sources, financial-truth boundary, and upload-protection state." }
+        },
+        {
+          "name": "Indexer status",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/indexer/status", "description": "Read checkpoints, latest block observation, stale threshold, and warnings. Empty warnings do not create an SLA." }
+        }
+      ]
+    },
+    {
+      "name": "Rugs",
+      "item": [
+        {
+          "name": "List current-Factory Rugs",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/rugs?limit=25&cursor=0", "description": "List cached current-Factory records. Optional status values are Opening, Failed, Active, and Rugged." }
+        },
+        {
+          "name": "Read one Rug",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/rugs/{{chainId}}/{{rugAddress}}", "description": "Read one indexed Instance record. A missing cache row does not prove that a chain deployment does not exist." }
+        },
+        {
+          "name": "Read Rug events",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/rugs/{{chainId}}/{{rugAddress}}/events", "description": "Read up to 100 cached events ordered by block number and log index." }
+        }
+      ]
+    },
+    {
+      "name": "Market",
+      "item": [
+        {
+          "name": "Read Rug market series",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/rugs/{{chainId}}/{{rugAddress}}/market?limit=240", "description": "Event-derived points, marker, and cached aggregates. Not a price oracle; reconcile reserves and balances directly." }
+        },
+        {
+          "name": "Read market sparklines",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/market/sparklines?chainId={{chainId}}&rugs={{rugAddress}}", "description": "Read up to 16 recent integer priceX18 values for up to 24 valid Rug addresses." }
+        }
+      ]
+    },
+    {
+      "name": "Objects",
+      "item": [
+        {
+          "name": "Read public immutable object",
+          "request": { "method": "GET", "header": [], "url": "{{baseUrl}}/api/r2/{{r2Key}}", "description": "Read an allowed immutable metadata JSON or image object. Replace the placeholder key with a real public key." }
+        }
+      ]
+    }
+  ]
+}
