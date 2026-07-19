@@ -31,6 +31,7 @@
   },
   "source": {
     "repository": "https://github.com/pqchase/rugspull",
+    "openapi": "https://rugspull.com/openapi.json",
     "abi": "https://github.com/pqchase/rugspull/blob/main/packages/contracts-ts/src/abi.ts",
     "chainConstants": "https://github.com/pqchase/rugspull/blob/main/packages/contracts-ts/src/index.ts",
     "economics": "https://github.com/pqchase/rugspull/blob/main/packages/economics/src/index.ts",
@@ -49,6 +50,7 @@
   ],
   "readApi": {
     "baseUrl": "https://rugspull.com",
+    "openapi": "https://rugspull.com/openapi.json",
     "executionEndpoints": false,
     "numericRateLimitSla": false,
     "endpoints": [

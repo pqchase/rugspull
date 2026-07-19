@@ -1,0 +1,229 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Rugspull Read API",
+    "version": "0.4.0",
+    "summary": "Read-only discovery cache for Rugspull on BNB Smart Chain",
+    "description": "This API exposes rebuildable discovery and indexed-event data. BNB Smart Chain contracts and matching event history remain financial truth. The API does not buy, sell, rug, claim, refund, or sign transactions for users. No numeric rate-limit or uptime SLA is offered. Independent audit is pending, total loss remains possible, and this specification does not claim third-party integration, review, partnership, recommendation, or endorsement."
+  },
+  "servers": [
+    { "url": "https://rugspull.com" }
+  ],
+  "externalDocs": {
+    "description": "Canonical integration identity, events, reconstruction rules, and claim boundaries",
+    "url": "https://rugspull.com/integration.json"
+  },
+  "tags": [
+    { "name": "Service", "description": "Liveness and public configuration." },
+    { "name": "Indexer", "description": "Read-only indexer checkpoints and warnings." },
+    { "name": "Rugs", "description": "Current-Factory discovery cache and indexed event records." },
+    { "name": "Market", "description": "Event-derived market points and sparklines; not a price oracle." },
+    { "name": "Objects", "description": "Public immutable metadata and image objects." }
+  ],
+  "paths": {
+    "/api/health": {
+      "get": {
+        "operationId": "getHealth",
+        "tags": ["Service"],
+        "summary": "Read service liveness",
+        "responses": {
+          "200": {
+            "description": "Service process is responding; this is not chain, indexer, RPC, or financial-state health.",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Health" } } }
+          }
+        }
+      }
+    },
+    "/api/config": {
+      "get": {
+        "operationId": "getConfig",
+        "tags": ["Service"],
+        "summary": "Read public chain and Factory configuration",
+        "responses": {
+          "200": {
+            "description": "Public runtime configuration.",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Config" } } }
+          }
+        }
+      }
+    },
+    "/api/indexer/status": {
+      "get": {
+        "operationId": "getIndexerStatus",
+        "tags": ["Indexer"],
+        "summary": "Read checkpoints, latest block observation, stale threshold, and warnings",
+        "responses": {
+          "200": {
+            "description": "Indexer status observation. Empty warnings do not create an SLA or prove complete history.",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IndexerStatus" } } }
+          }
+        }
+      }
+    },
+    "/api/rugs": {
+      "get": {
+        "operationId": "listRugs",
+        "tags": ["Rugs"],
+        "summary": "List current-Factory cached Rugs",
+        "parameters": [
+          { "name": "status", "in": "query", "required": false, "schema": { "type": "string", "enum": ["Opening", "Failed", "Active", "Rugged"] } },
+          { "name": "cursor", "in": "query", "required": false, "schema": { "type": "integer", "minimum": 0, "maximum": 1000000, "default": 0 } },
+          { "name": "limit", "in": "query", "required": false, "schema": { "type": "integer", "minimum": 1, "maximum": 100, "default": 25 } }
+        ],
+        "responses": {
+          "200": { "description": "Cached Rug rows and next numeric cursor.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/RugList" } } } },
+          "400": { "$ref": "#/components/responses/Error" },
+          "503": { "$ref": "#/components/responses/Error" }
+        }
+      }
+    },
+    "/api/rugs/{chainId}/{rug}": {
+      "get": {
+        "operationId": "getRug",
+        "tags": ["Rugs"],
+        "summary": "Read one indexed Rug record",
+        "parameters": [
+          { "$ref": "#/components/parameters/ChainId" },
+          { "$ref": "#/components/parameters/RugAddress" }
+        ],
+        "responses": {
+          "200": { "description": "Cached Rug record.", "content": { "application/json": { "schema": { "type": "object", "required": ["rug"], "properties": { "rug": { "type": "object", "additionalProperties": true } } } } } },
+          "404": { "$ref": "#/components/responses/Error" }
+        }
+      }
+    },
+    "/api/rugs/{chainId}/{rug}/events": {
+      "get": {
+        "operationId": "listRugEvents",
+        "tags": ["Rugs"],
+        "summary": "Read up to 100 ordered cached events for one Rug",
+        "parameters": [
+          { "$ref": "#/components/parameters/ChainId" },
+          { "$ref": "#/components/parameters/RugAddress" }
+        ],
+        "responses": {
+          "200": { "description": "Events ordered by block number and log index.", "content": { "application/json": { "schema": { "type": "object", "required": ["events"], "properties": { "events": { "type": "array", "maxItems": 100, "items": { "type": "object", "additionalProperties": true } } } } } } }
+        }
+      }
+    },
+    "/api/rugs/{chainId}/{rug}/market": {
+      "get": {
+        "operationId": "getRugMarket",
+        "tags": ["Market"],
+        "summary": "Read event-derived market points, Rug marker, and cached aggregates",
+        "description": "Prices use integer reserveQuote * 1e18 / reserveToken after LaunchSucceeded or Swap. This endpoint is not an oracle and must not replace direct reserve reconciliation.",
+        "parameters": [
+          { "$ref": "#/components/parameters/ChainId" },
+          { "$ref": "#/components/parameters/RugAddress" },
+          { "name": "limit", "in": "query", "required": false, "schema": { "type": "integer", "minimum": 20, "maximum": 500, "default": 240 } }
+        ],
+        "responses": {
+          "200": { "description": "Event-derived market series.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/MarketSeries" } } } }
+        }
+      }
+    },
+    "/api/market/sparklines": {
+      "get": {
+        "operationId": "listMarketSparklines",
+        "tags": ["Market"],
+        "summary": "Read up to 16 recent integer prices for up to 24 Rug addresses",
+        "parameters": [
+          { "name": "chainId", "in": "query", "required": false, "schema": { "type": "integer", "default": 56 } },
+          { "name": "rugs", "in": "query", "required": false, "description": "Comma-separated EVM addresses; maximum 24 unique valid addresses.", "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Address-keyed arrays of integer priceX18 strings.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Sparklines" } } } },
+          "400": { "$ref": "#/components/responses/Error" }
+        }
+      }
+    },
+    "/api/r2/{key}": {
+      "get": {
+        "operationId": "getPublicObject",
+        "tags": ["Objects"],
+        "summary": "Read one public immutable metadata or image object",
+        "parameters": [
+          { "name": "key", "in": "path", "required": true, "description": "Allowed metadata/<hash>.json or assets/<hash>.<image-extension> key.", "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Immutable JSON metadata or supported image bytes." },
+          "404": { "$ref": "#/components/responses/Error" }
+        }
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "ChainId": { "name": "chainId", "in": "path", "required": true, "schema": { "type": "integer", "minimum": 1 } },
+      "RugAddress": { "name": "rug", "in": "path", "required": true, "schema": { "type": "string", "pattern": "^0x[a-fA-F0-9]{40}$" } }
+    },
+    "responses": {
+      "Error": { "description": "Request error.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+    },
+    "schemas": {
+      "Error": { "type": "object", "required": ["error"], "properties": { "error": { "type": "string" } } },
+      "Health": { "type": "object", "required": ["ok", "service"], "properties": { "ok": { "const": true }, "service": { "const": "rugspull-api" } } },
+      "Config": {
+        "type": "object",
+        "required": ["chainId", "factory", "factories", "financialTruth", "uploadsProtected", "uploadsEnabled"],
+        "properties": {
+          "chainId": { "type": "integer" },
+          "factory": { "type": ["string", "null"] },
+          "factories": { "type": "array", "items": { "type": "string" } },
+          "financialTruth": { "const": "BSC contracts" },
+          "uploadsProtected": { "type": "boolean" },
+          "uploadsEnabled": { "type": "boolean" }
+        }
+      },
+      "IndexerStatus": {
+        "type": "object",
+        "required": ["chainId", "latestBlock", "factories", "staleBlockThreshold", "sync", "warnings"],
+        "properties": {
+          "chainId": { "type": "integer" },
+          "latestBlock": { "type": ["integer", "null"] },
+          "factories": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+          "staleBlockThreshold": { "type": "integer" },
+          "sync": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+          "warnings": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "RugList": {
+        "type": "object",
+        "required": ["rugs", "nextCursor"],
+        "properties": {
+          "rugs": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+          "nextCursor": { "type": "integer" }
+        }
+      },
+      "MarketSeries": {
+        "type": "object",
+        "required": ["chainId", "rug", "source", "points", "markers", "stats"],
+        "properties": {
+          "chainId": { "type": "integer" },
+          "rug": { "type": "string" },
+          "source": { "const": "indexed BSC events" },
+          "points": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+          "markers": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+          "stats": { "type": "object", "additionalProperties": true }
+        }
+      },
+      "Sparklines": {
+        "type": "object",
+        "required": ["chainId", "sparklines"],
+        "properties": {
+          "chainId": { "type": "integer" },
+          "sparklines": { "type": "object", "additionalProperties": { "type": "array", "maxItems": 16, "items": { "type": "string", "pattern": "^[0-9]+$" } } }
+        }
+      }
+    }
+  },
+  "x-rugspull-boundaries": {
+    "financialTruth": "BNB Smart Chain contracts and matching event history",
+    "transactionExecution": false,
+    "numericRateLimitSla": false,
+    "uptimeSla": false,
+    "independentAuditCompleted": false,
+    "organizedMainnetPromotion": "NO-GO",
+    "thirdPartyIntegrationClaimed": false
+  }
+}
