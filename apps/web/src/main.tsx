@@ -139,6 +139,7 @@ const EVERGREEN_ROUTE_LABELS = {
   "/crypto-rug-pull-red-flags": "Crypto rug-pull red flags",
   "/what-is-a-crypto-rug-pull": "What is a crypto rug pull?",
   "/rug-pull-vs-liquidity-pull": "Rug pull vs liquidity pull",
+  "/rugpool-vs-pancakeswap": "RugPool vs PancakeSwap",
   "/testnet-lifecycle": "BSC Testnet lifecycle evidence",
   "/office-counter": "Office Counter — evidence snapshot",
   "/lifecycle-templates": "Lifecycle artifact templates",
@@ -231,6 +232,8 @@ function useDocumentMetadata(path: string) {
                       ? { title: "What Is a Crypto Rug Pull? | Rugspull", description: "A neutral guide to liquidity pulls, founder sells, hidden token controls, and the limits of on-chain warning signs.", robots: "index, follow" }
                       : path.startsWith("/rug-pull-vs-liquidity-pull")
                         ? { title: "Rug Pull vs Liquidity Pull | Rugspull", description: "Compare founder token selling with reserve withdrawal and inspect Rugspull's canonical-pool boundary.", robots: "index, follow" }
+                      : path.startsWith("/rugpool-vs-pancakeswap")
+                        ? { title: "RugPool vs PancakeSwap | Rugspull", description: "Learn why Rugspull's internal canonical WBNB pool is not a PancakeSwap pair, router, LP position, or liquidity-lock claim.", robots: "index, follow" }
                       : path.startsWith("/testnet-lifecycle")
                         ? { title: "BSC Testnet Lifecycle Evidence | Rugspull", description: "Inspect two clearly labeled BSC Testnet E2E paths: Failed with refund completion and Rugged with post-rug trading and reserve reconciliation.", robots: "index, follow" }
                       : path.startsWith("/office-counter")
@@ -313,7 +316,7 @@ function socialImageForPath(pathname: string) {
   if (pathname.startsWith("/what-is-a-crypto-rug-pull") || pathname.startsWith("/rug-pull-vs-liquidity-pull") || pathname.startsWith("/crypto-rug-pull-red-flags")) {
     return "https://rugspull.com/assets/og-education.png";
   }
-  if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
+  if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
     return "https://rugspull.com/assets/og-security.png";
   }
   if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/docs/risk")) {
@@ -504,6 +507,7 @@ function Shell({ children, path, wallet }: { children: React.ReactNode; path: st
                   <li><a href="/crypto-rug-pull-red-flags">Risk signals</a></li>
                   <li><a href="/what-is-a-crypto-rug-pull">Rug pull guide</a></li>
                   <li><a href="/rug-pull-vs-liquidity-pull">Sell vs liquidity pull</a></li>
+                  <li><a href="/rugpool-vs-pancakeswap">RugPool vs PancakeSwap</a></li>
                 </ul>
               </section>
               <section className="footer-link-group footer-paperwork">
@@ -1946,6 +1950,19 @@ const FACT_PAGES = {
       ["Operational boundary", "No numeric rate limit or uptime SLA is offered. Independent audit remains pending, total loss remains possible, and organized new mainnet activity remains NO-GO while the published activation gates are unresolved."],
     ],
   },
+  "/rugpool-vs-pancakeswap": {
+    eyebrow: "Canonical pool field guide",
+    title: "RUGPOOL IS NOT PANCAKESWAP.",
+    intro: "Both can use constant-product arithmetic, but the deployed contracts, routing, liquidity model, events, and trust boundaries are different. A familiar formula does not make two pools interchangeable.",
+    sections: [
+      ["Different contracts", "RugPool is created for each successful Rug and is the protocol's internal canonical WBNB market. It is not a PancakeSwap pair, does not use a PancakeSwap router for canonical trades, and must not be labeled with PancakeSwap contracts or badges."],
+      ["No LP token", "RugPool issues no LP token and exposes no remove-liquidity, reserve-withdraw, skim, or sync function. Its stored token and WBNB reserves are updated by its own canonical swap functions and should be reconciled against actual balances."],
+      ["Direct canonical routing", "The official interface reads RugPool reserves and wallets call RugPool directly for canonical buys and sells. Rugspull v0.4 does not automatically migrate liquidity to PancakeSwap or treat an external pair as canonical."],
+      ["Different display rules", "Integrators should reconstruct canonical activity from Rugspull Factory, RugInstance, and RugPool events. Do not infer a PancakeSwap LP owner, lock status, router route, pair ABI, or fee schedule merely because the pool uses x times y equals k."],
+      ["Alternative pools remain possible", "RugToken is an ordinary ERC-20, so third parties can create external pools. Rugspull cannot prevent those pools, make their prices canonical, identify every related wallet, or guarantee that aggregators will distinguish them correctly."],
+      ["No-reserve-withdraw is not safety", "The canonical reserve boundary does not remove the disclosed full Founder Allocation sale, slippage, MEV, alternative-pool risk, key compromise, volatility, or total loss. Independent audit and organized mainnet activation remain pending."],
+    ],
+  },
   "/testnet-lifecycle": {
     eyebrow: "TESTNET lifecycle archive",
     title: "TWO PATHS. ZERO MAINNET CLAIMS.",
@@ -1967,7 +1984,7 @@ const FACT_PAGES = {
       ["Mainnet chain record", "BNB Smart Chain mainnet · chain id 56 · Factory 0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63. The production index returned zero current-Factory Rugs at the report cutoff. This is a dated observation, not a promise that the count remains zero."],
       ["Contract test record", "Foundry reran 41 tests across unit, fuzz, invariant, and scenario families on 2026-07-17: 41 passed and zero failed. Passing project-authored tests are evidence, not an independent audit or safety finding."],
       ["Lifecycle evidence", "Two controlled BSC Testnet paths are published: Failed with contributor refund and creator-stake withdrawal, and Rugged with contributor claim, one founder exit, post-rug trading, and reserve reconciliation. They are not mainnet users, volume, adoption, or complete historical receipts."],
-      ["Public evidence inventory", "Fifteen evergreen mechanism, security, API-reference, education, lifecycle-template, Creator-readback, community-safety, and gate-review pages plus the TESTNET lifecycle archive and this dated Office Counter are public. The sitemap contains 20 URLs. Google Search Console last read the prior sitemap on 2026-07-18 and reports 19 URLs discovered with 0 videos; its indexing report remains processing and the overview reports 0 web-search clicks. The new API Reference has been submitted for discovery but is not claimed as discovered, indexed, ranked, visited, or used."],
+      ["Public evidence inventory", "Sixteen evergreen mechanism, security, API-reference, education, lifecycle-template, Creator-readback, community-safety, and gate-review pages plus the TESTNET lifecycle archive and this dated Office Counter are public. The sitemap contains 21 URLs. Google Search Console last read the prior 20-URL sitemap on 2026-07-19 and reports all 20 URLs discovered with 0 videos; its indexing report remains processing and the overview reports 0 web-search clicks. The new RugPool-versus-PancakeSwap page is not yet claimed as discovered, indexed, ranked, visited, or used."],
       ["Distribution record", "Four verified X URLs and final Telegram correction post 9 are recorded in the execution log. Post 9 contains three publicly verified HTTPS links and was verified as the current pinned message in the logged-in desktop channel on 2026-07-17. Earlier Telegram posts 5 and 7 have malformed links and post 6 is title-only; they remain visible and are not counted as successful linked content. X account recovery is complete and the next approved item remains time-gated."],
       ["Review and directory state", "DappBay My Projects still shows Security Reviewing, while its official search returns No related dApps or campaigns for Rugspull; this is pending review with no public listing result. RootData's prior dashboard session expired, so its last authenticated Pending Review state was not promoted to a newer claim. DappRadar's official submit link and Developers route both redirect to its homepage, which exposes no submit entry. Focused public searches found no Rugspull detail page on those services, MathWallet, Magic Store, or Moralis Web3 Wiki. BNB Chain Awesome PR #13 is open and clean with an automated documentation-only bot comment; it is not merged or human-reviewed. GitHub Issue 1 and Electric Capital PR #2932 still have no external human review or comments. None of these states is an audit, listing approval, independent review, recommendation, partnership, or BNB Chain endorsement."],
       ["Deployment continuity record", "A README-only GitHub push exposed source drift and temporarily caused most sampled edges to serve an older three-URL sitemap while some still served 19 URLs. The public deployment source subset was synchronized in commit df8177b. Two subsequent GitHub-triggered deployments produced stable 19-URL sitemap samples across SIN and NRT edges; the latest checked version is 2b713249-babd-455b-aa78-ffd513df8670. This is a recovery observation, not an uptime SLA or future-availability promise."],
