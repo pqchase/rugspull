@@ -2,18 +2,23 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { createRoot } from "react-dom/client";
 import {
   AlertTriangle,
+  AtSign,
   ArrowDownUp,
   CircleDollarSign,
   ClipboardList,
   ChevronDown,
+  ExternalLink,
   FlaskConical,
+  FolderGit2,
   Gauge,
   Hand,
   Home,
   Loader2,
+  Mail,
   Plus,
   RefreshCw,
   ShieldAlert,
+  Send,
   Ticket,
   UserRound,
   Wallet,
@@ -326,6 +331,65 @@ function Shell({ children, path, wallet }: { children: React.ReactNode; path: st
       {wallet.message ? <div className="toast">{wallet.message}</div> : null}
       {wallet.account ? <WbnbPanel wallet={wallet} /> : null}
       {children}
+      <footer className="site-footer">
+        <div className="footer-frame">
+          <section className="footer-office" aria-label="Rugspull office">
+            <span className="footer-stamp">OFFICE MEMO · BNB CHAIN</span>
+            <strong>RUGSPULL<br />OFFICE OF BAD DECISIONS</strong>
+            <p>Distribution is social. Settlement is on-chain. Regret is self-custodied.</p>
+            <a className="footer-email" href="mailto:info@rugspull.com">
+              <Mail size={19} aria-hidden="true" />
+              <span><small>Corrections, abuse & paperwork</small>info@rugspull.com</span>
+            </a>
+          </section>
+
+          <div className="footer-content">
+            <nav className="footer-switchboard" aria-label="Official channels">
+              <span className="footer-switchboard-label">Official-ish switchboard</span>
+              <a href="https://x.com/rugspull" target="_blank" rel="noreferrer" aria-label="Rugspull on X">
+                <AtSign size={17} aria-hidden="true" />
+                <span><strong>X</strong><small>@rugspull</small></span>
+                <ExternalLink size={12} aria-hidden="true" />
+              </a>
+              <a href="https://t.me/rugspullcom" target="_blank" rel="noreferrer" aria-label="Rugspull Telegram channel">
+                <Send size={17} aria-hidden="true" />
+                <span><strong>Telegram</strong><small>@rugspullcom</small></span>
+                <ExternalLink size={12} aria-hidden="true" />
+              </a>
+              <a href="https://github.com/pqchase/rugspull" target="_blank" rel="noreferrer" aria-label="Rugspull source code on GitHub">
+                <FolderGit2 size={17} aria-hidden="true" />
+                <span><strong>GitHub</strong><small>pqchase/rugspull</small></span>
+                <ExternalLink size={12} aria-hidden="true" />
+              </a>
+            </nav>
+
+            <nav className="footer-directory" aria-label="Rugspull resources">
+              <section className="footer-link-group">
+                <h2>Before the bad idea</h2>
+                <ul>
+                  <li><a href="/docs/risk">Read risk first</a></li>
+                  <li><a href="/">Browse rugs</a></li>
+                </ul>
+              </section>
+              <section className="footer-link-group">
+                <h2>Office doors</h2>
+                <ul>
+                  <li><a href="/create">Host a rug</a></li>
+                  <li><a href="/ops">Backstage</a></li>
+                </ul>
+              </section>
+              <section className="footer-desk-note">
+                <h2>Support desk rule</h2>
+                <p>Official support never asks for a seed phrase, private key, direct transfer, or mystery wallet connection.</p>
+              </section>
+            </nav>
+          </div>
+        </div>
+        <div className="footer-fine-print">
+          <span>BNB Smart Chain · no reserve backdoor · no support DMs</span>
+          <span>© 2026 Rugspull. Keep your seed phrase out of the complaint form.</span>
+        </div>
+      </footer>
     </div>
   );
 }
