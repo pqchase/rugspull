@@ -5,21 +5,21 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 14:05:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 14:11:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Office Counter report 021 — 2026-07-19</title>
+      <link>https://rugspull.com/office-counter</link>
+      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
+      <pubDate>Sun, 19 Jul 2026 14:11:00 GMT</pubDate>
+      <description>Search Console accepted the 54-URL sitemap and reports 54 discovered pages. The new Opening-versus-initial-pool-price guide is not indexed because Google cannot recognize the URL and has no referring sitemap or page; a priority indexing request was initiated. IndexNow accepted 65 URLs. Discovery and request activity do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
+    </item>
     <item>
       <title>Why is the Opening price not below the initial pool price?</title>
       <link>https://rugspull.com/why-opening-price-is-not-below-initial-pool-price</link>
       <guid isPermaLink="true">https://rugspull.com/why-opening-price-is-not-below-initial-pool-price</guid>
       <pubDate>Sun, 19 Jul 2026 14:05:00 GMT</pubDate>
       <description>An economics guide to accepted contribution, Founder exclusion, Opening and initial-pool formulas, continuous equality, floor rounding, cross multiplication, fuzz-test scope, and execution-risk limits.</description>
-    </item>
-    <item>
-      <title>Office Counter report 020 — 2026-07-19</title>
-      <link>https://rugspull.com/office-counter</link>
-      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
-      <pubDate>Sun, 19 Jul 2026 14:00:00 GMT</pubDate>
-      <description>Search Console accepted the 53-URL sitemap and reports 53 discovered pages. The new economic-allocation-consistency guide is not indexed because Google cannot recognize the URL and has no referring sitemap or page; a priority indexing request was initiated. IndexNow accepted 64 URLs. Discovery and request activity do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
     </item>
     <item>
       <title>What does economic-allocation consistency mean?</title>
