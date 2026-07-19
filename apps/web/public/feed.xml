@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 08:53:39 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 09:03:07 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What does a token approval authorize on BNB Chain?</title>
+      <link>https://rugspull.com/what-is-a-token-approval</link>
+      <guid isPermaLink="true">https://rugspull.com/what-is-a-token-approval</guid>
+      <pubDate>Sun, 19 Jul 2026 09:03:07 GMT</pubDate>
+      <description>A spender-by-action guide for WBNB and RugToken allowances, actions that need no approval, exact-amount checks, and revocation limits. Correct approval hygiene does not guarantee contract safety, inclusion, price, liquidity, an exit, or recovery.</description>
+    </item>
     <item>
       <title>What is WBNB, and why does Rugspull use it?</title>
       <link>https://rugspull.com/what-is-wbnb</link>

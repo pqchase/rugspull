@@ -56,6 +56,7 @@ const routes = [
   { path: "/who-can-finalize-an-opening", text: "THE CLOCK ENDS. A TRANSACTION SETTLES" },
   { path: "/how-to-claim-opening-tokens", text: "FINALIZED IS NOT CLAIMED" },
   { path: "/what-is-wbnb", text: "BNB PAYS GAS. WBNB ENTERS THE CONTRACT" },
+  { path: "/what-is-a-token-approval", text: "APPROVAL IS PERMISSION. VERIFY THE SPENDER" },
   { path: "/ops", text: "BACKSTAGE" },
 ];
 

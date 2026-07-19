@@ -24,6 +24,7 @@
 - [Risk disclosure](https://rugspull.com/docs/risk)
 - [Contracts and source status](https://rugspull.com/contracts)
 - [WBNB quote-asset and gas guide](https://rugspull.com/what-is-wbnb)
+- [BNB Chain token-approval guide](https://rugspull.com/what-is-a-token-approval)
 - [Third-party data integration package](https://rugspull.com/integration.json)
 - [Human-readable Read API reference](https://rugspull.com/api-reference)
 - [Read-only OpenAPI 3.1 specification](https://rugspull.com/openapi.json)

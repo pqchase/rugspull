@@ -535,6 +535,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/what-is-wbnb",
       robots: "index, follow",
     });
+    await expect(seoForPath("/what-is-a-token-approval")).resolves.toMatchObject({
+      title: "What Is a Token Approval on BNB Chain? | Rugspull",
+      canonical: "https://rugspull.com/what-is-a-token-approval",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/ops")).resolves.toMatchObject({ robots: "noindex, nofollow" });
   });
 
