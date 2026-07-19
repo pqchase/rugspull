@@ -27,6 +27,7 @@
     "check:cloudflare:url": "./scripts/check-cloudflare-url.sh",
     "check:cloudflare:render": "./scripts/check-cloudflare-render.sh",
     "check:promotion-api-reference": "node scripts/check-public-api-reference.mjs",
+    "submit:indexnow": "node scripts/submit-indexnow.mjs",
     "dev:web": "npm run dev -w @rugspull/web",
     "dev:api": "npm run dev -w @rugspull/api",
     "dev:cloudflare": "npm run build -w @rugspull/web && npm run dev -w @rugspull/api",

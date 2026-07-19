@@ -65,6 +65,8 @@ SKIP_NETWORK_CHECKS=1 npm run check:local
 ./scripts/check-cloudflare-local.sh
 npx playwright install chromium
 npm run check:cloudflare:render
+INDEXNOW_DRY_RUN=1 npm run submit:indexnow
+npm run submit:indexnow
 ./scripts/check-cloudflare-remote.sh
 WORKER_URL=https://your-worker.example npm run check:cloudflare:url
 ./scripts/check-bsc-testnet-e2e.sh

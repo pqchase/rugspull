@@ -5,21 +5,21 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 10:31:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 10:38:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Office Counter report 005 — 2026-07-19</title>
+      <link>https://rugspull.com/office-counter</link>
+      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
+      <pubDate>Sun, 19 Jul 2026 10:38:00 GMT</pubDate>
+      <description>Search Console accepted the 38-URL sitemap and reports 38 discovered pages. The new reserve-verification guide is discovered but not indexed, with the sitemap detected, no referring page or last crawl, and a priority request accepted. IndexNow accepted 49 URLs. Discovery and request receipts do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
+    </item>
     <item>
       <title>How to verify AMM reserves on BscScan</title>
       <link>https://rugspull.com/how-to-read-amm-reserves-on-bscscan</link>
       <guid isPermaLink="true">https://rugspull.com/how-to-read-amm-reserves-on-bscscan</guid>
       <pubDate>Sun, 19 Jul 2026 10:31:00 GMT</pubDate>
       <description>A source-first guide to deriving the canonical RugPool, reading stored RugToken and WBNB reserves, reconciling actual balances and Swap events, and separating surplus or alternative pools. Correct reconciliation is not an audit, liquidity guarantee, or safety verdict.</description>
-    </item>
-    <item>
-      <title>Office Counter report 004 — 2026-07-19</title>
-      <link>https://rugspull.com/office-counter</link>
-      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
-      <pubDate>Sun, 19 Jul 2026 10:17:00 GMT</pubDate>
-      <description>Search Console accepted the 37-URL sitemap and reports 37 discovered pages. The new liquidity guide was initially unknown and not indexed, with no detected referring sitemap, referring page, or last crawl; a priority request was accepted. Discovery and request receipts do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
     </item>
     <item>
       <title>What does liquidity mean in a BNB Chain AMM?</title>
