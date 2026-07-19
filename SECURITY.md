@@ -14,8 +14,13 @@ Email `info@rugspull.com` with:
 Do not include private keys or seed phrases. Do not open a public issue for an unpatched live
 vulnerability and do not interact with user funds while testing.
 
+Machine-readable reporting details are published at
+<https://rugspull.com/.well-known/security.txt>. Public anti-phishing, correction, criticism, and
+moderation boundaries are published at <https://rugspull.com/community-safety>.
+
 Receipt will be acknowledged as soon as operationally possible. No bug bounty or payment is
-promised unless a written program is published separately.
+promised unless a written program is published separately, and no response-time SLA is currently
+offered.
 
 ## Current Scope
 
