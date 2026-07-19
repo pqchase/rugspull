@@ -645,6 +645,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/how-to-verify-claims-and-refunds-on-bscscan",
       robots: "index, follow",
     });
+    await expect(seoForPath("/what-is-a-transaction-receipt-on-bnb-chain")).resolves.toMatchObject({
+      title: "What Is a Transaction Receipt on BNB Chain? | Rugspull",
+      canonical: "https://rugspull.com/what-is-a-transaction-receipt-on-bnb-chain",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/verified-source-code-does-not-mean-audited")).resolves.toMatchObject({
       title: "Verified Source Code Is Not an Audit | Rugspull",
       canonical: "https://rugspull.com/verified-source-code-does-not-mean-audited",

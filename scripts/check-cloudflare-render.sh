@@ -78,6 +78,7 @@ const routes = [
   { path: "/why-pro-rata-claims-can-leave-rounding-residue", text: "EVERY WALLET ROUNDS DOWN. THE TOTAL NEVER ROUNDS UP" },
   { path: "/what-does-settled-mean-for-claims-and-refunds", text: "SETTLED MEANS EVERY RIGHT WAS EXERCISED. IT DOES NOT MEAN ZERO BALANCE" },
   { path: "/how-to-verify-claims-and-refunds-on-bscscan", text: "FOLLOW EVENTS. READ FLAGS. RECONCILE EVERY CLAIM" },
+  { path: "/what-is-a-transaction-receipt-on-bnb-chain", text: "A HASH MEANS SUBMITTED. A SUCCESSFUL RECEIPT MEANS EXECUTED" },
   { path: "/verified-source-code-does-not-mean-audited", text: "MATCHED BYTECODE IS EVIDENCE. IT IS NOT AN AUDIT" },
   { path: "/why-d1-is-not-financial-truth", text: "THE DATABASE REMEMBERS. THE CONTRACT DECIDES" },
   { path: "/ops", text: "BACKSTAGE" },
