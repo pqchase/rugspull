@@ -4,7 +4,12 @@
     "title": "Rugspull Read API",
     "version": "0.4.0",
     "summary": "Read-only discovery cache for Rugspull on BNB Smart Chain",
-    "description": "This API exposes rebuildable discovery and indexed-event data. BNB Smart Chain contracts and matching event history remain financial truth. The API does not buy, sell, rug, claim, refund, or sign transactions for users. No numeric rate-limit or uptime SLA is offered. Independent audit is pending, total loss remains possible, and this specification does not claim third-party integration, review, partnership, recommendation, or endorsement."
+    "description": "This API exposes rebuildable discovery and indexed-event data. BNB Smart Chain contracts and matching event history remain financial truth. The API does not buy, sell, rug, claim, refund, or sign transactions for users. No numeric rate-limit or uptime SLA is offered. Independent audit is pending, total loss remains possible, and this specification does not claim third-party integration, review, partnership, recommendation, or endorsement.",
+    "contact": {
+      "name": "Rugspull security and corrections",
+      "url": "https://rugspull.com/security-model",
+      "email": "info@rugspull.com"
+    }
   },
   "servers": [
     { "url": "https://rugspull.com" }
