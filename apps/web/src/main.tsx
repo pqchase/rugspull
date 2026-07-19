@@ -2880,8 +2880,24 @@ const FACT_PAGES = {
   },
 } as const;
 
+const RELATED_FACT_LINKS: Partial<Record<EvergreenRoute, readonly { href: EvergreenRoute; label: string }[]>> = {
+  "/what-does-settled-mean-for-claims-and-refunds": [
+    { href: "/how-to-verify-claims-and-refunds-on-bscscan", label: "Verify claims and refunds on BscScan" },
+    { href: "/what-is-a-transaction-receipt-on-bnb-chain", label: "Read transaction-receipt evidence" },
+  ],
+  "/how-to-verify-claims-and-refunds-on-bscscan": [
+    { href: "/what-is-a-transaction-receipt-on-bnb-chain", label: "Understand successful and reverted receipts" },
+    { href: "/what-does-settled-mean-for-claims-and-refunds", label: "Use the scoped settled definition" },
+  ],
+  "/what-is-a-transaction-receipt-on-bnb-chain": [
+    { href: "/how-to-verify-claims-and-refunds-on-bscscan", label: "Apply receipts to claims and refunds" },
+    { href: "/what-does-settled-mean-for-claims-and-refunds", label: "Reconcile completed and outstanding rights" },
+  ],
+};
+
 function FactPage({ path }: { path: EvergreenRoute }) {
   const page = FACT_PAGES[path];
+  const relatedLinks = RELATED_FACT_LINKS[path];
   const isTestnetLifecycle = path === "/testnet-lifecycle";
   const isSecurityModel = path === "/security-model";
   const isLifecycleTemplates = path === "/lifecycle-templates";
@@ -2897,6 +2913,15 @@ function FactPage({ path }: { path: EvergreenRoute }) {
       <section className="fact-grid">
         {page.sections.map(([heading, copy]) => <article className="panel" key={heading}><span className="eyebrow">{heading}</span><p>{copy}</p></article>)}
       </section>
+      {relatedLinks ? (
+        <section className="panel fact-actions" aria-label="Related evidence guides">
+          <strong>Continue the evidence chain.</strong>
+          <span>Use the receipt, reconciliation workflow, and scoped settlement definition together. Each page answers a different evidence question.</span>
+          <div>
+            {relatedLinks.map(({ href, label }) => <a className="secondary" href={href} key={href}>{label}</a>)}
+          </div>
+        </section>
+      ) : null}
       <section className="panel fact-actions">
         <strong>{isSecurityModel ? "Challenge a claim with evidence." : isApiReference ? "Choose a read-only artifact." : "Read risk first."}</strong>
         <span>{isSecurityModel ? "Submit a minimal reproduction, counterexample, missing invariant, or disclosure correction. Sensitive funds-at-risk reports belong in private email, not a public issue." : isApiReference ? "Use the chain for financial truth and the API only for discovery. No artifact below creates an audit, SLA, endorsement, or execution service." : "Rugspull is high-risk satire, not a safe investment or promise of returns. Total loss remains possible."}</span>

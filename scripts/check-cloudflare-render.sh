@@ -102,6 +102,21 @@ try {
     }
   }
 
+  const evidenceChain = [
+    ["/what-does-settled-mean-for-claims-and-refunds", "/how-to-verify-claims-and-refunds-on-bscscan", "/what-is-a-transaction-receipt-on-bnb-chain"],
+    ["/how-to-verify-claims-and-refunds-on-bscscan", "/what-is-a-transaction-receipt-on-bnb-chain", "/what-does-settled-mean-for-claims-and-refunds"],
+    ["/what-is-a-transaction-receipt-on-bnb-chain", "/how-to-verify-claims-and-refunds-on-bscscan", "/what-does-settled-mean-for-claims-and-refunds"],
+  ];
+  for (const [path, ...expectedHrefs] of evidenceChain) {
+    await page.goto(`${base}${path}`, { waitUntil: "domcontentloaded", timeout: 15_000 });
+    await page.getByText("Continue the evidence chain.", { exact: true }).waitFor({ timeout: 10_000 });
+    for (const href of expectedHrefs) {
+      if (await page.locator(`main a[href="${href}"]`).count() !== 1) {
+        throw new Error(`Route ${path} is missing one contextual link to ${href}.`);
+      }
+    }
+  }
+
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`${base}/`, { waitUntil: "domcontentloaded", timeout: 15_000 });
   await page.getByText("WE PUT THE RUG", { exact: false }).first().waitFor({ timeout: 10_000 });
