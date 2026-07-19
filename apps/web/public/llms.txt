@@ -36,6 +36,7 @@
 - [WBNB flow and conservation guide](https://rugspull.com/what-does-wbnb-conservation-mean)
 - [One-shot contributor claims and no-double-claim guide](https://rugspull.com/what-does-no-double-claim-mean)
 - [One-shot Founder Allocation sale and no-double-rug guide](https://rugspull.com/what-does-no-double-rug-mean)
+- [Canonical AMM reserve-and-balance reconciliation guide](https://rugspull.com/what-does-reserve-reconciliation-mean)
 - [Verified-source and independent-audit boundary](https://rugspull.com/verified-source-code-does-not-mean-audited)
 - [Cloudflare D1 and on-chain financial-truth boundary](https://rugspull.com/why-d1-is-not-financial-truth)
 - [Third-party data integration package](https://rugspull.com/integration.json)

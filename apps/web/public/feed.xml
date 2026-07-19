@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 12:43:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 12:50:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What does reserve reconciliation mean?</title>
+      <link>https://rugspull.com/what-does-reserve-reconciliation-mean</link>
+      <guid isPermaLink="true">https://rugspull.com/what-does-reserve-reconciliation-mean</guid>
+      <pubDate>Sun, 19 Jul 2026 12:50:00 GMT</pubDate>
+      <description>A Builder guide to canonical RugPool stored reserves, actual token and WBNB balances, buy and sell bookkeeping, atomic rollback, invariant scope, direct-transfer surplus, and evidence limits.</description>
+    </item>
     <item>
       <title>Office Counter report 014 — 2026-07-19</title>
       <link>https://rugspull.com/office-counter</link>
@@ -62,13 +69,6 @@
       <guid isPermaLink="true">https://rugspull.com/why-d1-is-not-financial-truth</guid>
       <pubDate>Sun, 19 Jul 2026 11:12:00 GMT</pubDate>
       <description>A Builder guide separating D1 discovery and event-derived market caches from authoritative contract state, receipts, balances, action gating, and wallet-signed settlement.</description>
-    </item>
-    <item>
-      <title>Why does verified source code not mean audited?</title>
-      <link>https://rugspull.com/verified-source-code-does-not-mean-audited</link>
-      <guid isPermaLink="true">https://rugspull.com/verified-source-code-does-not-mean-audited</guid>
-      <pubDate>Sun, 19 Jul 2026 10:58:00 GMT</pubDate>
-      <description>A review guide separating bytecode/source correspondence from independent security assessment, including compiler settings, deployment configuration, multi-contract scope, project-authored tests, and the evidence required for a real audit claim.</description>
     </item>
     <item>
       <title>What does MEV mean for a BNB Chain AMM swap?</title>
