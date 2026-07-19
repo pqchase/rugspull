@@ -520,6 +520,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/what-happens-to-excess-contributions",
       robots: "index, follow",
     });
+    await expect(seoForPath("/who-can-finalize-an-opening")).resolves.toMatchObject({
+      title: "Who Can Finalize an Opening? | Rugspull",
+      canonical: "https://rugspull.com/who-can-finalize-an-opening",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/ops")).resolves.toMatchObject({ robots: "noindex, nofollow" });
   });
 
