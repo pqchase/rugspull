@@ -5,21 +5,21 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 15:08:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 15:13:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Office Counter report 025 — 2026-07-19</title>
+      <link>https://rugspull.com/office-counter</link>
+      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
+      <pubDate>Sun, 19 Jul 2026 15:13:00 GMT</pubDate>
+      <description>Search Console accepted the 58-URL sitemap and reports 58 discovered pages. The new BNB Chain transaction-receipt guide is not indexed because Google cannot recognize the URL and has no referring sitemap or page; a priority indexing request was initiated. IndexNow accepted 69 URLs. Discovery and request activity do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
+    </item>
     <item>
       <title>What is a transaction receipt on BNB Chain?</title>
       <link>https://rugspull.com/what-is-a-transaction-receipt-on-bnb-chain</link>
       <guid isPermaLink="true">https://rugspull.com/what-is-a-transaction-receipt-on-bnb-chain</guid>
       <pubDate>Sun, 19 Jul 2026 15:08:00 GMT</pubDate>
       <description>A BNB Chain evidence guide to submission versus inclusion, success versus revert, native-BNB gas, calldata, logs, ERC-20 transfers, current state, simulation, and the limits of a receipt.</description>
-    </item>
-    <item>
-      <title>Office Counter report 024 — 2026-07-19</title>
-      <link>https://rugspull.com/office-counter</link>
-      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
-      <pubDate>Sun, 19 Jul 2026 15:00:00 GMT</pubDate>
-      <description>Search Console accepted the 57-URL sitemap and reports 57 discovered pages. The new BscScan claim/refund-verification guide is not indexed because Google cannot recognize the URL and has no referring sitemap or page; a priority indexing request was initiated. IndexNow accepted 68 URLs. Discovery and request activity do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
     </item>
     <item>
       <title>How to verify claims and refunds on BscScan</title>
