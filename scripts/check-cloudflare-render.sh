@@ -69,6 +69,7 @@ const routes = [
   { path: "/what-does-no-double-claim-mean", text: "ONE WALLET. ONE LIFECYCLE CLAIM. NO SECOND PAYOUT" },
   { path: "/what-does-no-double-rug-mean", text: "ONE FOUNDER ALLOCATION. ONE FULL SALE. NO SECOND RUG CALL" },
   { path: "/what-does-reserve-reconciliation-mean", text: "TWO RESERVES. TWO BALANCES. RECONCILE THE DIFFERENCE" },
+  { path: "/what-does-founder-token-immobility-mean", text: "THE FOUNDER ALLOCATION STAYS IN RUGINSTANCE UNTIL THE ONE-SHOT SALE" },
   { path: "/verified-source-code-does-not-mean-audited", text: "MATCHED BYTECODE IS EVIDENCE. IT IS NOT AN AUDIT" },
   { path: "/why-d1-is-not-financial-truth", text: "THE DATABASE REMEMBERS. THE CONTRACT DECIDES" },
   { path: "/ops", text: "BACKSTAGE" },
