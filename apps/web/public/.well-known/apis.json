@@ -1,0 +1,31 @@
+{
+  "aid": "rugspull.com:read-api",
+  "type": "Index",
+  "kind": "protocol",
+  "visibility": "Public",
+  "name": "Rugspull Read API",
+  "description": "Read-only discovery-cache API for a high-risk BNB Smart Chain parody protocol. BSC contracts remain financial truth. Independent audit is pending, total loss remains possible, no numeric uptime or rate-limit SLA is offered, and organized new mainnet activity remains NO-GO.",
+  "url": "https://rugspull.com/.well-known/apis.json",
+  "created": "2026-07-19",
+  "modified": "2026-07-19",
+  "specificationVersion": "0.21",
+  "tags": ["bnb-smart-chain", "read-only", "openapi", "high-risk"],
+  "maintainers": [{"FN": "Rugspull", "email": "info@rugspull.com", "url": "https://rugspull.com/security-model"}],
+  "apis": [{
+    "aid": "rugspull.com:rugspull-read",
+    "name": "Rugspull Read API",
+    "description": "Nine GET-only endpoints over a rebuildable index and metadata cache; no settlement or transaction-proxy operations.",
+    "image": "https://rugspull.com/assets/og-mechanism.png",
+    "baseURL": "https://rugspull.com",
+    "humanURL": "https://github.com/pqchase/rugspull/blob/main/docs/INTEGRATION.md",
+    "tags": ["bsc", "wbnb", "read-only", "discovery-cache"],
+    "properties": [
+      {"type": "Documentation", "url": "https://github.com/pqchase/rugspull/blob/main/docs/INTEGRATION.md"},
+      {"type": "OpenAPI", "url": "https://rugspull.com/openapi.json", "mediaType": "application/json"},
+      {"type": "PostmanCollection", "url": "https://rugspull.com/rugspull-read.postman_collection.json", "mediaType": "application/json"},
+      {"type": "LlmsText", "url": "https://rugspull.com/llms.txt", "mediaType": "text/plain"},
+      {"type": "Security", "url": "https://rugspull.com/.well-known/security.txt", "mediaType": "text/plain"},
+      {"type": "GitHubRepository", "url": "https://github.com/pqchase/rugspull"}
+    ]
+  }]
+}
