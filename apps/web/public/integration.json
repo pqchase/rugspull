@@ -31,6 +31,7 @@
   },
   "source": {
     "repository": "https://github.com/pqchase/rugspull",
+    "humanGuide": "https://github.com/pqchase/rugspull/blob/main/docs/INTEGRATION.md",
     "openapi": "https://rugspull.com/openapi.json",
     "abi": "https://github.com/pqchase/rugspull/blob/main/packages/contracts-ts/src/abi.ts",
     "chainConstants": "https://github.com/pqchase/rugspull/blob/main/packages/contracts-ts/src/index.ts",
