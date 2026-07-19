@@ -5,21 +5,21 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 13:05:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 13:12:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Office Counter report 016 — 2026-07-19</title>
+      <link>https://rugspull.com/office-counter</link>
+      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
+      <pubDate>Sun, 19 Jul 2026 13:12:00 GMT</pubDate>
+      <description>Search Console accepted the 49-URL sitemap and reports 49 discovered pages. The new Founder Token immobility guide is not indexed because Google cannot recognize the URL and has no referring sitemap; a priority indexing request was initiated. IndexNow accepted 60 URLs. Discovery and request activity do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
+    </item>
     <item>
       <title>What does Founder Token immobility mean?</title>
       <link>https://rugspull.com/what-does-founder-token-immobility-mean</link>
       <guid isPermaLink="true">https://rugspull.com/what-does-founder-token-immobility-mean</guid>
       <pubDate>Sun, 19 Jul 2026 13:05:00 GMT</pubDate>
       <description>A Builder guide to protocol-held Founder Allocation custody, the distinction between fungible RugToken and allocation provenance, unlock behavior, the direct-to-pool one-shot sale, invariant scope, and evidence limits.</description>
-    </item>
-    <item>
-      <title>Office Counter report 015 — 2026-07-19</title>
-      <link>https://rugspull.com/office-counter</link>
-      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
-      <pubDate>Sun, 19 Jul 2026 12:58:00 GMT</pubDate>
-      <description>Search Console accepted the 48-URL sitemap and reports 48 discovered pages. The new reserve-reconciliation guide is not indexed because Google cannot recognize the URL and has no referring sitemap; a priority indexing request was initiated. IndexNow accepted 59 URLs. Discovery and request activity do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
     </item>
     <item>
       <title>What does reserve reconciliation mean?</title>
