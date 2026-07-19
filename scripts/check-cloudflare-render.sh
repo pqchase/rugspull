@@ -51,6 +51,7 @@ const routes = [
   { path: "/account/0x0000000000000000000000000000000000000001", text: "YOUR SEAT IN" },
   { path: "/docs/risk", text: "READ THIS BEFORE" },
   { path: "/can-the-creator-contribute", text: "ONE ADDRESS IS BLOCKED. IDENTITIES ARE NOT SOLVED" },
+  { path: "/can-the-creator-cancel-opening", text: "OPENING HAS NO CANCEL BUTTON" },
   { path: "/ops", text: "BACKSTAGE" },
 ];
 

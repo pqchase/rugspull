@@ -510,6 +510,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/can-the-creator-contribute",
       robots: "index, follow",
     });
+    await expect(seoForPath("/can-the-creator-cancel-opening")).resolves.toMatchObject({
+      title: "Can the Creator Cancel Opening? | Rugspull",
+      canonical: "https://rugspull.com/can-the-creator-cancel-opening",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/ops")).resolves.toMatchObject({ robots: "noindex, nofollow" });
   });
 
