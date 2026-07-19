@@ -5,21 +5,21 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 14:18:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 14:27:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Office Counter report 022 — 2026-07-19</title>
+      <link>https://rugspull.com/office-counter</link>
+      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
+      <pubDate>Sun, 19 Jul 2026 14:27:00 GMT</pubDate>
+      <description>Search Console accepted the 55-URL sitemap and reports 55 discovered pages. The new pro-rata-claim-rounding guide is not indexed because Google cannot recognize the URL and has no referring sitemap or page; a priority indexing request was initiated. IndexNow accepted 66 URLs. Discovery and request activity do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
+    </item>
     <item>
       <title>Why can pro-rata claims leave rounding residue?</title>
       <link>https://rugspull.com/why-pro-rata-claims-can-leave-rounding-residue</link>
       <guid isPermaLink="true">https://rugspull.com/why-pro-rata-claims-can-leave-rounding-residue</guid>
       <pubDate>Sun, 19 Jul 2026 14:18:00 GMT</pubDate>
       <description>An economics guide to successful-Opening per-wallet token and excess-WBNB floor division, aggregate payout ceilings, residue custody, address-splitting effects, one-shot claims, the separate Failed-refund path, and fuzz-test limits.</description>
-    </item>
-    <item>
-      <title>Office Counter report 021 — 2026-07-19</title>
-      <link>https://rugspull.com/office-counter</link>
-      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
-      <pubDate>Sun, 19 Jul 2026 14:11:00 GMT</pubDate>
-      <description>Search Console accepted the 54-URL sitemap and reports 54 discovered pages. The new Opening-versus-initial-pool-price guide is not indexed because Google cannot recognize the URL and has no referring sitemap or page; a priority indexing request was initiated. IndexNow accepted 65 URLs. Discovery and request activity do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
     </item>
     <item>
       <title>Why is the Opening price not below the initial pool price?</title>
