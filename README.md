@@ -12,6 +12,7 @@ BSC-first MVP for transparent one-shot founder-rug launches.
 [Event-log guide](https://rugspull.com/how-to-read-event-logs-on-bscscan) |
 [Claim/refund verification](https://rugspull.com/how-to-verify-claims-and-refunds-on-bscscan) |
 [Settlement evidence semantics](https://rugspull.com/what-does-settled-mean-for-claims-and-refunds) |
+[Evidence prerelease](https://github.com/pqchase/rugspull/releases/tag/v0.4.0-evidence.1) |
 [BscScan](https://bscscan.com/address/0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63#code) |
 [X](https://x.com/rugspull) | [Evidence feed](https://rugspull.com/feed.xml) |
 [Security contact](https://rugspull.com/.well-known/security.txt) |

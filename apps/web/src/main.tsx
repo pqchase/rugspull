@@ -671,6 +671,7 @@ function Shell({ children, path, wallet }: { children: React.ReactNode; path: st
                   <li><a href="/creator-handbook">Creator handbook</a></li>
                   <li><a href="/community-safety">Community safety</a></li>
                   <li><a href="/stage-0-review">Stage 0 review</a></li>
+                  <li><a href="https://github.com/pqchase/rugspull/releases/tag/v0.4.0-evidence.1" target="_blank" rel="noreferrer">Evidence prerelease</a></li>
                 </ul>
               </section>
             </nav>

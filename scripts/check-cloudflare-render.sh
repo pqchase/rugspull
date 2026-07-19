@@ -119,6 +119,10 @@ try {
     }
   }
 
+  if (await page.locator('footer a[href="https://github.com/pqchase/rugspull/releases/tag/v0.4.0-evidence.1"]').count() !== 1) {
+    throw new Error("Global footer is missing the exact evidence prerelease link.");
+  }
+
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`${base}/how-to-read-event-logs-on-bscscan`, { waitUntil: "domcontentloaded", timeout: 15_000 });
   await page.getByText("THE EVENT NAME IS A LABEL. THE EMITTER AND TOPICS ARE THE EVIDENCE", { exact: false }).first().waitFor({ timeout: 10_000 });

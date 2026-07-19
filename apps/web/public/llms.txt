@@ -62,6 +62,7 @@
 - [Stage 0 gate review](https://rugspull.com/stage-0-review)
 - [TESTNET-only lifecycle evidence](https://rugspull.com/testnet-lifecycle)
 - [Public source and tests](https://github.com/pqchase/rugspull)
+- [v0.4.0 evidence prerelease](https://github.com/pqchase/rugspull/releases/tag/v0.4.0-evidence.1)
 - [BscScan exact-match Factory source](https://bscscan.com/address/0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63#code)
 
 ## Official channels
