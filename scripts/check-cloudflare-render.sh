@@ -79,6 +79,7 @@ const routes = [
   { path: "/what-does-settled-mean-for-claims-and-refunds", text: "SETTLED MEANS EVERY RIGHT WAS EXERCISED. IT DOES NOT MEAN ZERO BALANCE" },
   { path: "/how-to-verify-claims-and-refunds-on-bscscan", text: "FOLLOW EVENTS. READ FLAGS. RECONCILE EVERY CLAIM" },
   { path: "/what-is-a-transaction-receipt-on-bnb-chain", text: "A HASH MEANS SUBMITTED. A SUCCESSFUL RECEIPT MEANS EXECUTED" },
+  { path: "/how-to-read-event-logs-on-bscscan", text: "THE EVENT NAME IS A LABEL. THE EMITTER AND TOPICS ARE THE EVIDENCE" },
   { path: "/verified-source-code-does-not-mean-audited", text: "MATCHED BYTECODE IS EVIDENCE. IT IS NOT AN AUDIT" },
   { path: "/why-d1-is-not-financial-truth", text: "THE DATABASE REMEMBERS. THE CONTRACT DECIDES" },
   { path: "/ops", text: "BACKSTAGE" },
@@ -103,9 +104,10 @@ try {
   }
 
   const evidenceChain = [
-    ["/what-does-settled-mean-for-claims-and-refunds", "/how-to-verify-claims-and-refunds-on-bscscan", "/what-is-a-transaction-receipt-on-bnb-chain"],
-    ["/how-to-verify-claims-and-refunds-on-bscscan", "/what-is-a-transaction-receipt-on-bnb-chain", "/what-does-settled-mean-for-claims-and-refunds"],
-    ["/what-is-a-transaction-receipt-on-bnb-chain", "/how-to-verify-claims-and-refunds-on-bscscan", "/what-does-settled-mean-for-claims-and-refunds"],
+    ["/what-does-settled-mean-for-claims-and-refunds", "/how-to-verify-claims-and-refunds-on-bscscan", "/how-to-read-event-logs-on-bscscan"],
+    ["/how-to-verify-claims-and-refunds-on-bscscan", "/what-is-a-transaction-receipt-on-bnb-chain", "/how-to-read-event-logs-on-bscscan"],
+    ["/what-is-a-transaction-receipt-on-bnb-chain", "/how-to-read-event-logs-on-bscscan", "/how-to-verify-claims-and-refunds-on-bscscan"],
+    ["/how-to-read-event-logs-on-bscscan", "/what-is-a-transaction-receipt-on-bnb-chain", "/how-to-verify-claims-and-refunds-on-bscscan"],
   ];
   for (const [path, ...expectedHrefs] of evidenceChain) {
     await page.goto(`${base}${path}`, { waitUntil: "domcontentloaded", timeout: 15_000 });

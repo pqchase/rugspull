@@ -650,6 +650,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/what-is-a-transaction-receipt-on-bnb-chain",
       robots: "index, follow",
     });
+    await expect(seoForPath("/how-to-read-event-logs-on-bscscan")).resolves.toMatchObject({
+      title: "How to Read Event Logs on BscScan | Rugspull",
+      canonical: "https://rugspull.com/how-to-read-event-logs-on-bscscan",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/verified-source-code-does-not-mean-audited")).resolves.toMatchObject({
       title: "Verified Source Code Is Not an Audit | Rugspull",
       canonical: "https://rugspull.com/verified-source-code-does-not-mean-audited",

@@ -175,6 +175,7 @@ const EVERGREEN_ROUTE_LABELS = {
   "/what-does-settled-mean-for-claims-and-refunds": "What does settled mean for claims and refunds?",
   "/how-to-verify-claims-and-refunds-on-bscscan": "How to verify claims and refunds on BscScan",
   "/what-is-a-transaction-receipt-on-bnb-chain": "What is a transaction receipt on BNB Chain?",
+  "/how-to-read-event-logs-on-bscscan": "How to read event logs on BscScan",
   "/verified-source-code-does-not-mean-audited": "Why verified source code is not an audit",
   "/why-d1-is-not-financial-truth": "Why D1 is not financial truth",
   "/testnet-lifecycle": "BSC Testnet lifecycle evidence",
@@ -341,6 +342,8 @@ function useDocumentMetadata(path: string) {
                         ? { title: "How to Verify Claims and Refunds on BscScan | Rugspull", description: "Follow RugInstance contribution, claim, refund, and Creator-withdrawal events; confirm receipts and flags; and reconcile amounts at a named BNB Chain cutoff.", robots: "index, follow" }
                       : path.startsWith("/what-is-a-transaction-receipt-on-bnb-chain")
                         ? { title: "What Is a Transaction Receipt on BNB Chain? | Rugspull", description: "Learn what a BNB Chain transaction receipt proves, how success differs from submission or simulation, and how logs, gas, transfers, and current state fit together.", robots: "index, follow" }
+                      : path.startsWith("/how-to-read-event-logs-on-bscscan")
+                        ? { title: "How to Read Event Logs on BscScan | Rugspull", description: "Learn how BNB Chain event logs encode the emitter, signature topics, indexed fields, data, log order, and removed-log risk—and what logs cannot prove alone.", robots: "index, follow" }
                       : path.startsWith("/verified-source-code-does-not-mean-audited")
                         ? { title: "Verified Source Code Is Not an Audit | Rugspull", description: "Learn what explorer source verification proves, what it leaves unreviewed, and how to check compiler settings, configuration, contracts, tests, and audit scope.", robots: "index, follow" }
                       : path.startsWith("/why-d1-is-not-financial-truth")
@@ -427,7 +430,7 @@ function socialImageForPath(pathname: string) {
   if (pathname.startsWith("/what-is-a-crypto-rug-pull") || pathname.startsWith("/rug-pull-vs-liquidity-pull") || pathname.startsWith("/crypto-rug-pull-red-flags")) {
     return "https://rugspull.com/assets/og-education.png";
   }
-  if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/what-are-smart-contract-invariants") || pathname.startsWith("/what-does-token-conservation-mean") || pathname.startsWith("/what-does-wbnb-conservation-mean") || pathname.startsWith("/what-does-no-double-claim-mean") || pathname.startsWith("/what-does-no-double-rug-mean") || pathname.startsWith("/what-does-reserve-reconciliation-mean") || pathname.startsWith("/what-does-founder-token-immobility-mean") || pathname.startsWith("/what-does-protocol-fee-destination-mean") || pathname.startsWith("/what-does-non-decreasing-amm-k-mean") || pathname.startsWith("/what-does-status-monotonicity-mean") || pathname.startsWith("/what-does-economic-allocation-consistency-mean") || pathname.startsWith("/why-opening-price-is-not-below-initial-pool-price") || pathname.startsWith("/why-pro-rata-claims-can-leave-rounding-residue") || pathname.startsWith("/what-does-settled-mean-for-claims-and-refunds") || pathname.startsWith("/how-to-verify-claims-and-refunds-on-bscscan") || pathname.startsWith("/what-is-a-transaction-receipt-on-bnb-chain") || pathname.startsWith("/verified-source-code-does-not-mean-audited") || pathname.startsWith("/why-d1-is-not-financial-truth") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/failed-opening-refund-guide") || pathname.startsWith("/what-if-founder-never-rugs") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
+  if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/what-are-smart-contract-invariants") || pathname.startsWith("/what-does-token-conservation-mean") || pathname.startsWith("/what-does-wbnb-conservation-mean") || pathname.startsWith("/what-does-no-double-claim-mean") || pathname.startsWith("/what-does-no-double-rug-mean") || pathname.startsWith("/what-does-reserve-reconciliation-mean") || pathname.startsWith("/what-does-founder-token-immobility-mean") || pathname.startsWith("/what-does-protocol-fee-destination-mean") || pathname.startsWith("/what-does-non-decreasing-amm-k-mean") || pathname.startsWith("/what-does-status-monotonicity-mean") || pathname.startsWith("/what-does-economic-allocation-consistency-mean") || pathname.startsWith("/why-opening-price-is-not-below-initial-pool-price") || pathname.startsWith("/why-pro-rata-claims-can-leave-rounding-residue") || pathname.startsWith("/what-does-settled-mean-for-claims-and-refunds") || pathname.startsWith("/how-to-verify-claims-and-refunds-on-bscscan") || pathname.startsWith("/what-is-a-transaction-receipt-on-bnb-chain") || pathname.startsWith("/how-to-read-event-logs-on-bscscan") || pathname.startsWith("/verified-source-code-does-not-mean-audited") || pathname.startsWith("/why-d1-is-not-financial-truth") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/failed-opening-refund-guide") || pathname.startsWith("/what-if-founder-never-rugs") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
     return "https://rugspull.com/assets/og-security.png";
   }
   if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/why-trading-continues-after-rugged") || pathname.startsWith("/24-hour-opening-explained") || pathname.startsWith("/creator-stake-risk-explained") || pathname.startsWith("/why-founder-cannot-sell-in-parts") || pathname.startsWith("/can-the-creator-contribute") || pathname.startsWith("/can-the-creator-cancel-opening") || pathname.startsWith("/what-happens-to-excess-contributions") || pathname.startsWith("/who-can-finalize-an-opening") || pathname.startsWith("/how-to-claim-opening-tokens") || pathname.startsWith("/what-is-wbnb") || pathname.startsWith("/what-is-a-token-approval") || pathname.startsWith("/what-is-slippage-on-bnb-chain") || pathname.startsWith("/constant-product-amm-explained") || pathname.startsWith("/what-is-liquidity-on-bnb-chain") || pathname.startsWith("/how-to-read-amm-reserves-on-bscscan") || pathname.startsWith("/what-is-mev-on-bnb-chain") || pathname.startsWith("/what-are-alternative-pools-on-bnb-chain") || pathname.startsWith("/docs/risk")) {
@@ -656,6 +659,7 @@ function Shell({ children, path, wallet }: { children: React.ReactNode; path: st
                   <li><a href="/what-does-settled-mean-for-claims-and-refunds">Claim and refund settlement</a></li>
                   <li><a href="/how-to-verify-claims-and-refunds-on-bscscan">Verify claims and refunds</a></li>
                   <li><a href="/what-is-a-transaction-receipt-on-bnb-chain">Transaction receipts</a></li>
+                  <li><a href="/how-to-read-event-logs-on-bscscan">Read event logs</a></li>
                 </ul>
               </section>
               <section className="footer-link-group footer-paperwork">
@@ -2688,6 +2692,23 @@ const FACT_PAGES = {
       ["A receipt is evidence, not a verdict", "One successful receipt does not prove that every eligible address claimed, all reserves reconcile, a token is safe, source was independently audited, keys are secure, price is fair, liquidity is deep, losses are recoverable, or future transactions will succeed. Use receipts inside a complete event-and-state reconciliation. Organized mainnet activation remains NO-GO and total loss remains possible."],
     ],
   },
+  "/how-to-read-event-logs-on-bscscan": {
+    eyebrow: "Evidence desk · BNB Chain event logs",
+    title: "THE EVENT NAME IS A LABEL. THE EMITTER AND TOPICS ARE THE EVIDENCE.",
+    intro: "BscScan can decode a confirmed BNB Chain receipt into readable event names and fields. A reliable reading starts from the exact chain, transaction status, emitting contract address, and event signature—not from a familiar label or one screenshot. Logs describe statements emitted during one successful execution; they do not replace current contract reads or asset reconciliation.",
+    sections: [
+      ["Start with chain, hash, and receipt status", "Confirm BNB Smart Chain and the full transaction hash, then verify that the receipt is included and successful. A pending hash has no final logs, and a reverted execution leaves no surviving application logs because EVM state changes and emitted events roll back together. Record the block number and timestamp before interpreting anything."],
+      ["Every log has an emitting address", "The address attached to a log is the contract that executed LOG, not necessarily the wallet that sent the transaction or the token named in the interface. Compare the full emitter with the canonical Factory, RugInstance, RugPool, RugToken, or WBNB address derived from trusted on-chain links. A copied event name from another contract is not protocol evidence."],
+      ["Topic zero usually identifies the event signature", "For a non-anonymous Solidity event, topic0 is keccak256 of the canonical event signature such as Transfer(address,address,uint256). Parameter names are omitted, while exact types and their order matter. Match topic0 against the ABI for the exact verified contract revision; a UI-decoded label without that match is convenient presentation, not independent authentication."],
+      ["Indexed fields live in topics", "After topic0, each indexed value occupies a topic. Addresses are left-padded to 32 bytes, so the final 20 bytes hold the address. Indexed dynamic values such as string or bytes are represented by a hash rather than their original contents. Do not read topic position or padding by eye without the event declaration."],
+      ["Non-indexed fields live in data", "The data field ABI-encodes non-indexed parameters in 32-byte words, including offsets for dynamic values. Decode it with the same event declaration used for the topics and preserve integer base units. BscScan's readable values help inspection, but raw topics and data remain the portable receipt evidence when comparing another decoder."],
+      ["Log order is transaction-local", "logIndex orders logs within the block, and transactionIndex orders transactions within that block. A single call can trigger nested contracts that emit interleaved Rugspull and ERC-20 events. Reconstruct the call and asset flow in receipt order, but do not treat order alone as proof that two similarly shaped transfers share the same business meaning."],
+      ["Protocol events and Transfer events answer different questions", "A Rugspull event can state lifecycle intent and calculated amounts; RugToken or WBNB Transfer events show token movement. Reconcile both. Transfer alone might represent a contribution, claim, refund, reserve deposit, swap, protocol fee, donation, or unrelated movement, while a protocol event alone should still agree with token addresses, senders, recipients, amounts, and post-transaction state."],
+      ["Use block finality and removed-log handling", "An explorer may display an included transaction before operational consumers consider it sufficiently confirmed. RPC subscriptions can also report a log as removed after a reorganization. For durable reporting, name a cutoff block, wait for the chosen confirmation policy, fetch the canonical receipt again, and ensure the block hash still agrees. This is an evidence policy, not a guarantee that reorganization risk is zero."],
+      ["Complete the record with current reads", "Logs are historical and cannot prove the current status, balances, allowances, claimed flags, founderRemaining, creatorStakeWithdrawn, or stored reserves after later transactions. Read the relevant contract views and actual RugToken and WBNB balances at a named cutoff, then explain any direct-transfer surplus, rounding residue, or later state transition."],
+      ["State the evidence boundary", "Correctly decoded logs do not prove source correctness, exhaustive event emission, honest keys, identity, adequate liquidity, fair ordering, absence of MEV, safe alternative pools, an audit, or recoverability. Use verified source, calldata, logs, token movements, and current state together. Independent audit and organized mainnet activation remain pending; total loss remains possible."],
+    ],
+  },
   "/verified-source-code-does-not-mean-audited": {
     eyebrow: "BNB Chain · source-verification and audit boundary",
     title: "MATCHED BYTECODE IS EVIDENCE. IT IS NOT AN AUDIT.",
@@ -2883,15 +2904,19 @@ const FACT_PAGES = {
 const RELATED_FACT_LINKS: Partial<Record<EvergreenRoute, readonly { href: EvergreenRoute; label: string }[]>> = {
   "/what-does-settled-mean-for-claims-and-refunds": [
     { href: "/how-to-verify-claims-and-refunds-on-bscscan", label: "Verify claims and refunds on BscScan" },
-    { href: "/what-is-a-transaction-receipt-on-bnb-chain", label: "Read transaction-receipt evidence" },
+    { href: "/how-to-read-event-logs-on-bscscan", label: "Decode the event evidence" },
   ],
   "/how-to-verify-claims-and-refunds-on-bscscan": [
     { href: "/what-is-a-transaction-receipt-on-bnb-chain", label: "Understand successful and reverted receipts" },
-    { href: "/what-does-settled-mean-for-claims-and-refunds", label: "Use the scoped settled definition" },
+    { href: "/how-to-read-event-logs-on-bscscan", label: "Verify emitters, topics, and data" },
   ],
   "/what-is-a-transaction-receipt-on-bnb-chain": [
+    { href: "/how-to-read-event-logs-on-bscscan", label: "Decode receipt logs correctly" },
     { href: "/how-to-verify-claims-and-refunds-on-bscscan", label: "Apply receipts to claims and refunds" },
-    { href: "/what-does-settled-mean-for-claims-and-refunds", label: "Reconcile completed and outstanding rights" },
+  ],
+  "/how-to-read-event-logs-on-bscscan": [
+    { href: "/what-is-a-transaction-receipt-on-bnb-chain", label: "Start from a successful receipt" },
+    { href: "/how-to-verify-claims-and-refunds-on-bscscan", label: "Apply logs to claim and refund evidence" },
   ],
 };
 

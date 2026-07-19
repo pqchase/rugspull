@@ -9,6 +9,7 @@ BSC-first MVP for transparent one-shot founder-rug launches.
 [Constant-product AMM guide](https://rugspull.com/constant-product-amm-explained) |
 [Liquidity and reserve-depth guide](https://rugspull.com/what-is-liquidity-on-bnb-chain) |
 [Transaction receipt guide](https://rugspull.com/what-is-a-transaction-receipt-on-bnb-chain) |
+[Event-log guide](https://rugspull.com/how-to-read-event-logs-on-bscscan) |
 [Claim/refund verification](https://rugspull.com/how-to-verify-claims-and-refunds-on-bscscan) |
 [Settlement evidence semantics](https://rugspull.com/what-does-settled-mean-for-claims-and-refunds) |
 [BscScan](https://bscscan.com/address/0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63#code) |
