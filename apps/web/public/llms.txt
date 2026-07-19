@@ -39,6 +39,7 @@
 - [Canonical AMM reserve-and-balance reconciliation guide](https://rugspull.com/what-does-reserve-reconciliation-mean)
 - [Protocol-held Founder Allocation custody guide](https://rugspull.com/what-does-founder-token-immobility-mean)
 - [WBNB protocol-fee destination and scope guide](https://rugspull.com/what-does-protocol-fee-destination-mean)
+- [Canonical AMM non-decreasing-k invariant guide](https://rugspull.com/what-does-non-decreasing-amm-k-mean)
 - [Verified-source and independent-audit boundary](https://rugspull.com/verified-source-code-does-not-mean-audited)
 - [Cloudflare D1 and on-chain financial-truth boundary](https://rugspull.com/why-d1-is-not-financial-truth)
 - [Third-party data integration package](https://rugspull.com/integration.json)
