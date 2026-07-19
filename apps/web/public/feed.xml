@@ -5,21 +5,21 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 13:29:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 13:35:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Office Counter report 018 — 2026-07-19</title>
+      <link>https://rugspull.com/office-counter</link>
+      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
+      <pubDate>Sun, 19 Jul 2026 13:35:00 GMT</pubDate>
+      <description>Search Console accepted the 51-URL sitemap and reports 51 discovered pages. The new non-decreasing-AMM-k guide is not indexed because Google cannot recognize the URL and has no referring sitemap or page; a priority indexing request was initiated. IndexNow accepted 62 URLs. Discovery and request activity do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
+    </item>
     <item>
       <title>What does non-decreasing AMM k mean?</title>
       <link>https://rugspull.com/what-does-non-decreasing-amm-k-mean</link>
       <guid isPermaLink="true">https://rugspull.com/what-does-non-decreasing-amm-k-mean</guid>
       <pubDate>Sun, 19 Jul 2026 13:29:00 GMT</pubDate>
       <description>A Builder guide to canonical stored-reserve k, buy and sell arithmetic, the Founder sale, fee retention, integer rounding, direct-transfer surplus, combined lifecycle-status scope, and evidence limits.</description>
-    </item>
-    <item>
-      <title>Office Counter report 017 — 2026-07-19</title>
-      <link>https://rugspull.com/office-counter</link>
-      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
-      <pubDate>Sun, 19 Jul 2026 13:23:00 GMT</pubDate>
-      <description>Search Console accepted the 50-URL sitemap and reports 50 discovered pages. The new protocol-fee-destination guide is not indexed because Google cannot recognize the URL and has no referring sitemap; a priority indexing request was initiated. IndexNow accepted 61 URLs. Discovery and request activity do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
     </item>
     <item>
       <title>What does protocol fee destination mean?</title>
