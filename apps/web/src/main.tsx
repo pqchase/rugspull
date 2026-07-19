@@ -2924,6 +2924,14 @@ const FACT_PAGES = {
 } as const;
 
 const RELATED_FACT_LINKS: Partial<Record<EvergreenRoute, readonly { href: EvergreenRoute; label: string }[]>> = {
+  "/what-are-smart-contract-invariants": [
+    { href: "/how-to-run-foundry-invariant-tests", label: "Reproduce the public Foundry test evidence" },
+    { href: "/security-model", label: "Read the tested properties and unresolved gates" },
+  ],
+  "/how-to-run-foundry-invariant-tests": [
+    { href: "/what-are-smart-contract-invariants", label: "Understand the seven scoped invariant properties" },
+    { href: "/verified-source-code-does-not-mean-audited", label: "Keep source verification and audit claims separate" },
+  ],
   "/what-does-settled-mean-for-claims-and-refunds": [
     { href: "/how-to-verify-claims-and-refunds-on-bscscan", label: "Verify claims and refunds on BscScan" },
     { href: "/how-to-read-event-logs-on-bscscan", label: "Decode the event evidence" },
@@ -2949,6 +2957,7 @@ function FactPage({ path }: { path: EvergreenRoute }) {
   const isSecurityModel = path === "/security-model";
   const isLifecycleTemplates = path === "/lifecycle-templates";
   const isApiReference = path === "/api-reference";
+  const isTestReviewChain = path === "/what-are-smart-contract-invariants" || path === "/how-to-run-foundry-invariant-tests";
   const critiqueIssueUrl = "https://github.com/pqchase/rugspull/issues/1";
   return (
     <main className="page fact-page">
@@ -2962,8 +2971,10 @@ function FactPage({ path }: { path: EvergreenRoute }) {
       </section>
       {relatedLinks ? (
         <section className="panel fact-actions" aria-label="Related evidence guides">
-          <strong>Continue the evidence chain.</strong>
-          <span>Use the receipt, reconciliation workflow, and scoped settlement definition together. Each page answers a different evidence question.</span>
+          <strong>{isTestReviewChain ? "Continue the test review." : "Continue the evidence chain."}</strong>
+          <span>{isTestReviewChain
+            ? "Read the property definitions, reproducible commands, and source-verification boundary together. Passing project-authored tests remain evidence, not an independent audit."
+            : "Use the receipt, reconciliation workflow, and scoped settlement definition together. Each page answers a different evidence question."}</span>
           <div>
             {relatedLinks.map(({ href, label }) => <a className="secondary" href={href} key={href}>{label}</a>)}
           </div>

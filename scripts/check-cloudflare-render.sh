@@ -120,6 +120,20 @@ try {
     }
   }
 
+  const testReviewChain = [
+    ["/what-are-smart-contract-invariants", "/how-to-run-foundry-invariant-tests", "/security-model"],
+    ["/how-to-run-foundry-invariant-tests", "/what-are-smart-contract-invariants", "/verified-source-code-does-not-mean-audited"],
+  ];
+  for (const [path, ...expectedHrefs] of testReviewChain) {
+    await page.goto(`${base}${path}`, { waitUntil: "domcontentloaded", timeout: 15_000 });
+    await page.getByText("Continue the test review.", { exact: true }).waitFor({ timeout: 10_000 });
+    for (const href of expectedHrefs) {
+      if (await page.locator(`main a[href="${href}"]`).count() !== 1) {
+        throw new Error(`Route ${path} is missing one contextual link to ${href}.`);
+      }
+    }
+  }
+
   if (await page.locator('footer a[href="https://github.com/pqchase/rugspull/releases/tag/v0.4.0-evidence.1"]').count() !== 1) {
     throw new Error("Global footer is missing the exact evidence prerelease link.");
   }
