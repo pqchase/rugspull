@@ -5,13 +5,13 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 13:48:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 13:46:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What does lifecycle-status monotonicity mean?</title>
       <link>https://rugspull.com/what-does-status-monotonicity-mean</link>
       <guid isPermaLink="true">https://rugspull.com/what-does-status-monotonicity-mean</guid>
-      <pubDate>Sun, 19 Jul 2026 13:48:00 GMT</pubDate>
+      <pubDate>Sun, 19 Jul 2026 13:46:00 GMT</pubDate>
       <description>A Builder guide to Opening, Failed, Active, and Rugged transitions; terminal branches; permissionless finalization; atomic rollback; continued post-Rugged actions; invariant scope; and evidence limits.</description>
     </item>
     <item>
