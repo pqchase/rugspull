@@ -46,6 +46,7 @@
   <url><loc>https://rugspull.com/what-does-status-monotonicity-mean</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://rugspull.com/what-does-economic-allocation-consistency-mean</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://rugspull.com/why-opening-price-is-not-below-initial-pool-price</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rugspull.com/why-pro-rata-claims-can-leave-rounding-residue</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://rugspull.com/verified-source-code-does-not-mean-audited</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://rugspull.com/why-d1-is-not-financial-truth</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://rugspull.com/testnet-lifecycle</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>

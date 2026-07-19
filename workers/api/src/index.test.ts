@@ -630,6 +630,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/why-opening-price-is-not-below-initial-pool-price",
       robots: "index, follow",
     });
+    await expect(seoForPath("/why-pro-rata-claims-can-leave-rounding-residue")).resolves.toMatchObject({
+      title: "Why Can Pro-Rata Claims Leave Rounding Residue? | Rugspull",
+      canonical: "https://rugspull.com/why-pro-rata-claims-can-leave-rounding-residue",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/verified-source-code-does-not-mean-audited")).resolves.toMatchObject({
       title: "Verified Source Code Is Not an Audit | Rugspull",
       canonical: "https://rugspull.com/verified-source-code-does-not-mean-audited",

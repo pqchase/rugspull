@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 14:11:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 14:18:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why can pro-rata claims leave rounding residue?</title>
+      <link>https://rugspull.com/why-pro-rata-claims-can-leave-rounding-residue</link>
+      <guid isPermaLink="true">https://rugspull.com/why-pro-rata-claims-can-leave-rounding-residue</guid>
+      <pubDate>Sun, 19 Jul 2026 14:18:00 GMT</pubDate>
+      <description>An economics guide to successful-Opening per-wallet token and excess-WBNB floor division, aggregate payout ceilings, residue custody, address-splitting effects, one-shot claims, the separate Failed-refund path, and fuzz-test limits.</description>
+    </item>
     <item>
       <title>Office Counter report 021 — 2026-07-19</title>
       <link>https://rugspull.com/office-counter</link>
@@ -69,13 +76,6 @@
       <guid isPermaLink="true">https://rugspull.com/what-does-no-double-rug-mean</guid>
       <pubDate>Sun, 19 Jul 2026 12:36:00 GMT</pubDate>
       <description>A Builder guide to the Creator-only, post-unlock, full Founder Allocation sale; Active-to-Rugged lifecycle consumption; atomic rollback; invariant retry scope; and why one-shot does not mean no rug risk.</description>
-    </item>
-    <item>
-      <title>What does no double claim mean?</title>
-      <link>https://rugspull.com/what-does-no-double-claim-mean</link>
-      <guid isPermaLink="true">https://rugspull.com/what-does-no-double-claim-mean</guid>
-      <pubDate>Sun, 19 Jul 2026 12:18:00 GMT</pubDate>
-      <description>A Builder guide to aggregate wallet entitlements, mutually exclusive successful and Failed claim paths, checks-effects-interactions, atomic rollback, Creator stake separation, invariant scope, and the difference between one-shot and fully settled.</description>
     </item>
   </channel>
 </rss>
