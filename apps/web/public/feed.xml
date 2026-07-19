@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 14:27:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 14:36:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What does settled mean for claims and refunds?</title>
+      <link>https://rugspull.com/what-does-settled-mean-for-claims-and-refunds</link>
+      <guid isPermaLink="true">https://rugspull.com/what-does-settled-mean-for-claims-and-refunds</guid>
+      <pubDate>Sun, 19 Jul 2026 14:36:00 GMT</pubDate>
+      <description>An evidence guide to successful-Opening claim completion, Failed contributor refunds and Creator withdrawal, eligible/completed/outstanding reporting, receipts and flags, rounding residue, and why settled is not a lifecycle or safety status.</description>
+    </item>
     <item>
       <title>Office Counter report 022 — 2026-07-19</title>
       <link>https://rugspull.com/office-counter</link>
@@ -69,13 +76,6 @@
       <guid isPermaLink="true">https://rugspull.com/what-does-reserve-reconciliation-mean</guid>
       <pubDate>Sun, 19 Jul 2026 12:50:00 GMT</pubDate>
       <description>A Builder guide to canonical RugPool stored reserves, actual token and WBNB balances, buy and sell bookkeeping, atomic rollback, invariant scope, direct-transfer surplus, and evidence limits.</description>
-    </item>
-    <item>
-      <title>What does no double rug mean?</title>
-      <link>https://rugspull.com/what-does-no-double-rug-mean</link>
-      <guid isPermaLink="true">https://rugspull.com/what-does-no-double-rug-mean</guid>
-      <pubDate>Sun, 19 Jul 2026 12:36:00 GMT</pubDate>
-      <description>A Builder guide to the Creator-only, post-unlock, full Founder Allocation sale; Active-to-Rugged lifecycle consumption; atomic rollback; invariant retry scope; and why one-shot does not mean no rug risk.</description>
     </item>
   </channel>
 </rss>
