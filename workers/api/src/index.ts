@@ -95,6 +95,7 @@ const EVERGREEN_ROUTE_LABELS = {
   "/failed-opening-refund-guide": "Failed Opening refund guide",
   "/what-if-founder-never-rugs": "What if the Founder never rugs?",
   "/why-trading-continues-after-rugged": "Why trading continues after Rugged",
+  "/24-hour-opening-explained": "24-hour Opening explained",
   "/testnet-lifecycle": "BSC Testnet lifecycle evidence",
   "/office-counter": "Office Counter — evidence snapshot",
   "/lifecycle-templates": "Lifecycle artifact templates",
@@ -307,7 +308,7 @@ export function socialImageForPath(pathname: string) {
   if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/failed-opening-refund-guide") || pathname.startsWith("/what-if-founder-never-rugs") || pathname.startsWith("/testnet-lifecycle") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
     return "https://rugspull.com/assets/og-security.png";
   }
-  if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/why-trading-continues-after-rugged") || pathname.startsWith("/docs/risk")) {
+  if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/why-trading-continues-after-rugged") || pathname.startsWith("/24-hour-opening-explained") || pathname.startsWith("/docs/risk")) {
     return "https://rugspull.com/assets/og-mechanism.png";
   }
   return "https://rugspull.com/assets/community-hall-stage.jpg";
@@ -372,6 +373,9 @@ export async function seoForPath(pathname: string, env?: Pick<Env, "DB" | "FACTO
   }
   if (pathname.startsWith("/why-trading-continues-after-rugged")) {
     return { title: "Why Trading Continues After Rugged | Rugspull", description: "Learn why Rugged records a Founder Allocation sale without pausing RugPool, and why continued trading does not guarantee liquidity, price, or an exit.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/24-hour-opening-explained")) {
+    return { title: "24-Hour Opening Explained | Rugspull", description: "Understand Rugspull's 24-hour contribution batch, 30% minimum, 50% acceptance cap, proportional claims, and the risks the window does not remove.", robots: "index, follow", canonical };
   }
   if (pathname.startsWith("/testnet-lifecycle")) {
     return { title: "BSC Testnet Lifecycle Evidence | Rugspull", description: "Inspect two clearly labeled BSC Testnet E2E paths: Failed with refund completion and Rugged with post-rug trading and reserve reconciliation.", robots: "index, follow", canonical };
