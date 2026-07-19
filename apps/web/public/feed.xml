@@ -5,14 +5,21 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 08:26:06 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 08:53:39 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What is WBNB, and why does Rugspull use it?</title>
+      <link>https://rugspull.com/what-is-wbnb</link>
+      <guid isPermaLink="true">https://rugspull.com/what-is-wbnb</guid>
+      <pubDate>Sun, 19 Jul 2026 08:53:39 GMT</pubDate>
+      <description>A transaction-preparation guide separating native BNB gas from WBNB contract balances, wrapping, canonical-address checks, approvals, claims, and Rugspull's WBNB-only quote boundary. One quote asset does not guarantee price, inclusion, liquidity, safety, or recovery; total loss remains possible.</description>
+    </item>
     <item>
       <title>Office Counter report 003 — 2026-07-19</title>
       <link>https://rugspull.com/office-counter</link>
       <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
       <pubDate>Sun, 19 Jul 2026 08:21:33 GMT</pubDate>
-      <description>The Search Console sitemap row reports 32 discovered pages, while URL Inspection still classifies the newest Opening-claim guide as unknown to Google with no referring sitemap or last crawl; its priority request was accepted. Aggregate discovery and request receipts do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
+      <description>The Search Console sitemap row reports 33 discovered pages. URL Inspection classifies the new WBNB guide as discovered but not indexed, detects the sitemap, records no referring page or last crawl, and accepted a priority request. Discovery and request receipts do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
     </item>
     <item>
       <title>How to claim a successful Opening entitlement</title>
