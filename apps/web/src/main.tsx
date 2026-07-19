@@ -155,6 +155,7 @@ const EVERGREEN_ROUTE_LABELS = {
   "/what-is-a-token-approval": "What is a token approval?",
   "/what-is-slippage-on-bnb-chain": "What is slippage on BNB Chain?",
   "/constant-product-amm-explained": "Constant-product AMM explained",
+  "/what-is-liquidity-on-bnb-chain": "What is liquidity on BNB Chain?",
   "/testnet-lifecycle": "BSC Testnet lifecycle evidence",
   "/office-counter": "Office Counter — evidence snapshot",
   "/lifecycle-templates": "Lifecycle artifact templates",
@@ -279,6 +280,8 @@ function useDocumentMetadata(path: string) {
                         ? { title: "What Is Slippage on BNB Chain? | Rugspull", description: "Learn how estimates, price impact, minimum output, deadlines, and failed slippage checks affect BNB Chain swaps without guaranteeing execution or liquidity.", robots: "index, follow" }
                       : path.startsWith("/constant-product-amm-explained")
                         ? { title: "What Is a Constant-Product AMM? | Rugspull", description: "Learn how token and WBNB reserves, x times y, fees, integer rounding, price impact, and uncounted donations affect Rugspull's canonical AMM.", robots: "index, follow" }
+                      : path.startsWith("/what-is-liquidity-on-bnb-chain")
+                        ? { title: "What Is Liquidity on BNB Chain? | Rugspull", description: "Learn how token and WBNB reserve depth affects price impact, execution, Founder sales, and canonical-pool risk without guaranteeing an exit.", robots: "index, follow" }
                       : path.startsWith("/testnet-lifecycle")
                         ? { title: "BSC Testnet Lifecycle Evidence | Rugspull", description: "Inspect two clearly labeled BSC Testnet E2E paths: Failed with refund completion and Rugged with post-rug trading and reserve reconciliation.", robots: "index, follow" }
                       : path.startsWith("/office-counter")
@@ -364,7 +367,7 @@ function socialImageForPath(pathname: string) {
   if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/failed-opening-refund-guide") || pathname.startsWith("/what-if-founder-never-rugs") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
     return "https://rugspull.com/assets/og-security.png";
   }
-  if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/why-trading-continues-after-rugged") || pathname.startsWith("/24-hour-opening-explained") || pathname.startsWith("/creator-stake-risk-explained") || pathname.startsWith("/why-founder-cannot-sell-in-parts") || pathname.startsWith("/can-the-creator-contribute") || pathname.startsWith("/can-the-creator-cancel-opening") || pathname.startsWith("/what-happens-to-excess-contributions") || pathname.startsWith("/who-can-finalize-an-opening") || pathname.startsWith("/how-to-claim-opening-tokens") || pathname.startsWith("/what-is-wbnb") || pathname.startsWith("/what-is-a-token-approval") || pathname.startsWith("/what-is-slippage-on-bnb-chain") || pathname.startsWith("/constant-product-amm-explained") || pathname.startsWith("/docs/risk")) {
+  if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/why-trading-continues-after-rugged") || pathname.startsWith("/24-hour-opening-explained") || pathname.startsWith("/creator-stake-risk-explained") || pathname.startsWith("/why-founder-cannot-sell-in-parts") || pathname.startsWith("/can-the-creator-contribute") || pathname.startsWith("/can-the-creator-cancel-opening") || pathname.startsWith("/what-happens-to-excess-contributions") || pathname.startsWith("/who-can-finalize-an-opening") || pathname.startsWith("/how-to-claim-opening-tokens") || pathname.startsWith("/what-is-wbnb") || pathname.startsWith("/what-is-a-token-approval") || pathname.startsWith("/what-is-slippage-on-bnb-chain") || pathname.startsWith("/constant-product-amm-explained") || pathname.startsWith("/what-is-liquidity-on-bnb-chain") || pathname.startsWith("/docs/risk")) {
     return "https://rugspull.com/assets/og-mechanism.png";
   }
   return "https://rugspull.com/assets/community-hall-stage.jpg";
@@ -568,6 +571,7 @@ function Shell({ children, path, wallet }: { children: React.ReactNode; path: st
                   <li><a href="/what-is-a-token-approval">Token approval guide</a></li>
                   <li><a href="/what-is-slippage-on-bnb-chain">Slippage guide</a></li>
                   <li><a href="/constant-product-amm-explained">Constant-product AMM</a></li>
+                  <li><a href="/what-is-liquidity-on-bnb-chain">Liquidity and reserve depth</a></li>
                 </ul>
               </section>
               <section className="footer-link-group footer-paperwork">
@@ -2258,6 +2262,23 @@ const FACT_PAGES = {
       ["RugPool has no LP redemption path", "The canonical pool issues no LP token and exposes no remove-liquidity or reserve-withdraw function. Successful Opening assets become pool reserves rather than a Creator-redeemable position. That boundary does not prevent the disclosed full Founder Allocation sale from changing reserve composition sharply."],
       ["Alternative pools do not change canonical state", "RugToken is an ordinary ERC-20, so third parties can create separate pools with different contracts, reserves, fees, routing, and risks. Their prices do not update RugPool reserves and must not be merged into a claim about canonical liquidity or protocol safety."],
       ["A deterministic curve is not a safety guarantee", "Constant-product arithmetic does not guarantee reserve depth, stable price, acceptable slippage, transaction inclusion, MEV protection, wallet security, a buyer, an exit, or recovery. Founder selling, related wallets, alternative pools, phishing, key compromise, volatility, and total loss remain possible. Independent audit and organized mainnet activation remain pending."],
+    ],
+  },
+  "/what-is-liquidity-on-bnb-chain": {
+    eyebrow: "BNB Chain · liquidity and reserve guide",
+    title: "LIQUIDITY IS INVENTORY. DEPTH CHANGES THE TRADE.",
+    intro: "AMM liquidity is the token and quote-asset inventory available to the pool's curve. More reserve depth can reduce a trade's price impact; it does not guarantee price, execution, a buyer, an exit, recovery, or safety.",
+    sections: [
+      ["Two reserves make the canonical market", "Rugspull's canonical RugPool stores reserveToken and reserveQuote, where quote means WBNB. A buy adds WBNB-side input and removes RugToken output; a sell adds RugToken input and removes gross WBNB output. Liquidity is therefore two-sided inventory, not a single wallet balance or marketing number."],
+      ["Reserve depth affects price impact", "For the same trade size and fee configuration, a deeper reserve pair generally moves less along the constant-product curve than a thinner pair. Relative order size matters: an amount that is small beside the reserves can have modest impact, while the same amount against shallow reserves can move the quoted average price sharply."],
+      ["Depth is not a price or exit guarantee", "A displayed reserve does not promise that it will remain available until a transaction confirms. Earlier swaps, the full Founder Allocation sale, transaction ordering, fees, and integer rounding can change the execution-time result. Minimum output can reject an unacceptable result, but it cannot create inventory or a counterparty."],
+      ["Successful Opening establishes initial depth", "When Opening succeeds, RugInstance initializes RugPool with token reserve x and WBNB reserve y. The WBNB side is creatorStake plus acceptedContribution; the token side is the non-Founder supply remaining after the proportional Opening allocation. These values are fixed by the immutable launch economics, not chosen later by an administrator."],
+      ["Trades change reserve composition", "A canonical swap changes both stored reserves even when their product is nondecreasing after fees and rounding. A sequence of sells can reduce WBNB depth while increasing token inventory; buys do the opposite. Nonzero reserves do not imply a useful price for a large order."],
+      ["The Founder sale consumes ordinary pool liquidity", "After unlock, rug() sells the entire protocol-held Founder Allocation once through RugPool. It is a token-for-WBNB swap, not a reserve withdrawal, but its size can create extreme price impact and sharply reduce the WBNB reserve. The call can also revert when its minimum-output or deadline constraint is not met."],
+      ["No LP token or reserve-withdraw path exists", "RugPool issues no LP token and exposes no remove-liquidity or reserve-withdraw function. Successful Opening assets are not a Creator-redeemable LP position. This makes one withdrawal boundary inspectable; it does not stop market sales, alternative pools, key compromise, or loss."],
+      ["Stored reserves and actual balances can differ", "RugPool quotes from getReserves(), not from arbitrary token balances. Direct RugToken or WBNB transfers remain surplus above stored reserves because the pool has no sync or skim function. Reconciliation must compare both stored reserves and actual balances instead of treating either number alone as canonical liquidity."],
+      ["Alternative pools are separate liquidity", "Third parties can create external markets for a RugToken. Their contracts, reserve assets, fees, routing, LP controls, prices, and risks are independent of RugPool. External balances must not be combined with canonical reserves to imply protocol-controlled depth, price support, or safety."],
+      ["Liquidity is not protocol safety", "Reserve depth does not guarantee contract correctness, fair ordering, stable price, RPC or frontend availability, wallet security, a buyer, an exit, or recovery. Founder selling, related wallets, slippage, MEV, alternative pools, phishing, key compromise, volatility, and total loss remain possible. Independent audit and organized mainnet activation remain pending."],
     ],
   },
   "/testnet-lifecycle": {

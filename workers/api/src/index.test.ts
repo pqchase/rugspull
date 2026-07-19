@@ -550,6 +550,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/constant-product-amm-explained",
       robots: "index, follow",
     });
+    await expect(seoForPath("/what-is-liquidity-on-bnb-chain")).resolves.toMatchObject({
+      title: "What Is Liquidity on BNB Chain? | Rugspull",
+      canonical: "https://rugspull.com/what-is-liquidity-on-bnb-chain",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/ops")).resolves.toMatchObject({ robots: "noindex, nofollow" });
   });
 

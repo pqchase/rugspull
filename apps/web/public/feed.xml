@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 09:55:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 10:12:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What does liquidity mean in a BNB Chain AMM?</title>
+      <link>https://rugspull.com/what-is-liquidity-on-bnb-chain</link>
+      <guid isPermaLink="true">https://rugspull.com/what-is-liquidity-on-bnb-chain</guid>
+      <pubDate>Sun, 19 Jul 2026 10:12:00 GMT</pubDate>
+      <description>A risk-first guide to token and WBNB reserve depth, price impact, Opening liquidity, the full Founder sale, stored-reserve reconciliation, and separate alternative pools. Liquidity does not guarantee price, execution, an exit, recovery, an audit, or safety.</description>
+    </item>
     <item>
       <title>How does a constant-product AMM calculate swaps?</title>
       <link>https://rugspull.com/constant-product-amm-explained</link>
@@ -69,13 +76,6 @@
       <guid isPermaLink="true">https://rugspull.com/community-safety</guid>
       <pubDate>Fri, 17 Jul 2026 01:00:00 GMT</pubDate>
       <description>Official channels, no-support-DM rules, correction handling, criticism policy, phishing boundaries, and the limits of the currently unstaffed response process.</description>
-    </item>
-    <item>
-      <title>BSC Testnet lifecycle evidence — TESTNET ONLY</title>
-      <link>https://rugspull.com/testnet-lifecycle</link>
-      <guid isPermaLink="true">https://rugspull.com/testnet-lifecycle</guid>
-      <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
-      <description>Controlled Failed and Rugged BSC Testnet paths with reserve reconciliation. These are not mainnet users, volume, adoption, or an independent audit.</description>
     </item>
   </channel>
 </rss>

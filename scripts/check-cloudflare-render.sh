@@ -59,6 +59,7 @@ const routes = [
   { path: "/what-is-a-token-approval", text: "APPROVAL IS PERMISSION. VERIFY THE SPENDER" },
   { path: "/what-is-slippage-on-bnb-chain", text: "THE QUOTE MOVES. MINIMUM OUTPUT DECIDES" },
   { path: "/constant-product-amm-explained", text: "THE PRODUCT STAYS. THE PRICE MOVES" },
+  { path: "/what-is-liquidity-on-bnb-chain", text: "LIQUIDITY IS INVENTORY. DEPTH CHANGES THE TRADE" },
   { path: "/ops", text: "BACKSTAGE" },
 ];
 
