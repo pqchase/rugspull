@@ -29,6 +29,9 @@ docs/               Technical specification package
 Report security issues privately to `info@rugspull.com`; see `SECURITY.md` before opening a public
 issue about a live vulnerability.
 
+For non-sensitive mechanism counterexamples, missing invariants, test gaps, or factual disclosure
+corrections, use the structured [public review form](https://github.com/pqchase/rugspull/issues/new?template=mechanism-counterexample.yml).
+
 ## Commands
 
 ```bash
