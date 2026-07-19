@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Sensitive security report
+    url: mailto:info@rugspull.com
+    about: Privately report an unpatched funds-at-risk issue. No bounty or response-time SLA is offered.
+  - name: Public mechanism critique thread
+    url: https://github.com/pqchase/rugspull/issues/1
+    about: Read the current reproduction index and existing public discussion before filing a duplicate.
+  - name: Risk disclosure
+    url: https://rugspull.com/docs/risk
+    about: Read the explicit total-loss and mechanism boundaries before participating.

@@ -1,0 +1,64 @@
+name: Mechanism counterexample or disclosure correction
+description: Report a reproducible contract-mechanism counterexample, missing invariant, or factual disclosure error.
+title: "[review]: "
+labels:
+  - question
+  - help wanted
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for challenging the mechanism with evidence. This public form is for non-sensitive reports only.
+
+        Do not publish an unpatched funds-at-risk exploit, private key, seed phrase, or personal data. Send sensitive security reports privately to info@rugspull.com. No bounty or response-time SLA is offered.
+  - type: dropdown
+    id: report_type
+    attributes:
+      label: Report type
+      options:
+        - Contract or economic counterexample
+        - Missing or incorrect invariant
+        - Test gap or failing scenario
+        - Public disclosure correction
+        - Documentation ambiguity
+    validations:
+      required: true
+  - type: input
+    id: revision
+    attributes:
+      label: Contract or repository revision
+      description: Provide a commit SHA, deployed address, or both.
+      placeholder: commit SHA and/or 0x address
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include the smallest test, command, calldata, transaction, or page path that demonstrates the issue.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected_actual
+    attributes:
+      label: Expected versus observed result
+      description: State the expected rule or public claim, then the observed result.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact and scope
+      description: Explain which invariant, lifecycle state, asset path, or disclosure is affected without overstating certainty.
+    validations:
+      required: true
+  - type: checkboxes
+    id: public_safety
+    attributes:
+      label: Public-report safety check
+      options:
+        - label: This report contains no private keys, seed phrases, personal data, or unpatched funds-at-risk exploit details.
+          required: true
+        - label: I understand that project-authored tests and source verification are not an independent audit or safety guarantee.
+          required: true
