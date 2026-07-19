@@ -144,6 +144,7 @@ const EVERGREEN_ROUTE_LABELS = {
   "/what-if-founder-never-rugs": "What if the Founder never rugs?",
   "/why-trading-continues-after-rugged": "Why trading continues after Rugged",
   "/24-hour-opening-explained": "24-hour Opening explained",
+  "/creator-stake-risk-explained": "Creator stake risk explained",
   "/testnet-lifecycle": "BSC Testnet lifecycle evidence",
   "/office-counter": "Office Counter — evidence snapshot",
   "/lifecycle-templates": "Lifecycle artifact templates",
@@ -246,6 +247,8 @@ function useDocumentMetadata(path: string) {
                         ? { title: "Why Trading Continues After Rugged | Rugspull", description: "Learn why Rugged records a Founder Allocation sale without pausing RugPool, and why continued trading does not guarantee liquidity, price, or an exit.", robots: "index, follow" }
                       : path.startsWith("/24-hour-opening-explained")
                         ? { title: "24-Hour Opening Explained | Rugspull", description: "Understand Rugspull's 24-hour contribution batch, 30% minimum, 50% acceptance cap, proportional claims, and the risks the window does not remove.", robots: "index, follow" }
+                      : path.startsWith("/creator-stake-risk-explained")
+                        ? { title: "Why Creator Stake Can Lose Money | Rugspull", description: "Trace Creator stake and creation fee through Failed and successful Openings, and learn why Founder sale output is not a stake refund or profit guarantee.", robots: "index, follow" }
                       : path.startsWith("/testnet-lifecycle")
                         ? { title: "BSC Testnet Lifecycle Evidence | Rugspull", description: "Inspect two clearly labeled BSC Testnet E2E paths: Failed with refund completion and Rugged with post-rug trading and reserve reconciliation.", robots: "index, follow" }
                       : path.startsWith("/office-counter")
@@ -331,7 +334,7 @@ function socialImageForPath(pathname: string) {
   if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/failed-opening-refund-guide") || pathname.startsWith("/what-if-founder-never-rugs") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
     return "https://rugspull.com/assets/og-security.png";
   }
-  if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/why-trading-continues-after-rugged") || pathname.startsWith("/24-hour-opening-explained") || pathname.startsWith("/docs/risk")) {
+  if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/why-trading-continues-after-rugged") || pathname.startsWith("/24-hour-opening-explained") || pathname.startsWith("/creator-stake-risk-explained") || pathname.startsWith("/docs/risk")) {
     return "https://rugspull.com/assets/og-mechanism.png";
   }
   return "https://rugspull.com/assets/community-hall-stage.jpg";
@@ -524,6 +527,7 @@ function Shell({ children, path, wallet }: { children: React.ReactNode; path: st
                   <li><a href="/what-if-founder-never-rugs">Founder never rugs?</a></li>
                   <li><a href="/why-trading-continues-after-rugged">Trading after Rugged</a></li>
                   <li><a href="/24-hour-opening-explained">24-hour Opening</a></li>
+                  <li><a href="/creator-stake-risk-explained">Creator stake risk</a></li>
                 </ul>
               </section>
               <section className="footer-link-group footer-paperwork">
@@ -2040,6 +2044,22 @@ const FACT_PAGES = {
       ["Evidence boundary", "Controlled BSC Testnet paths demonstrate Failed and successful finalization mechanics with shortened 90-second windows. Those demo timings are not production rules, and the evidence is not mainnet adoption, an independent audit, a fairness certification, or a safety guarantee. Organized mainnet activation remains pending."],
     ],
   },
+  "/creator-stake-risk-explained": {
+    eyebrow: "Creator stake · loss path",
+    title: "STAKE IS AT RISK. FEES ARE SPENT.",
+    intro: "Creator stake is protocol input, not protected principal. A Failed Opening exposes a withdrawal path for stake; a successful Opening puts it into RugPool without giving the Creator an LP token, reserve claim, or guaranteed recovery.",
+    sections: [
+      ["Two WBNB amounts leave at creation", "The deployed Factory requires at least 0.1 WBNB of Creator stake and separately charges a 0.003 WBNB creation fee. createRug() transfers both from the Creator; the fee goes immediately to the protocol treasury while the stake moves to the new RugInstance."],
+      ["The creation fee is not stake", "The creation fee is not added to RugPool, counted toward Opening minimums, or returned when an Opening fails. Gas is also external to contract accounting. A recovered stake therefore does not mean the Creator's total creation cost was refunded."],
+      ["During Opening, stake is held", "RugInstance holds the stake while user contributions are recorded. The recorded Creator address cannot contribute through contribute(), cannot cancel after Opening starts, and cannot withdraw stake while status remains Opening."],
+      ["Failed exposes one separate withdrawal", "If total user contribution is below the immutable minimum after the window, finalize() sets Failed. Only the recorded Creator may then call withdrawCreatorStakeAfterFailure(), once. The transaction is not automatic, does not refund the creation fee or gas, and is separate from contributor refunds."],
+      ["Success moves stake into RugPool", "If Opening succeeds, canonical WBNB reserve Y equals Creator stake C plus accepted contribution Q. That WBNB enters RugPool with the calculated token reserve. RugPool issues no LP token and exposes no remove-liquidity or reserve-withdraw function, so the Creator cannot redeem C as principal."],
+      ["Founder Allocation is a different asset", "The 45% Founder Allocation remains as RugToken inside RugInstance until the optional one-shot rug(). It is not a receipt for the deposited stake. rug() sells the entire remaining Founder Allocation into then-current reserves and sends the resulting WBNB output after fees."],
+      ["Sale output can be below stake", "Earlier holder sales, thin WBNB reserves, price movement, MEV, slippage protection, fees, timing, and the full-allocation price impact can reduce Founder sale output or cause the transaction to revert. There is no contract promise that quoteOut equals or exceeds Creator stake."],
+      ["PnL is not a protocol guarantee", "For the disclosed Founder path, quoteOut minus Creator stake is only a simplified comparison. A complete wallet result would also account for the non-refundable creation fee, gas, and any unrelated wallet activity. The protocol does not calculate, insure, reimburse, or promise Creator profit."],
+      ["No recruitment or safety claim", "Controlled BSC Testnet evidence demonstrates Failed stake withdrawal and a separate Rugged path. It is not mainnet Creator performance, financial advice, an audit, adoption, or an invitation to create a Rug. Organized mainnet Creator activity remains NO-GO while published activation gates are unresolved."],
+    ],
+  },
   "/testnet-lifecycle": {
     eyebrow: "TESTNET lifecycle archive",
     title: "TWO PATHS. ZERO MAINNET CLAIMS.",
@@ -2061,7 +2081,7 @@ const FACT_PAGES = {
       ["Mainnet chain record", "BNB Smart Chain mainnet · chain id 56 · Factory 0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63. The production index returned zero current-Factory Rugs at the report cutoff. This is a dated observation, not a promise that the count remains zero."],
       ["Contract test record", "Foundry reran 41 tests across unit, fuzz, invariant, and scenario families on 2026-07-17: 41 passed and zero failed. Passing project-authored tests are evidence, not an independent audit or safety finding."],
       ["Lifecycle evidence", "Two controlled BSC Testnet paths are published: Failed with contributor refund and creator-stake withdrawal, and Rugged with contributor claim, one founder exit, post-rug trading, and reserve reconciliation. They are not mainnet users, volume, adoption, or complete historical receipts."],
-      ["Public evidence inventory", "Twenty evergreen mechanism, security, API-reference, education, Opening, claim/refund, Still-Waiting, post-Rugged trading, lifecycle-template, Creator-readback, community-safety, and gate-review pages plus the TESTNET lifecycle archive and this dated Office Counter are public. The sitemap contains 25 URLs. Google Search Console last read the prior 22-URL sitemap on 2026-07-19 and reports all 22 URLs discovered with 0 videos; its indexing report remains processing and the overview reports 0 web-search clicks. The three newer mechanism guides are not yet claimed as discovered, indexed, ranked, visited, or used."],
+      ["Public evidence inventory", "21 evergreen mechanism, security, API-reference, education, Opening, Creator-stake, claim/refund, Still-Waiting, post-Rugged trading, lifecycle-template, Creator-readback, community-safety, and gate-review pages plus the TESTNET lifecycle archive and this dated Office Counter are public. The sitemap contains 26 URLs. Google Search Console last read the prior 22-URL sitemap on 2026-07-19 and reports all 22 URLs discovered with 0 videos; its indexing report remains processing and the overview reports 0 web-search clicks. The four newer mechanism guides are not yet claimed as discovered, indexed, ranked, visited, or used."],
       ["Distribution record", "Four verified X URLs and final Telegram correction post 9 are recorded in the execution log. Post 9 contains three publicly verified HTTPS links and was verified as the current pinned message in the logged-in desktop channel on 2026-07-17. Earlier Telegram posts 5 and 7 have malformed links and post 6 is title-only; they remain visible and are not counted as successful linked content. X account recovery is complete and the next approved item remains time-gated."],
       ["Review and directory state", "DappBay My Projects still shows Security Reviewing, while its official search returns No related dApps or campaigns for Rugspull; this is pending review with no public listing result. RootData's prior dashboard session expired, so its last authenticated Pending Review state was not promoted to a newer claim. DappRadar's official submit link and Developers route both redirect to its homepage, which exposes no submit entry. Focused public searches found no Rugspull detail page on those services, MathWallet, Magic Store, or Moralis Web3 Wiki. BNB Chain Awesome PR #13 is open and clean with an automated documentation-only bot comment; it is not merged or human-reviewed. GitHub Issue 1 and Electric Capital PR #2932 still have no external human review or comments. None of these states is an audit, listing approval, independent review, recommendation, partnership, or BNB Chain endorsement."],
       ["Deployment continuity record", "A README-only GitHub push exposed source drift and temporarily caused most sampled edges to serve an older three-URL sitemap while some still served 19 URLs. The public deployment source subset was synchronized in commit df8177b. Two subsequent GitHub-triggered deployments produced stable 19-URL sitemap samples across SIN and NRT edges; the latest checked version is 2b713249-babd-455b-aa78-ffd513df8670. This is a recovery observation, not an uptime SLA or future-availability promise."],
