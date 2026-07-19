@@ -198,7 +198,8 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wra
 .fact-grid .panel p { font-size: 18px; line-height: 1.45; margin: 12px 0 0; overflow-wrap: anywhere; }
 .fact-actions { display: grid; gap: 12px; }
 .fact-actions > span { max-width: 760px; }
-.fact-actions > div { display: flex; flex-wrap: wrap; gap: 10px; }
+.fact-actions > div { display: flex; flex-wrap: wrap; gap: 10px; min-width: 0; }
+.fact-actions .secondary { max-width: 100%; overflow-wrap: anywhere; white-space: normal; }
 
 .topbar {
   align-items: center;

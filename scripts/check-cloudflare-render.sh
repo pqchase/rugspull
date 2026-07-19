@@ -147,6 +147,16 @@ try {
   if (factPageHasHorizontalOverflow) {
     throw new Error("Mobile event-log guide has horizontal overflow.");
   }
+  for (const path of ["/what-are-smart-contract-invariants", "/how-to-run-foundry-invariant-tests"]) {
+    await page.goto(`${base}${path}`, { waitUntil: "domcontentloaded", timeout: 15_000 });
+    await page.getByText("Continue the test review.", { exact: true }).waitFor({ timeout: 10_000 });
+    const hasTestReviewOverflow = await page.evaluate(
+      () => document.documentElement.scrollWidth > window.innerWidth,
+    );
+    if (hasTestReviewOverflow) {
+      throw new Error(`Mobile test-review route ${path} has horizontal overflow.`);
+    }
+  }
   await page.goto(`${base}/`, { waitUntil: "domcontentloaded", timeout: 15_000 });
   await page.getByText("WE PUT THE RUG", { exact: false }).first().waitFor({ timeout: 10_000 });
   const hasHorizontalOverflow = await page.evaluate(
