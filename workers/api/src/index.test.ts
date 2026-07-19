@@ -625,6 +625,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/what-does-economic-allocation-consistency-mean",
       robots: "index, follow",
     });
+    await expect(seoForPath("/why-opening-price-is-not-below-initial-pool-price")).resolves.toMatchObject({
+      title: "Why Is the Opening Price Not Below the Initial Pool Price? | Rugspull",
+      canonical: "https://rugspull.com/why-opening-price-is-not-below-initial-pool-price",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/verified-source-code-does-not-mean-audited")).resolves.toMatchObject({
       title: "Verified Source Code Is Not an Audit | Rugspull",
       canonical: "https://rugspull.com/verified-source-code-does-not-mean-audited",

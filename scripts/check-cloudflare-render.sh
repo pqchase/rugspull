@@ -74,6 +74,7 @@ const routes = [
   { path: "/what-does-non-decreasing-amm-k-mean", text: "K MAY GROW. CANONICAL SWAPS MUST NOT MAKE IT SHRINK" },
   { path: "/what-does-status-monotonicity-mean", text: "STATUS MOVES FORWARD OR STAYS PUT. IT NEVER REOPENS" },
   { path: "/what-does-economic-allocation-consistency-mean", text: "THREE RECORDED ALLOCATIONS. ONE FIXED SUPPLY. KEEP THE EQUATION HONEST" },
+  { path: "/why-opening-price-is-not-below-initial-pool-price", text: "OPENING PRICE MEETS THE POOL PRICE. FLOOR ROUNDING CAN ONLY LIFT IT" },
   { path: "/verified-source-code-does-not-mean-audited", text: "MATCHED BYTECODE IS EVIDENCE. IT IS NOT AN AUDIT" },
   { path: "/why-d1-is-not-financial-truth", text: "THE DATABASE REMEMBERS. THE CONTRACT DECIDES" },
   { path: "/ops", text: "BACKSTAGE" },

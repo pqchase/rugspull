@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 14:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 14:05:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why is the Opening price not below the initial pool price?</title>
+      <link>https://rugspull.com/why-opening-price-is-not-below-initial-pool-price</link>
+      <guid isPermaLink="true">https://rugspull.com/why-opening-price-is-not-below-initial-pool-price</guid>
+      <pubDate>Sun, 19 Jul 2026 14:05:00 GMT</pubDate>
+      <description>An economics guide to accepted contribution, Founder exclusion, Opening and initial-pool formulas, continuous equality, floor rounding, cross multiplication, fuzz-test scope, and execution-risk limits.</description>
+    </item>
     <item>
       <title>Office Counter report 020 — 2026-07-19</title>
       <link>https://rugspull.com/office-counter</link>
@@ -69,13 +76,6 @@
       <guid isPermaLink="true">https://rugspull.com/what-does-no-double-claim-mean</guid>
       <pubDate>Sun, 19 Jul 2026 12:18:00 GMT</pubDate>
       <description>A Builder guide to aggregate wallet entitlements, mutually exclusive successful and Failed claim paths, checks-effects-interactions, atomic rollback, Creator stake separation, invariant scope, and the difference between one-shot and fully settled.</description>
-    </item>
-    <item>
-      <title>What does WBNB conservation mean?</title>
-      <link>https://rugspull.com/what-does-wbnb-conservation-mean</link>
-      <guid isPermaLink="true">https://rugspull.com/what-does-wbnb-conservation-mean</guid>
-      <pubDate>Sun, 19 Jul 2026 12:05:00 GMT</pubDate>
-      <description>A Builder guide to WBNB movement through Factory fees, Creator stake, contributions, Failed and excess refunds, pool reserves, swap fee splits, the Founder sale, rounding residue, and invariant scope.</description>
     </item>
   </channel>
 </rss>
