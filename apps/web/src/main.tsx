@@ -2103,7 +2103,7 @@ const FACT_PAGES = {
       ["Market observations · 2 endpoints", "GET /api/rugs/{chainId}/{rugAddress}/market returns event-derived points and a Rug marker. GET /api/market/sparklines returns bounded recent price samples. These observations are not a price oracle, execution quote, liquidity guarantee, or investment signal."],
       ["Public objects · 1 endpoint", "GET /api/r2/{key} returns a public immutable metadata or image object only when its key passes the public-key policy. Content availability does not authenticate a Creator, prove rights ownership, or certify a Rug."],
       ["No execution surface", "The Read API exposes no buy, sell, rug, claim, refund, contribute, create, approval, signature, or transaction-proxy operation. Wallets call deployed contracts directly. The Worker and D1 remain rebuildable index and metadata layers."],
-      ["Machine-readable resources", "OpenAPI 3.1, a GET-only Postman Collection, APIs.json, API Onboarding, and an RFC 9727 API Catalog are public discovery aids. Their publication does not prove third-party integration, review, partnership, recommendation, endorsement, indexing, or use."],
+      ["Machine-readable resources", "OpenAPI 3.1, a GET-only Postman Collection, APIs.json, API Onboarding, an RFC 9727 API Catalog, and exact compiled ABIs for RugFactory, RugInstance, RugPool, and RugToken are public discovery aids. Their publication does not prove third-party integration, review, partnership, recommendation, endorsement, indexing, or use."],
       ["Operational boundary", "No numeric rate limit or uptime SLA is offered. Independent audit remains pending, total loss remains possible, and organized new mainnet activity remains NO-GO while the published activation gates are unresolved."],
     ],
   },
@@ -2992,6 +2992,10 @@ function FactPage({ path }: { path: EvergreenRoute }) {
           {isApiReference ? <a className="secondary" href="/.well-known/apis.json">APIs.json</a> : null}
           {isApiReference ? <a className="secondary" href="/.well-known/api-onboarding">API Onboarding</a> : null}
           {isApiReference ? <a className="secondary" href="/.well-known/api-catalog">API Catalog</a> : null}
+          {isApiReference ? <a className="secondary" href="/abi/RugFactory.json" download>RugFactory ABI</a> : null}
+          {isApiReference ? <a className="secondary" href="/abi/RugInstance.json" download>RugInstance ABI</a> : null}
+          {isApiReference ? <a className="secondary" href="/abi/RugPool.json" download>RugPool ABI</a> : null}
+          {isApiReference ? <a className="secondary" href="/abi/RugToken.json" download>RugToken ABI</a> : null}
           {isApiReference ? <a className="secondary" href="https://github.com/pqchase/rugspull/blob/main/docs/INTEGRATION.md" target="_blank" rel="noreferrer">Integration guide</a> : null}
           {isLifecycleTemplates ? <a className="primary" href="/lifecycle-artifact-templates.json" download>Download JSON templates</a> : null}
           {isLifecycleTemplates ? <a className="secondary" href="/assets/rug-permit-template.svg" download>Download Permit SVG</a> : null}

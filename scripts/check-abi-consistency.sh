@@ -38,6 +38,8 @@ const contracts = [
   },
 ];
 
+const publicAbis = ["RugFactory", "RugInstance", "RugPool", "RugToken"];
+
 function fail(message) {
   console.error(message);
   process.exit(1);
@@ -73,6 +75,14 @@ for (const contract of contracts) {
   const missing = exportedKeys.filter((key) => !artifactKeys.has(key));
   if (missing.length > 0) {
     fail(`${contract.name} exported ABI has entries not present in compiled artifact:\n${missing.join("\n")}`);
+  }
+}
+
+for (const name of publicAbis) {
+  const artifact = JSON.parse(readFileSync(`out/${name}.sol/${name}.json`, "utf8"));
+  const published = JSON.parse(readFileSync(`apps/web/public/abi/${name}.json`, "utf8"));
+  if (JSON.stringify(published) !== JSON.stringify(artifact.abi)) {
+    fail(`${name} public ABI does not exactly match the compiled artifact.`);
   }
 }
 
