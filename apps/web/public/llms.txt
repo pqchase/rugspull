@@ -28,6 +28,7 @@
 - [BNB Chain slippage and minimum-output guide](https://rugspull.com/what-is-slippage-on-bnb-chain)
 - [Constant-product AMM arithmetic guide](https://rugspull.com/constant-product-amm-explained)
 - [BNB Chain liquidity and reserve-depth guide](https://rugspull.com/what-is-liquidity-on-bnb-chain)
+- [BscScan AMM reserve-verification guide](https://rugspull.com/how-to-read-amm-reserves-on-bscscan)
 - [Third-party data integration package](https://rugspull.com/integration.json)
 - [Human-readable Read API reference](https://rugspull.com/api-reference)
 - [Read-only OpenAPI 3.1 specification](https://rugspull.com/openapi.json)

@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 10:17:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 10:31:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to verify AMM reserves on BscScan</title>
+      <link>https://rugspull.com/how-to-read-amm-reserves-on-bscscan</link>
+      <guid isPermaLink="true">https://rugspull.com/how-to-read-amm-reserves-on-bscscan</guid>
+      <pubDate>Sun, 19 Jul 2026 10:31:00 GMT</pubDate>
+      <description>A source-first guide to deriving the canonical RugPool, reading stored RugToken and WBNB reserves, reconciling actual balances and Swap events, and separating surplus or alternative pools. Correct reconciliation is not an audit, liquidity guarantee, or safety verdict.</description>
+    </item>
     <item>
       <title>Office Counter report 004 — 2026-07-19</title>
       <link>https://rugspull.com/office-counter</link>
@@ -69,13 +76,6 @@
       <guid isPermaLink="true">https://rugspull.com/stage-0-review</guid>
       <pubDate>Fri, 17 Jul 2026 01:51:25 GMT</pubDate>
       <description>The published gate review preserves unresolved audit, jurisdiction, custody, RPC, moderation, incident, email, and analytics conditions. Organized new mainnet activity remains NO-GO.</description>
-    </item>
-    <item>
-      <title>Community safety and anti-impersonation boundaries</title>
-      <link>https://rugspull.com/community-safety</link>
-      <guid isPermaLink="true">https://rugspull.com/community-safety</guid>
-      <pubDate>Fri, 17 Jul 2026 01:00:00 GMT</pubDate>
-      <description>Official channels, no-support-DM rules, correction handling, criticism policy, phishing boundaries, and the limits of the currently unstaffed response process.</description>
     </item>
   </channel>
 </rss>

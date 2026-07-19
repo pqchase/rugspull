@@ -555,6 +555,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/what-is-liquidity-on-bnb-chain",
       robots: "index, follow",
     });
+    await expect(seoForPath("/how-to-read-amm-reserves-on-bscscan")).resolves.toMatchObject({
+      title: "How to Read AMM Reserves on BscScan | Rugspull",
+      canonical: "https://rugspull.com/how-to-read-amm-reserves-on-bscscan",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/ops")).resolves.toMatchObject({ robots: "noindex, nofollow" });
   });
 

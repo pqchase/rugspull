@@ -156,6 +156,7 @@ const EVERGREEN_ROUTE_LABELS = {
   "/what-is-slippage-on-bnb-chain": "What is slippage on BNB Chain?",
   "/constant-product-amm-explained": "Constant-product AMM explained",
   "/what-is-liquidity-on-bnb-chain": "What is liquidity on BNB Chain?",
+  "/how-to-read-amm-reserves-on-bscscan": "How to read AMM reserves on BscScan",
   "/testnet-lifecycle": "BSC Testnet lifecycle evidence",
   "/office-counter": "Office Counter — evidence snapshot",
   "/lifecycle-templates": "Lifecycle artifact templates",
@@ -282,6 +283,8 @@ function useDocumentMetadata(path: string) {
                         ? { title: "What Is a Constant-Product AMM? | Rugspull", description: "Learn how token and WBNB reserves, x times y, fees, integer rounding, price impact, and uncounted donations affect Rugspull's canonical AMM.", robots: "index, follow" }
                       : path.startsWith("/what-is-liquidity-on-bnb-chain")
                         ? { title: "What Is Liquidity on BNB Chain? | Rugspull", description: "Learn how token and WBNB reserve depth affects price impact, execution, Founder sales, and canonical-pool risk without guaranteeing an exit.", robots: "index, follow" }
+                      : path.startsWith("/how-to-read-amm-reserves-on-bscscan")
+                        ? { title: "How to Read AMM Reserves on BscScan | Rugspull", description: "Verify a RugPool address, read stored token and WBNB reserves, reconcile balances and Swap events, and distinguish canonical liquidity from surplus or alternative pools.", robots: "index, follow" }
                       : path.startsWith("/testnet-lifecycle")
                         ? { title: "BSC Testnet Lifecycle Evidence | Rugspull", description: "Inspect two clearly labeled BSC Testnet E2E paths: Failed with refund completion and Rugged with post-rug trading and reserve reconciliation.", robots: "index, follow" }
                       : path.startsWith("/office-counter")
@@ -367,7 +370,7 @@ function socialImageForPath(pathname: string) {
   if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/failed-opening-refund-guide") || pathname.startsWith("/what-if-founder-never-rugs") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
     return "https://rugspull.com/assets/og-security.png";
   }
-  if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/why-trading-continues-after-rugged") || pathname.startsWith("/24-hour-opening-explained") || pathname.startsWith("/creator-stake-risk-explained") || pathname.startsWith("/why-founder-cannot-sell-in-parts") || pathname.startsWith("/can-the-creator-contribute") || pathname.startsWith("/can-the-creator-cancel-opening") || pathname.startsWith("/what-happens-to-excess-contributions") || pathname.startsWith("/who-can-finalize-an-opening") || pathname.startsWith("/how-to-claim-opening-tokens") || pathname.startsWith("/what-is-wbnb") || pathname.startsWith("/what-is-a-token-approval") || pathname.startsWith("/what-is-slippage-on-bnb-chain") || pathname.startsWith("/constant-product-amm-explained") || pathname.startsWith("/what-is-liquidity-on-bnb-chain") || pathname.startsWith("/docs/risk")) {
+  if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/why-trading-continues-after-rugged") || pathname.startsWith("/24-hour-opening-explained") || pathname.startsWith("/creator-stake-risk-explained") || pathname.startsWith("/why-founder-cannot-sell-in-parts") || pathname.startsWith("/can-the-creator-contribute") || pathname.startsWith("/can-the-creator-cancel-opening") || pathname.startsWith("/what-happens-to-excess-contributions") || pathname.startsWith("/who-can-finalize-an-opening") || pathname.startsWith("/how-to-claim-opening-tokens") || pathname.startsWith("/what-is-wbnb") || pathname.startsWith("/what-is-a-token-approval") || pathname.startsWith("/what-is-slippage-on-bnb-chain") || pathname.startsWith("/constant-product-amm-explained") || pathname.startsWith("/what-is-liquidity-on-bnb-chain") || pathname.startsWith("/how-to-read-amm-reserves-on-bscscan") || pathname.startsWith("/docs/risk")) {
     return "https://rugspull.com/assets/og-mechanism.png";
   }
   return "https://rugspull.com/assets/community-hall-stage.jpg";
@@ -572,6 +575,7 @@ function Shell({ children, path, wallet }: { children: React.ReactNode; path: st
                   <li><a href="/what-is-slippage-on-bnb-chain">Slippage guide</a></li>
                   <li><a href="/constant-product-amm-explained">Constant-product AMM</a></li>
                   <li><a href="/what-is-liquidity-on-bnb-chain">Liquidity and reserve depth</a></li>
+                  <li><a href="/how-to-read-amm-reserves-on-bscscan">Read AMM reserves on BscScan</a></li>
                 </ul>
               </section>
               <section className="footer-link-group footer-paperwork">
@@ -2279,6 +2283,23 @@ const FACT_PAGES = {
       ["Stored reserves and actual balances can differ", "RugPool quotes from getReserves(), not from arbitrary token balances. Direct RugToken or WBNB transfers remain surplus above stored reserves because the pool has no sync or skim function. Reconciliation must compare both stored reserves and actual balances instead of treating either number alone as canonical liquidity."],
       ["Alternative pools are separate liquidity", "Third parties can create external markets for a RugToken. Their contracts, reserve assets, fees, routing, LP controls, prices, and risks are independent of RugPool. External balances must not be combined with canonical reserves to imply protocol-controlled depth, price support, or safety."],
       ["Liquidity is not protocol safety", "Reserve depth does not guarantee contract correctness, fair ordering, stable price, RPC or frontend availability, wallet security, a buyer, an exit, or recovery. Founder selling, related wallets, slippage, MEV, alternative pools, phishing, key compromise, volatility, and total loss remain possible. Independent audit and organized mainnet activation remain pending."],
+    ],
+  },
+  "/how-to-read-amm-reserves-on-bscscan": {
+    eyebrow: "BscScan · RugPool reserve verification",
+    title: "READ THE CONTRACT. THEN RECONCILE THE BALANCES.",
+    intro: "A pool balance, a reserve value, and a social screenshot are not interchangeable evidence. Start from the exact canonical RugPool, read its stored reserves, compare token balances and events, and keep the limits of every observation visible.",
+    sections: [
+      ["Start on BNB Smart Chain with the exact RugInstance", "Confirm chain id 56 and obtain the RugInstance address from the canonical Factory record or a verified Rugspull URL. Do not begin from a ticker, token search result, unsolicited message, copied screenshot, or alternative-pool address. A matching name does not establish contract identity."],
+      ["Derive the pool and token from RugInstance", "On the verified RugInstance Read Contract surface, read pool() and token(). A Failed Opening has neither address and therefore has no canonical AMM reserves to inspect. For an Active or Rugged instance, treat pool() as the canonical RugPool pointer and cross-check the token address before reading balances."],
+      ["Verify the RugPool identity fields", "On the RugPool Read Contract surface, confirm token(), WBNB(), rugInstance(), protocolTreasury(), swapFeeBps(), protocolFeeBps(), and initialized(). The token and rugInstance values should point back to the same lifecycle record, and WBNB must match the canonical BNB Smart Chain WBNB address. A verified source match is evidence, not an independent audit."],
+      ["Read getReserves in the documented order", "getReserves() returns reserveToken first and reserveQuote second. In RugPool, quote means WBNB. Both RugToken and WBNB use 18 decimals, so divide the raw integer by 10^18 only for human display; retain the exact integer for calculations and reconciliation."],
+      ["Read actual token balances separately", "Call balanceOf(poolAddress) on the exact RugToken and canonical WBNB contracts. These ERC-20 balances answer how many units each contract currently holds; they do not replace RugPool's stored reserve variables, identify the canonical pool by themselves, or prove that the assets are withdrawable."],
+      ["Reconcile reserves against balances", "After initialization and canonical swaps, project tests expect RugToken balance to equal reserveToken and WBNB balance to equal reserveQuote. Direct transfers can instead create positive surplus above stored reserves because RugPool has no sync or skim function. A balance surplus is not quoted liquidity, and any apparent shortfall or identity mismatch should stop promotion and trigger investigation."],
+      ["Use Swap events as history, not live state", "Each successful canonical Swap records pool, sender, recipient, direction, amount in, amount out, protocol WBNB fee, and the two post-swap stored reserves. A reverted transaction commits no Swap event or reserve change. Events help reconstruct history, but the latest confirmed getReserves() and balances remain necessary for a current-state check."],
+      ["A reserve ratio is not the execution quote", "reserveQuote divided by reserveToken is only a spot-like ratio. A real order changes both reserves, applies the deployed fees, and rounds integer output down. Estimate execution with the contract's amount-out arithmetic, then apply minimum output and deadline constraints; do not present a reserve ratio as a guaranteed price."],
+      ["Keep alternative pools separate", "A RugToken is an ordinary ERC-20, so third parties can create other pools. Their pair addresses, reserve assets, routers, LP controls, fees, events, and balances are independent. Do not combine external liquidity with RugPool reserves or imply that an alternative market is canonical, protocol-controlled, locked, or endorsed."],
+      ["Reserve verification is not a safety verdict", "Correct addresses and reconciled values do not guarantee contract correctness, reserve depth, stable price, fair ordering, transaction inclusion, MEV protection, wallet security, a buyer, an exit, or recovery. Founder selling, related wallets, slippage, alternative pools, phishing, key compromise, volatility, and total loss remain possible. Independent audit and organized mainnet activation remain pending."],
     ],
   },
   "/testnet-lifecycle": {

@@ -60,6 +60,7 @@ const routes = [
   { path: "/what-is-slippage-on-bnb-chain", text: "THE QUOTE MOVES. MINIMUM OUTPUT DECIDES" },
   { path: "/constant-product-amm-explained", text: "THE PRODUCT STAYS. THE PRICE MOVES" },
   { path: "/what-is-liquidity-on-bnb-chain", text: "LIQUIDITY IS INVENTORY. DEPTH CHANGES THE TRADE" },
+  { path: "/how-to-read-amm-reserves-on-bscscan", text: "READ THE CONTRACT. THEN RECONCILE THE BALANCES" },
   { path: "/ops", text: "BACKSTAGE" },
 ];
 
