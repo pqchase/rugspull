@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 11:46:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 11:54:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What does token conservation mean?</title>
+      <link>https://rugspull.com/what-does-token-conservation-mean</link>
+      <guid isPermaLink="true">https://rugspull.com/what-does-token-conservation-mean</guid>
+      <pubDate>Sun, 19 Jul 2026 11:54:00 GMT</pubDate>
+      <description>A Builder guide to RugToken's one-time fixed supply, formula-based launch allocation, Opening claims, canonical swaps, the full Founder sale, holder accounting, and the limits of conservation evidence.</description>
+    </item>
     <item>
       <title>Office Counter report 010 — 2026-07-19</title>
       <link>https://rugspull.com/office-counter</link>
@@ -69,13 +76,6 @@
       <guid isPermaLink="true">https://rugspull.com/constant-product-amm-explained</guid>
       <pubDate>Sun, 19 Jul 2026 09:55:00 GMT</pubDate>
       <description>A mechanism guide to stored RugToken/WBNB reserves, x times y, post-fee amount-out arithmetic, integer rounding, nondecreasing k, price impact, and direct-transfer surplus. A deterministic curve is not a liquidity, price, execution, audit, or safety guarantee.</description>
-    </item>
-    <item>
-      <title>What does slippage tolerance do on BNB Chain?</title>
-      <link>https://rugspull.com/what-is-slippage-on-bnb-chain</link>
-      <guid isPermaLink="true">https://rugspull.com/what-is-slippage-on-bnb-chain</guid>
-      <pubDate>Sun, 19 Jul 2026 09:31:37 GMT</pubDate>
-      <description>A risk-first guide to current-state estimates, constant-product price impact, minimum output, 20-minute deadlines, atomic reverts, and why wider tolerance cannot create liquidity or guarantee execution.</description>
     </item>
   </channel>
 </rss>
