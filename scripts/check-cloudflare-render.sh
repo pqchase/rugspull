@@ -73,6 +73,7 @@ const routes = [
   { path: "/what-does-protocol-fee-destination-mean", text: "ONE WBNB FEE DESTINATION. TRACE EVERY MODELED ACCRUAL" },
   { path: "/what-does-non-decreasing-amm-k-mean", text: "K MAY GROW. CANONICAL SWAPS MUST NOT MAKE IT SHRINK" },
   { path: "/what-does-status-monotonicity-mean", text: "STATUS MOVES FORWARD OR STAYS PUT. IT NEVER REOPENS" },
+  { path: "/what-does-economic-allocation-consistency-mean", text: "THREE RECORDED ALLOCATIONS. ONE FIXED SUPPLY. KEEP THE EQUATION HONEST" },
   { path: "/verified-source-code-does-not-mean-audited", text: "MATCHED BYTECODE IS EVIDENCE. IT IS NOT AN AUDIT" },
   { path: "/why-d1-is-not-financial-truth", text: "THE DATABASE REMEMBERS. THE CONTRACT DECIDES" },
   { path: "/ops", text: "BACKSTAGE" },

@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 13:49:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 13:54:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What does economic-allocation consistency mean?</title>
+      <link>https://rugspull.com/what-does-economic-allocation-consistency-mean</link>
+      <guid isPermaLink="true">https://rugspull.com/what-does-economic-allocation-consistency-mean</guid>
+      <pubDate>Sun, 19 Jul 2026 13:54:00 GMT</pubDate>
+      <description>A Builder guide to Founder, Opening, and initial pool allocation formulas; Active and Rugged equations; recorded-field versus live-balance scope; fixture-specific expectations; and evidence limits.</description>
+    </item>
     <item>
       <title>Office Counter report 019 — 2026-07-19</title>
       <link>https://rugspull.com/office-counter</link>
@@ -69,13 +76,6 @@
       <guid isPermaLink="true">https://rugspull.com/what-does-wbnb-conservation-mean</guid>
       <pubDate>Sun, 19 Jul 2026 12:05:00 GMT</pubDate>
       <description>A Builder guide to WBNB movement through Factory fees, Creator stake, contributions, Failed and excess refunds, pool reserves, swap fee splits, the Founder sale, rounding residue, and invariant scope.</description>
-    </item>
-    <item>
-      <title>What does token conservation mean?</title>
-      <link>https://rugspull.com/what-does-token-conservation-mean</link>
-      <guid isPermaLink="true">https://rugspull.com/what-does-token-conservation-mean</guid>
-      <pubDate>Sun, 19 Jul 2026 11:54:00 GMT</pubDate>
-      <description>A Builder guide to RugToken's one-time fixed supply, formula-based launch allocation, Opening claims, canonical swaps, the full Founder sale, holder accounting, and the limits of conservation evidence.</description>
     </item>
   </channel>
 </rss>
