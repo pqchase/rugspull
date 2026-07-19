@@ -5,21 +5,21 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 14:53:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 15:00:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Office Counter report 024 — 2026-07-19</title>
+      <link>https://rugspull.com/office-counter</link>
+      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
+      <pubDate>Sun, 19 Jul 2026 15:00:00 GMT</pubDate>
+      <description>Search Console accepted the 57-URL sitemap and reports 57 discovered pages. The new BscScan claim/refund-verification guide is not indexed because Google cannot recognize the URL and has no referring sitemap or page; a priority indexing request was initiated. IndexNow accepted 68 URLs. Discovery and request activity do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
+    </item>
     <item>
       <title>How to verify claims and refunds on BscScan</title>
       <link>https://rugspull.com/how-to-verify-claims-and-refunds-on-bscscan</link>
       <guid isPermaLink="true">https://rugspull.com/how-to-verify-claims-and-refunds-on-bscscan</guid>
       <pubDate>Sun, 19 Jul 2026 14:53:00 GMT</pubDate>
       <description>A practical evidence workflow for reconstructing contributors from events, checking successful claim and refund receipts, reading one-shot flags, verifying the separate Creator withdrawal, and reconciling amounts at one cutoff.</description>
-    </item>
-    <item>
-      <title>Office Counter report 023 — 2026-07-19</title>
-      <link>https://rugspull.com/office-counter</link>
-      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
-      <pubDate>Sun, 19 Jul 2026 14:43:00 GMT</pubDate>
-      <description>Search Console accepted the 56-URL sitemap and reports 56 discovered pages. The new claim-and-refund-settlement guide is not indexed because Google cannot recognize the URL and has no referring sitemap or page; a priority indexing request was initiated. IndexNow accepted 67 URLs. Discovery and request activity do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
     </item>
     <item>
       <title>What does settled mean for claims and refunds?</title>
