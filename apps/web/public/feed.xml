@@ -5,14 +5,28 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 03:21:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 08:26:06 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Office Counter report 003 — 2026-07-19</title>
       <link>https://rugspull.com/office-counter</link>
       <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
-      <pubDate>Sun, 19 Jul 2026 03:21:00 GMT</pubDate>
-      <description>All 19 sitemap URLs are discovered in Search Console; indexing remains processing with 0 reported web-search clicks. Deployment-source recovery, machine-readable discovery, directory reviews, and activation gates are recorded without claiming indexing, approval, audit, adoption, or endorsement.</description>
+      <pubDate>Sun, 19 Jul 2026 08:21:33 GMT</pubDate>
+      <description>The Search Console sitemap row reports 32 discovered pages, while URL Inspection still classifies the newest Opening-claim guide as unknown to Google with no referring sitemap or last crawl; its priority request was accepted. Aggregate discovery and request receipts do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
+    </item>
+    <item>
+      <title>How to claim a successful Opening entitlement</title>
+      <link>https://rugspull.com/how-to-claim-opening-tokens</link>
+      <guid isPermaLink="true">https://rugspull.com/how-to-claim-opening-tokens</guid>
+      <pubDate>Sun, 19 Jul 2026 08:15:42 GMT</pubDate>
+      <description>A wallet-specific guide to Active or Rugged claims, proportional RugToken and excess-WBNB formulas, integer rounding, one-shot execution, event verification, and the separate Failed path. Claiming is not a safety, value, liquidity, or transaction-success guarantee.</description>
+    </item>
+    <item>
+      <title>Who can finalize an Opening?</title>
+      <link>https://rugspull.com/who-can-finalize-an-opening</link>
+      <guid isPermaLink="true">https://rugspull.com/who-can-finalize-an-opening</guid>
+      <pubDate>Sun, 19 Jul 2026 08:00:12 GMT</pubDate>
+      <description>Any address may submit finalize after the cutoff, but the contract selects Failed or Active from the recorded total. Permissionless finalization is not automatic execution, prompt inclusion, an audit, or a safety guarantee.</description>
     </item>
     <item>
       <title>Stage 0 Day 7 Gate Review — HOLD / NO-GO</title>
