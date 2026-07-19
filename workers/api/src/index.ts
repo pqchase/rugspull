@@ -93,6 +93,7 @@ const EVERGREEN_ROUTE_LABELS = {
   "/rug-pull-vs-liquidity-pull": "Rug pull vs liquidity pull",
   "/rugpool-vs-pancakeswap": "RugPool vs PancakeSwap",
   "/failed-opening-refund-guide": "Failed Opening refund guide",
+  "/what-if-founder-never-rugs": "What if the Founder never rugs?",
   "/testnet-lifecycle": "BSC Testnet lifecycle evidence",
   "/office-counter": "Office Counter — evidence snapshot",
   "/lifecycle-templates": "Lifecycle artifact templates",
@@ -302,7 +303,7 @@ export function socialImageForPath(pathname: string) {
   if (pathname.startsWith("/what-is-a-crypto-rug-pull") || pathname.startsWith("/rug-pull-vs-liquidity-pull") || pathname.startsWith("/crypto-rug-pull-red-flags")) {
     return "https://rugspull.com/assets/og-education.png";
   }
-  if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/failed-opening-refund-guide") || pathname.startsWith("/testnet-lifecycle") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
+  if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/failed-opening-refund-guide") || pathname.startsWith("/what-if-founder-never-rugs") || pathname.startsWith("/testnet-lifecycle") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
     return "https://rugspull.com/assets/og-security.png";
   }
   if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/docs/risk")) {
@@ -364,6 +365,9 @@ export async function seoForPath(pathname: string, env?: Pick<Env, "DB" | "FACTO
   }
   if (pathname.startsWith("/failed-opening-refund-guide")) {
     return { title: "Failed Opening Refund Guide | Rugspull", description: "Verify a Failed Rug, distinguish contributor refunds from Creator stake, and claim WBNB directly without assuming an automatic refund.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/what-if-founder-never-rugs")) {
+    return { title: "What If the Founder Never Rugs? | Rugspull", description: "Understand why Founder unlock is permission, not a deadline, and what remains true while a Rug stays Active and Still Waiting.", robots: "index, follow", canonical };
   }
   if (pathname.startsWith("/testnet-lifecycle")) {
     return { title: "BSC Testnet Lifecycle Evidence | Rugspull", description: "Inspect two clearly labeled BSC Testnet E2E paths: Failed with refund completion and Rugged with post-rug trading and reserve reconciliation.", robots: "index, follow", canonical };
