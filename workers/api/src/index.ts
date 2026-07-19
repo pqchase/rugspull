@@ -97,6 +97,7 @@ const EVERGREEN_ROUTE_LABELS = {
   "/why-trading-continues-after-rugged": "Why trading continues after Rugged",
   "/24-hour-opening-explained": "24-hour Opening explained",
   "/creator-stake-risk-explained": "Creator stake risk explained",
+  "/why-founder-cannot-sell-in-parts": "Why Founder cannot sell in parts",
   "/testnet-lifecycle": "BSC Testnet lifecycle evidence",
   "/office-counter": "Office Counter — evidence snapshot",
   "/lifecycle-templates": "Lifecycle artifact templates",
@@ -309,7 +310,7 @@ export function socialImageForPath(pathname: string) {
   if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/failed-opening-refund-guide") || pathname.startsWith("/what-if-founder-never-rugs") || pathname.startsWith("/testnet-lifecycle") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
     return "https://rugspull.com/assets/og-security.png";
   }
-  if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/why-trading-continues-after-rugged") || pathname.startsWith("/24-hour-opening-explained") || pathname.startsWith("/creator-stake-risk-explained") || pathname.startsWith("/docs/risk")) {
+  if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/why-trading-continues-after-rugged") || pathname.startsWith("/24-hour-opening-explained") || pathname.startsWith("/creator-stake-risk-explained") || pathname.startsWith("/why-founder-cannot-sell-in-parts") || pathname.startsWith("/docs/risk")) {
     return "https://rugspull.com/assets/og-mechanism.png";
   }
   return "https://rugspull.com/assets/community-hall-stage.jpg";
@@ -380,6 +381,9 @@ export async function seoForPath(pathname: string, env?: Pick<Env, "DB" | "FACTO
   }
   if (pathname.startsWith("/creator-stake-risk-explained")) {
     return { title: "Why Creator Stake Can Lose Money | Rugspull", description: "Trace Creator stake and creation fee through Failed and successful Openings, and learn why Founder sale output is not a stake refund or profit guarantee.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/why-founder-cannot-sell-in-parts")) {
+    return { title: "Why Founder Cannot Sell in Parts | Rugspull", description: "Inspect why rug() sells the full protocol-held Founder Allocation once, what makes the transaction atomic, and which ordinary-wallet sales remain possible.", robots: "index, follow", canonical };
   }
   if (pathname.startsWith("/testnet-lifecycle")) {
     return { title: "BSC Testnet Lifecycle Evidence | Rugspull", description: "Inspect two clearly labeled BSC Testnet E2E paths: Failed with refund completion and Rugged with post-rug trading and reserve reconciliation.", robots: "index, follow", canonical };
