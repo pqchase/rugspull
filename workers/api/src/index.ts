@@ -111,6 +111,7 @@ const EVERGREEN_ROUTE_LABELS = {
   "/how-to-read-amm-reserves-on-bscscan": "How to read AMM reserves on BscScan",
   "/what-is-mev-on-bnb-chain": "What is MEV on BNB Chain?",
   "/verified-source-code-does-not-mean-audited": "Why verified source code is not an audit",
+  "/why-d1-is-not-financial-truth": "Why D1 is not financial truth",
   "/testnet-lifecycle": "BSC Testnet lifecycle evidence",
   "/office-counter": "Office Counter — evidence snapshot",
   "/lifecycle-templates": "Lifecycle artifact templates",
@@ -320,7 +321,7 @@ export function socialImageForPath(pathname: string) {
   if (pathname.startsWith("/what-is-a-crypto-rug-pull") || pathname.startsWith("/rug-pull-vs-liquidity-pull") || pathname.startsWith("/crypto-rug-pull-red-flags")) {
     return "https://rugspull.com/assets/og-education.png";
   }
-  if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/verified-source-code-does-not-mean-audited") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/failed-opening-refund-guide") || pathname.startsWith("/what-if-founder-never-rugs") || pathname.startsWith("/testnet-lifecycle") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
+  if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/verified-source-code-does-not-mean-audited") || pathname.startsWith("/why-d1-is-not-financial-truth") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/failed-opening-refund-guide") || pathname.startsWith("/what-if-founder-never-rugs") || pathname.startsWith("/testnet-lifecycle") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
     return "https://rugspull.com/assets/og-security.png";
   }
   if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/why-trading-continues-after-rugged") || pathname.startsWith("/24-hour-opening-explained") || pathname.startsWith("/creator-stake-risk-explained") || pathname.startsWith("/why-founder-cannot-sell-in-parts") || pathname.startsWith("/can-the-creator-contribute") || pathname.startsWith("/can-the-creator-cancel-opening") || pathname.startsWith("/what-happens-to-excess-contributions") || pathname.startsWith("/who-can-finalize-an-opening") || pathname.startsWith("/how-to-claim-opening-tokens") || pathname.startsWith("/what-is-wbnb") || pathname.startsWith("/what-is-a-token-approval") || pathname.startsWith("/what-is-slippage-on-bnb-chain") || pathname.startsWith("/constant-product-amm-explained") || pathname.startsWith("/what-is-liquidity-on-bnb-chain") || pathname.startsWith("/how-to-read-amm-reserves-on-bscscan") || pathname.startsWith("/what-is-mev-on-bnb-chain") || pathname.startsWith("/docs/risk")) {
@@ -436,6 +437,9 @@ export async function seoForPath(pathname: string, env?: Pick<Env, "DB" | "FACTO
   }
   if (pathname.startsWith("/verified-source-code-does-not-mean-audited")) {
     return { title: "Verified Source Code Is Not an Audit | Rugspull", description: "Learn what explorer source verification proves, what it leaves unreviewed, and how to check compiler settings, configuration, contracts, tests, and audit scope.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/why-d1-is-not-financial-truth")) {
+    return { title: "Why Cloudflare D1 Is Not Financial Truth | Rugspull", description: "Learn why Rugspull treats D1 as a rebuildable discovery cache, how to detect indexer lag, and which contract reads and receipts remain authoritative.", robots: "index, follow", canonical };
   }
   if (pathname.startsWith("/testnet-lifecycle")) {
     return { title: "BSC Testnet Lifecycle Evidence | Rugspull", description: "Inspect two clearly labeled BSC Testnet E2E paths: Failed with refund completion and Rugged with post-rug trading and reserve reconciliation.", robots: "index, follow", canonical };

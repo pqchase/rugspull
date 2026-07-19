@@ -31,6 +31,7 @@
 - [BscScan AMM reserve-verification guide](https://rugspull.com/how-to-read-amm-reserves-on-bscscan)
 - [BNB Chain MEV and transaction-ordering guide](https://rugspull.com/what-is-mev-on-bnb-chain)
 - [Verified-source and independent-audit boundary](https://rugspull.com/verified-source-code-does-not-mean-audited)
+- [Cloudflare D1 and on-chain financial-truth boundary](https://rugspull.com/why-d1-is-not-financial-truth)
 - [Third-party data integration package](https://rugspull.com/integration.json)
 - [Human-readable Read API reference](https://rugspull.com/api-reference)
 - [Read-only OpenAPI 3.1 specification](https://rugspull.com/openapi.json)

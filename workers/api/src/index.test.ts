@@ -570,6 +570,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/verified-source-code-does-not-mean-audited",
       robots: "index, follow",
     });
+    await expect(seoForPath("/why-d1-is-not-financial-truth")).resolves.toMatchObject({
+      title: "Why Cloudflare D1 Is Not Financial Truth | Rugspull",
+      canonical: "https://rugspull.com/why-d1-is-not-financial-truth",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/ops")).resolves.toMatchObject({ robots: "noindex, nofollow" });
   });
 

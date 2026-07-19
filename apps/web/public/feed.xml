@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 11:04:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 11:12:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why is Cloudflare D1 not financial truth?</title>
+      <link>https://rugspull.com/why-d1-is-not-financial-truth</link>
+      <guid isPermaLink="true">https://rugspull.com/why-d1-is-not-financial-truth</guid>
+      <pubDate>Sun, 19 Jul 2026 11:12:00 GMT</pubDate>
+      <description>A Builder guide separating D1 discovery and event-derived market caches from authoritative contract state, receipts, balances, action gating, and wallet-signed settlement.</description>
+    </item>
     <item>
       <title>Office Counter report 007 — 2026-07-19</title>
       <link>https://rugspull.com/office-counter</link>
@@ -69,13 +76,6 @@
       <guid isPermaLink="true">https://rugspull.com/what-is-wbnb</guid>
       <pubDate>Sun, 19 Jul 2026 08:53:39 GMT</pubDate>
       <description>A transaction-preparation guide separating native BNB gas from WBNB contract balances, wrapping, canonical-address checks, approvals, claims, and Rugspull's WBNB-only quote boundary. One quote asset does not guarantee price, inclusion, liquidity, safety, or recovery; total loss remains possible.</description>
-    </item>
-    <item>
-      <title>How to claim a successful Opening entitlement</title>
-      <link>https://rugspull.com/how-to-claim-opening-tokens</link>
-      <guid isPermaLink="true">https://rugspull.com/how-to-claim-opening-tokens</guid>
-      <pubDate>Sun, 19 Jul 2026 08:15:42 GMT</pubDate>
-      <description>A wallet-specific guide to Active or Rugged claims, proportional RugToken and excess-WBNB formulas, integer rounding, one-shot execution, event verification, and the separate Failed path. Claiming is not a safety, value, liquidity, or transaction-success guarantee.</description>
     </item>
   </channel>
 </rss>
