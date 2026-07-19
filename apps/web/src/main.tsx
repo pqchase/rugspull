@@ -140,6 +140,7 @@ const EVERGREEN_ROUTE_LABELS = {
   "/what-is-a-crypto-rug-pull": "What is a crypto rug pull?",
   "/rug-pull-vs-liquidity-pull": "Rug pull vs liquidity pull",
   "/rugpool-vs-pancakeswap": "RugPool vs PancakeSwap",
+  "/failed-opening-refund-guide": "Failed Opening refund guide",
   "/testnet-lifecycle": "BSC Testnet lifecycle evidence",
   "/office-counter": "Office Counter — evidence snapshot",
   "/lifecycle-templates": "Lifecycle artifact templates",
@@ -234,6 +235,8 @@ function useDocumentMetadata(path: string) {
                         ? { title: "Rug Pull vs Liquidity Pull | Rugspull", description: "Compare founder token selling with reserve withdrawal and inspect Rugspull's canonical-pool boundary.", robots: "index, follow" }
                       : path.startsWith("/rugpool-vs-pancakeswap")
                         ? { title: "RugPool vs PancakeSwap | Rugspull", description: "Learn why Rugspull's internal canonical WBNB pool is not a PancakeSwap pair, router, LP position, or liquidity-lock claim.", robots: "index, follow" }
+                      : path.startsWith("/failed-opening-refund-guide")
+                        ? { title: "Failed Opening Refund Guide | Rugspull", description: "Verify a Failed Rug, distinguish contributor refunds from Creator stake, and claim WBNB directly without assuming an automatic refund.", robots: "index, follow" }
                       : path.startsWith("/testnet-lifecycle")
                         ? { title: "BSC Testnet Lifecycle Evidence | Rugspull", description: "Inspect two clearly labeled BSC Testnet E2E paths: Failed with refund completion and Rugged with post-rug trading and reserve reconciliation.", robots: "index, follow" }
                       : path.startsWith("/office-counter")
@@ -316,7 +319,7 @@ function socialImageForPath(pathname: string) {
   if (pathname.startsWith("/what-is-a-crypto-rug-pull") || pathname.startsWith("/rug-pull-vs-liquidity-pull") || pathname.startsWith("/crypto-rug-pull-red-flags")) {
     return "https://rugspull.com/assets/og-education.png";
   }
-  if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
+  if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/failed-opening-refund-guide") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
     return "https://rugspull.com/assets/og-security.png";
   }
   if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/docs/risk")) {
@@ -508,6 +511,7 @@ function Shell({ children, path, wallet }: { children: React.ReactNode; path: st
                   <li><a href="/what-is-a-crypto-rug-pull">Rug pull guide</a></li>
                   <li><a href="/rug-pull-vs-liquidity-pull">Sell vs liquidity pull</a></li>
                   <li><a href="/rugpool-vs-pancakeswap">RugPool vs PancakeSwap</a></li>
+                  <li><a href="/failed-opening-refund-guide">Failed refund guide</a></li>
                 </ul>
               </section>
               <section className="footer-link-group footer-paperwork">
@@ -1963,6 +1967,21 @@ const FACT_PAGES = {
       ["No-reserve-withdraw is not safety", "The canonical reserve boundary does not remove the disclosed full Founder Allocation sale, slippage, MEV, alternative-pool risk, key compromise, volatility, or total loss. Independent audit and organized mainnet activation remain pending."],
     ],
   },
+  "/failed-opening-refund-guide": {
+    eyebrow: "Failed Opening · claim guide",
+    title: "REFUNDS DO NOT WALK HOME ALONE.",
+    intro: "When an Opening misses its minimum, any wallet may finalize the Rug as Failed. No RugToken or RugPool is created, but each contributor must claim their own recorded WBNB and the Creator must withdraw the stake separately.",
+    sections: [
+      ["01 · Verify Failed", "Wait until the 24-hour Opening has ended and verify the RugInstance status on BNB Smart Chain. If it is still Opening, any wallet may call finalize(); a launch becomes Failed only when total contribution is below the immutable minimum."],
+      ["02 · No Token or Pool", "Failed finalization emits LaunchFailed and creates no RugToken or RugPool. Do not follow token-claim, swap, liquidity, or Founder Allocation instructions for a Failed Rug."],
+      ["03 · Contributor action", "Each contributor calls claimFailedRefund() from the same wallet that contributed. The contract returns that wallet's full recorded WBNB contribution, marks the wallet claimed first, and rejects a second claim."],
+      ["04 · Creator action", "The Creator separately calls withdrawCreatorStakeAfterFailure(). Only the recorded Creator can withdraw the Creator stake, and the one-shot creatorStakeWithdrawn flag prevents a second withdrawal."],
+      ["05 · What is not refunded", "The 0.003 WBNB creation fee was paid to the protocol treasury when the Rug was created and is not part of a Failed refund. Contributor gas costs and Creator transaction gas are also not contract refunds."],
+      ["06 · Evidence before settled", "Track eligible, claimed, and outstanding contributor refunds separately from eligible, withdrawn, and outstanding Creator stake. Do not write settled until every eligible contributor claim and the Creator withdrawal are evidenced."],
+      ["07 · Wallet and support boundary", "The Worker, D1, support inbox, Telegram, and project operators cannot claim or refund on a user's behalf. Use the canonical RugInstance address, sign directly in the wallet, reject support DMs, and never share a seed phrase or private key."],
+      ["TESTNET evidence boundary", "The public lifecycle archive includes one controlled BSC Testnet Failed path with a claimed contributor refund and withdrawn Creator stake. It demonstrates the mechanism, not mainnet adoption, an audit, guaranteed support, or future transaction success."],
+    ],
+  },
   "/testnet-lifecycle": {
     eyebrow: "TESTNET lifecycle archive",
     title: "TWO PATHS. ZERO MAINNET CLAIMS.",
@@ -1984,7 +2003,7 @@ const FACT_PAGES = {
       ["Mainnet chain record", "BNB Smart Chain mainnet · chain id 56 · Factory 0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63. The production index returned zero current-Factory Rugs at the report cutoff. This is a dated observation, not a promise that the count remains zero."],
       ["Contract test record", "Foundry reran 41 tests across unit, fuzz, invariant, and scenario families on 2026-07-17: 41 passed and zero failed. Passing project-authored tests are evidence, not an independent audit or safety finding."],
       ["Lifecycle evidence", "Two controlled BSC Testnet paths are published: Failed with contributor refund and creator-stake withdrawal, and Rugged with contributor claim, one founder exit, post-rug trading, and reserve reconciliation. They are not mainnet users, volume, adoption, or complete historical receipts."],
-      ["Public evidence inventory", "Sixteen evergreen mechanism, security, API-reference, education, lifecycle-template, Creator-readback, community-safety, and gate-review pages plus the TESTNET lifecycle archive and this dated Office Counter are public. The sitemap contains 21 URLs. Google Search Console accepted the refreshed sitemap on 2026-07-19 and reports all 21 URLs discovered with 0 videos; its indexing report remains processing and the overview reports 0 web-search clicks. URL Inspection classifies the RugPool-versus-PancakeSwap page as discovered but not indexed, and its priority-crawl request was accepted. Discovery and request acceptance are not indexing, ranking, visits, or use."],
+      ["Public evidence inventory", "Seventeen evergreen mechanism, security, API-reference, education, claim/refund, lifecycle-template, Creator-readback, community-safety, and gate-review pages plus the TESTNET lifecycle archive and this dated Office Counter are public. The sitemap contains 22 URLs. Google Search Console last read the prior 21-URL sitemap on 2026-07-19 and reports all 21 URLs discovered with 0 videos; its indexing report remains processing and the overview reports 0 web-search clicks. The new Failed Opening refund guide is not yet claimed as discovered, indexed, ranked, visited, or used."],
       ["Distribution record", "Four verified X URLs and final Telegram correction post 9 are recorded in the execution log. Post 9 contains three publicly verified HTTPS links and was verified as the current pinned message in the logged-in desktop channel on 2026-07-17. Earlier Telegram posts 5 and 7 have malformed links and post 6 is title-only; they remain visible and are not counted as successful linked content. X account recovery is complete and the next approved item remains time-gated."],
       ["Review and directory state", "DappBay My Projects still shows Security Reviewing, while its official search returns No related dApps or campaigns for Rugspull; this is pending review with no public listing result. RootData's prior dashboard session expired, so its last authenticated Pending Review state was not promoted to a newer claim. DappRadar's official submit link and Developers route both redirect to its homepage, which exposes no submit entry. Focused public searches found no Rugspull detail page on those services, MathWallet, Magic Store, or Moralis Web3 Wiki. BNB Chain Awesome PR #13 is open and clean with an automated documentation-only bot comment; it is not merged or human-reviewed. GitHub Issue 1 and Electric Capital PR #2932 still have no external human review or comments. None of these states is an audit, listing approval, independent review, recommendation, partnership, or BNB Chain endorsement."],
       ["Deployment continuity record", "A README-only GitHub push exposed source drift and temporarily caused most sampled edges to serve an older three-URL sitemap while some still served 19 URLs. The public deployment source subset was synchronized in commit df8177b. Two subsequent GitHub-triggered deployments produced stable 19-URL sitemap samples across SIN and NRT edges; the latest checked version is 2b713249-babd-455b-aa78-ffd513df8670. This is a recovery observation, not an uptime SLA or future-availability promise."],
