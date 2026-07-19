@@ -6,6 +6,7 @@ BSC-first MVP for transparent one-shot founder-rug launches.
 [WBNB guide](https://rugspull.com/what-is-wbnb) |
 [Token approval guide](https://rugspull.com/what-is-a-token-approval) |
 [Slippage guide](https://rugspull.com/what-is-slippage-on-bnb-chain) |
+[Constant-product AMM guide](https://rugspull.com/constant-product-amm-explained) |
 [BscScan](https://bscscan.com/address/0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63#code) |
 [X](https://x.com/rugspull) | [Evidence feed](https://rugspull.com/feed.xml) |
 [Security contact](https://rugspull.com/.well-known/security.txt) |
@@ -22,7 +23,7 @@ Rugspull is high-risk satire, not a safe investment, yield product, or promise o
 creator may sell the entire disclosed founder allocation once after unlock, and total loss remains
 possible. Source verification is not an independent audit.
 
-The protocol uses Solidity/Foundry contracts, WBNB as the only quote asset, an opening batch with unified pricing, failed-launch refunds, and an internal canonical constant-product AMM. Native BNB remains necessary for transaction gas; WBNB balances and allowances do not pay gas. Creation approves the Factory, contributions approve the exact `RugInstance`, and canonical buys or sells approve the exact `RugPool` only when the required token allowance is insufficient. Canonical swaps submit minimum output and deadline constraints; those checks can revert but do not guarantee inclusion, liquidity, MEV protection, or recovery. Founder allocation never leaves `RugInstance` and can only be sold once into the canonical `RugPool`.
+The protocol uses Solidity/Foundry contracts, WBNB as the only quote asset, an opening batch with unified pricing, failed-launch refunds, and an internal canonical constant-product AMM. Native BNB remains necessary for transaction gas; WBNB balances and allowances do not pay gas. Creation approves the Factory, contributions approve the exact `RugInstance`, and canonical buys or sells approve the exact `RugPool` only when the required token allowance is insufficient. Canonical swaps submit minimum output and deadline constraints; those checks can revert but do not guarantee inclusion, liquidity, MEV protection, or recovery. RugPool quotes from stored reserves with integer-rounded constant-product arithmetic; direct token transfers remain unquoted balance surplus because the pool has no sync or skim function. Founder allocation never leaves `RugInstance` and can only be sold once into the canonical `RugPool`.
 
 v0.4 fixes the launch profile at 45% Founder Allocation, 24-hour Opening, 48-hour post-Opening founder lock, 30% minimum launch, 50% accepted-contribution cap, 0.1 WBNB minimum creator stake, and 0.003 WBNB creation fee. Canonical trades use a nominal 0.30% fee: 0.25% remains in the pool and 0.05% WBNB goes to the protocol treasury.
 
