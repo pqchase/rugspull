@@ -5,21 +5,21 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 12:50:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 12:58:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Office Counter report 015 — 2026-07-19</title>
+      <link>https://rugspull.com/office-counter</link>
+      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
+      <pubDate>Sun, 19 Jul 2026 12:58:00 GMT</pubDate>
+      <description>Search Console accepted the 48-URL sitemap and reports 48 discovered pages. The new reserve-reconciliation guide is not indexed because Google cannot recognize the URL and has no referring sitemap; a priority indexing request was initiated. IndexNow accepted 59 URLs. Discovery and request activity do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
+    </item>
     <item>
       <title>What does reserve reconciliation mean?</title>
       <link>https://rugspull.com/what-does-reserve-reconciliation-mean</link>
       <guid isPermaLink="true">https://rugspull.com/what-does-reserve-reconciliation-mean</guid>
       <pubDate>Sun, 19 Jul 2026 12:50:00 GMT</pubDate>
       <description>A Builder guide to canonical RugPool stored reserves, actual token and WBNB balances, buy and sell bookkeeping, atomic rollback, invariant scope, direct-transfer surplus, and evidence limits.</description>
-    </item>
-    <item>
-      <title>Office Counter report 014 — 2026-07-19</title>
-      <link>https://rugspull.com/office-counter</link>
-      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
-      <pubDate>Sun, 19 Jul 2026 12:43:00 GMT</pubDate>
-      <description>Search Console accepted the 47-URL sitemap and reports 47 discovered pages. The new no-double-rug guide is not indexed because Google cannot recognize the URL and has no referring sitemap; a priority indexing request was initiated. IndexNow accepted 58 URLs. Discovery and request activity do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
     </item>
     <item>
       <title>What does no double rug mean?</title>
