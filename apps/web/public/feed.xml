@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 13:35:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 13:48:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What does lifecycle-status monotonicity mean?</title>
+      <link>https://rugspull.com/what-does-status-monotonicity-mean</link>
+      <guid isPermaLink="true">https://rugspull.com/what-does-status-monotonicity-mean</guid>
+      <pubDate>Sun, 19 Jul 2026 13:48:00 GMT</pubDate>
+      <description>A Builder guide to Opening, Failed, Active, and Rugged transitions; terminal branches; permissionless finalization; atomic rollback; continued post-Rugged actions; invariant scope; and evidence limits.</description>
+    </item>
     <item>
       <title>Office Counter report 018 — 2026-07-19</title>
       <link>https://rugspull.com/office-counter</link>
@@ -69,13 +76,6 @@
       <guid isPermaLink="true">https://rugspull.com/what-does-token-conservation-mean</guid>
       <pubDate>Sun, 19 Jul 2026 11:54:00 GMT</pubDate>
       <description>A Builder guide to RugToken's one-time fixed supply, formula-based launch allocation, Opening claims, canonical swaps, the full Founder sale, holder accounting, and the limits of conservation evidence.</description>
-    </item>
-    <item>
-      <title>What are smart contract invariants?</title>
-      <link>https://rugspull.com/what-are-smart-contract-invariants</link>
-      <guid isPermaLink="true">https://rugspull.com/what-are-smart-contract-invariants</guid>
-      <pubDate>Sun, 19 Jul 2026 11:42:00 GMT</pubDate>
-      <description>A Builder guide to Rugspull's 12-action Foundry state machine, seven conservation and lifecycle properties, 128-run by 64-depth configuration, and the limits of project-authored invariant evidence.</description>
     </item>
   </channel>
 </rss>

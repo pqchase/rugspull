@@ -72,6 +72,7 @@ const routes = [
   { path: "/what-does-founder-token-immobility-mean", text: "THE FOUNDER ALLOCATION STAYS IN RUGINSTANCE UNTIL THE ONE-SHOT SALE" },
   { path: "/what-does-protocol-fee-destination-mean", text: "ONE WBNB FEE DESTINATION. TRACE EVERY MODELED ACCRUAL" },
   { path: "/what-does-non-decreasing-amm-k-mean", text: "K MAY GROW. CANONICAL SWAPS MUST NOT MAKE IT SHRINK" },
+  { path: "/what-does-status-monotonicity-mean", text: "STATUS MOVES FORWARD OR STAYS PUT. IT NEVER REOPENS" },
   { path: "/verified-source-code-does-not-mean-audited", text: "MATCHED BYTECODE IS EVIDENCE. IT IS NOT AN AUDIT" },
   { path: "/why-d1-is-not-financial-truth", text: "THE DATABASE REMEMBERS. THE CONTRACT DECIDES" },
   { path: "/ops", text: "BACKSTAGE" },
