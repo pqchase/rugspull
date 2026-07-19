@@ -540,6 +540,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/what-is-a-token-approval",
       robots: "index, follow",
     });
+    await expect(seoForPath("/what-is-slippage-on-bnb-chain")).resolves.toMatchObject({
+      title: "What Is Slippage on BNB Chain? | Rugspull",
+      canonical: "https://rugspull.com/what-is-slippage-on-bnb-chain",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/ops")).resolves.toMatchObject({ robots: "noindex, nofollow" });
   });
 

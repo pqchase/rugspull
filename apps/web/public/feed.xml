@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 09:03:07 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 09:31:37 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What does slippage tolerance do on BNB Chain?</title>
+      <link>https://rugspull.com/what-is-slippage-on-bnb-chain</link>
+      <guid isPermaLink="true">https://rugspull.com/what-is-slippage-on-bnb-chain</guid>
+      <pubDate>Sun, 19 Jul 2026 09:31:37 GMT</pubDate>
+      <description>A risk-first guide to current-state estimates, constant-product price impact, minimum output, 20-minute deadlines, atomic reverts, and why wider tolerance cannot create liquidity or guarantee execution.</description>
+    </item>
     <item>
       <title>What does a token approval authorize on BNB Chain?</title>
       <link>https://rugspull.com/what-is-a-token-approval</link>
