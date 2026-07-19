@@ -590,6 +590,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/what-does-no-double-claim-mean",
       robots: "index, follow",
     });
+    await expect(seoForPath("/what-does-no-double-rug-mean")).resolves.toMatchObject({
+      title: "What Does No Double Rug Mean? | Rugspull",
+      canonical: "https://rugspull.com/what-does-no-double-rug-mean",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/verified-source-code-does-not-mean-audited")).resolves.toMatchObject({
       title: "Verified Source Code Is Not an Audit | Rugspull",
       canonical: "https://rugspull.com/verified-source-code-does-not-mean-audited",

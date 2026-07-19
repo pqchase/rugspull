@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 12:27:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 12:36:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What does no double rug mean?</title>
+      <link>https://rugspull.com/what-does-no-double-rug-mean</link>
+      <guid isPermaLink="true">https://rugspull.com/what-does-no-double-rug-mean</guid>
+      <pubDate>Sun, 19 Jul 2026 12:36:00 GMT</pubDate>
+      <description>A Builder guide to the Creator-only, post-unlock, full Founder Allocation sale; Active-to-Rugged lifecycle consumption; atomic rollback; invariant retry scope; and why one-shot does not mean no rug risk.</description>
+    </item>
     <item>
       <title>Office Counter report 013 — 2026-07-19</title>
       <link>https://rugspull.com/office-counter</link>
@@ -69,13 +76,6 @@
       <guid isPermaLink="true">https://rugspull.com/what-is-mev-on-bnb-chain</guid>
       <pubDate>Sun, 19 Jul 2026 10:45:00 GMT</pubDate>
       <description>A risk-first guide to transaction ordering, stale reserve quotes, minimum output, deadlines, atomic reverts, fees, the full Founder sale, and separate alternative pools. These controls do not guarantee inclusion, fair sequencing, price, liquidity, an exit, or safety.</description>
-    </item>
-    <item>
-      <title>How to verify AMM reserves on BscScan</title>
-      <link>https://rugspull.com/how-to-read-amm-reserves-on-bscscan</link>
-      <guid isPermaLink="true">https://rugspull.com/how-to-read-amm-reserves-on-bscscan</guid>
-      <pubDate>Sun, 19 Jul 2026 10:31:00 GMT</pubDate>
-      <description>A source-first guide to deriving the canonical RugPool, reading stored RugToken and WBNB reserves, reconciling actual balances and Swap events, and separating surplus or alternative pools. Correct reconciliation is not an audit, liquidity guarantee, or safety verdict.</description>
     </item>
   </channel>
 </rss>

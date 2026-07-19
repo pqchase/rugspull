@@ -67,6 +67,7 @@ const routes = [
   { path: "/what-does-token-conservation-mean", text: "TOKENS MOVE BETWEEN ACCOUNTS. THE SUPPLY DOES NOT APPEAR OR VANISH" },
   { path: "/what-does-wbnb-conservation-mean", text: "WBNB CHANGES HOLDERS. ACCOUNTING MUST NOT LOSE A WEI" },
   { path: "/what-does-no-double-claim-mean", text: "ONE WALLET. ONE LIFECYCLE CLAIM. NO SECOND PAYOUT" },
+  { path: "/what-does-no-double-rug-mean", text: "ONE FOUNDER ALLOCATION. ONE FULL SALE. NO SECOND RUG CALL" },
   { path: "/verified-source-code-does-not-mean-audited", text: "MATCHED BYTECODE IS EVIDENCE. IT IS NOT AN AUDIT" },
   { path: "/why-d1-is-not-financial-truth", text: "THE DATABASE REMEMBERS. THE CONTRACT DECIDES" },
   { path: "/ops", text: "BACKSTAGE" },
