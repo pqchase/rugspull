@@ -515,6 +515,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/can-the-creator-cancel-opening",
       robots: "index, follow",
     });
+    await expect(seoForPath("/what-happens-to-excess-contributions")).resolves.toMatchObject({
+      title: "What Happens to Excess Opening Contributions? | Rugspull",
+      canonical: "https://rugspull.com/what-happens-to-excess-contributions",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/ops")).resolves.toMatchObject({ robots: "noindex, nofollow" });
   });
 
