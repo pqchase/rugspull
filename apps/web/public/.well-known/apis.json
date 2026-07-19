@@ -26,7 +26,8 @@
       {"type": "LlmsText", "url": "https://rugspull.com/llms.txt", "mediaType": "text/plain"},
       {"type": "Security", "url": "https://rugspull.com/.well-known/security.txt", "mediaType": "text/plain"},
       {"type": "GitHubRepository", "url": "https://github.com/pqchase/rugspull"},
-      {"type": "X-APIOnboarding", "url": "https://rugspull.com/.well-known/api-onboarding", "mediaType": "application/json"}
+      {"type": "X-APIOnboarding", "url": "https://rugspull.com/.well-known/api-onboarding", "mediaType": "application/json"},
+      {"type": "X-APICatalog", "url": "https://rugspull.com/.well-known/api-catalog", "mediaType": "application/linkset+json"}
     ]
   }]
 }

@@ -11,6 +11,7 @@ BSC-first MVP for transparent one-shot founder-rug launches.
 [Postman Collection](https://rugspull.com/rugspull-read.postman_collection.json) |
 [APIs.json](https://rugspull.com/.well-known/apis.json) |
 [API Onboarding](https://rugspull.com/.well-known/api-onboarding) |
+[RFC 9727 API Catalog](https://rugspull.com/.well-known/api-catalog) |
 [Integration guide](docs/INTEGRATION.md)
 
 Rugspull is high-risk satire, not a safe investment, yield product, or promise of returns. The

@@ -1,0 +1,21 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://rugspull.com",
+      "service-desc": [
+        {"href": "https://rugspull.com/openapi.json", "type": "application/vnd.oai.openapi+json;version=3.1"}
+      ],
+      "service-doc": [
+        {"href": "https://github.com/pqchase/rugspull/blob/main/docs/INTEGRATION.md", "type": "text/markdown"}
+      ],
+      "service-meta": [
+        {"href": "https://rugspull.com/.well-known/apis.json", "type": "application/json"},
+        {"href": "https://rugspull.com/.well-known/api-onboarding", "type": "application/json"},
+        {"href": "https://rugspull.com/rugspull-read.postman_collection.json", "type": "application/json"}
+      ],
+      "status": [
+        {"href": "https://rugspull.com/api/health", "type": "application/json"}
+      ]
+    }
+  ]
+}
