@@ -23,6 +23,7 @@
 - [Website](https://rugspull.com/)
 - [Risk disclosure](https://rugspull.com/docs/risk)
 - [Contracts and source status](https://rugspull.com/contracts)
+- [Third-party data integration package](https://rugspull.com/integration.json)
 - [Security model and critique route](https://rugspull.com/security-model)
 - [Office Counter evidence snapshot](https://rugspull.com/office-counter)
 - [Stage 0 gate review](https://rugspull.com/stage-0-review)

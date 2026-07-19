@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "lastVerified": "2026-07-19",
+  "status": "public-integration-reference",
+  "name": "Rugspull",
+  "origin": "https://rugspull.com",
+  "identity": {
+    "chain": "BNB Smart Chain mainnet",
+    "chainId": 56,
+    "quoteAsset": {
+      "symbol": "WBNB",
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+    },
+    "factory": {
+      "address": "0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63",
+      "deploymentBlock": 109991561,
+      "bscScan": "https://bscscan.com/address/0xDFF540baBCa2ee8A2A8Ff26359Ecc9c5921D8A63#code"
+    }
+  },
+  "financialTruth": "BNB Smart Chain contract state and matching event history. The Worker and D1 are rebuildable discovery caches and must not be used as financial truth.",
+  "canonicalPool": {
+    "name": "RugPool",
+    "model": "internal non-upgradeable constant-product AMM",
+    "isPancakeSwap": false,
+    "lpToken": false,
+    "reserveWithdrawalFunction": false,
+    "nominalTradeFeeBps": 30,
+    "poolRetentionBps": 25,
+    "protocolFeeBps": 5,
+    "alternativePoolsPossible": true
+  },
+  "source": {
+    "repository": "https://github.com/pqchase/rugspull",
+    "abi": "https://github.com/pqchase/rugspull/blob/main/packages/contracts-ts/src/abi.ts",
+    "chainConstants": "https://github.com/pqchase/rugspull/blob/main/packages/contracts-ts/src/index.ts",
+    "economics": "https://github.com/pqchase/rugspull/blob/main/packages/economics/src/index.ts",
+    "contracts": "https://rugspull.com/contracts"
+  },
+  "events": [
+    { "contract": "RugFactory", "name": "RugCreated", "use": "Discover an Instance and bind creator, stake, Opening end, metadata hash, and disclosure hash to the current Factory." },
+    { "contract": "RugInstance", "name": "Contributed", "use": "Record contribution flow without inferring unique people from wallet count." },
+    { "contract": "RugInstance", "name": "LaunchSucceeded", "use": "Bind Token and RugPool, accepted contribution, opening allocation, initial reserves, and Founder Allocation." },
+    { "contract": "RugInstance", "name": "LaunchFailed", "use": "Mark Failed and expose user-initiated refund eligibility; do not describe refunds as automatic." },
+    { "contract": "RugInstance", "name": "ClaimedOpening", "use": "Record the token claim and excess-contribution refund actually executed by one wallet." },
+    { "contract": "RugInstance", "name": "ClaimedFailedRefund", "use": "Record the Failed contribution refund actually executed by one wallet." },
+    { "contract": "RugInstance", "name": "CreatorStakeWithdrawn", "use": "Record creator stake withdrawal after Failed separately from contributor refunds." },
+    { "contract": "RugPool", "name": "Swap", "use": "Rebuild side, amounts, protocol fee, post-event reserves, price, and WBNB volume." },
+    { "contract": "RugInstance", "name": "RugPulled", "use": "Record the one full protocol-held Founder Allocation exit and quote received." }
+  ],
+  "readApi": {
+    "baseUrl": "https://rugspull.com",
+    "executionEndpoints": false,
+    "numericRateLimitSla": false,
+    "endpoints": [
+      { "method": "GET", "path": "/api/health", "purpose": "Service liveness only." },
+      { "method": "GET", "path": "/api/config", "purpose": "Current chain, Factory sources, financial-truth boundary, and upload-protection state." },
+      { "method": "GET", "path": "/api/indexer/status", "purpose": "Factory checkpoints, latest indexed block, stale threshold, and warnings." },
+      { "method": "GET", "path": "/api/rugs?status=&cursor=&limit=", "purpose": "Current-Factory discovery cache; limit is bounded to 1–100." },
+      { "method": "GET", "path": "/api/rugs/:chainId/:rug", "purpose": "One indexed Rug record." },
+      { "method": "GET", "path": "/api/rugs/:chainId/:rug/events", "purpose": "Ordered cached events, capped at 100 rows." },
+      { "method": "GET", "path": "/api/rugs/:chainId/:rug/market?limit=", "purpose": "Market points and Rug marker; limit is bounded to 20–500." },
+      { "method": "GET", "path": "/api/market/sparklines?chainId=&rugs=", "purpose": "Up to 24 Rug addresses and up to 16 recent prices per Rug." },
+      { "method": "GET", "path": "/api/r2/:key", "purpose": "Public immutable metadata or image object when the key passes the public-key policy." }
+    ]
+  },
+  "marketReconstruction": {
+    "price": "reserveQuote * 1e18 / reserveToken after each LaunchSucceeded or Swap event",
+    "buyQuoteVolume": "amountIn",
+    "sellQuoteVolume": "amountOut + protocolFeeQuote",
+    "protocolFeeVolume": "sum(Swap.protocolFeeQuote)",
+    "ohlcvPublicApi": false,
+    "reserveCheck": "Compare RugPool.getReserves() with actual RugToken and WBNB balances."
+  },
+  "instanceDiscovery": "Each Rug has separate Instance, Token, and RugPool addresses emitted after creation. Do not infer or pre-register nonexistent addresses, and verify each exact deployment separately.",
+  "boundaries": [
+    "Independent audit is pending; source verification and project-authored tests are not an audit or safety guarantee.",
+    "Organized new mainnet activity remains NO-GO until the published activation gates are satisfied.",
+    "Publication of this package does not claim wallet, terminal, aggregator, directory, BNB Chain, or other third-party integration, review, partnership, recommendation, or endorsement.",
+    "Rugged is a contract lifecycle state, not a generic scam verdict, safety label, refund condition, or proof that related wallets stopped trading.",
+    "Third parties can create alternative pools; Rugspull cannot remove MEV, guarantee price quality, identify all related wallets, or prevent total loss."
+  ],
+  "links": {
+    "risk": "https://rugspull.com/docs/risk",
+    "securityModel": "https://rugspull.com/security-model",
+    "securityContact": "https://rugspull.com/.well-known/security.txt",
+    "testnetEvidence": "https://rugspull.com/testnet-lifecycle",
+    "officeCounter": "https://rugspull.com/office-counter"
+  }
+}
