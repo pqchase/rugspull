@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 11:32:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 11:42:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What are smart contract invariants?</title>
+      <link>https://rugspull.com/what-are-smart-contract-invariants</link>
+      <guid isPermaLink="true">https://rugspull.com/what-are-smart-contract-invariants</guid>
+      <pubDate>Sun, 19 Jul 2026 11:42:00 GMT</pubDate>
+      <description>A Builder guide to Rugspull's 12-action Foundry state machine, seven conservation and lifecycle properties, 128-run by 64-depth configuration, and the limits of project-authored invariant evidence.</description>
+    </item>
     <item>
       <title>Office Counter report 009 — 2026-07-19</title>
       <link>https://rugspull.com/office-counter</link>
@@ -69,13 +76,6 @@
       <guid isPermaLink="true">https://rugspull.com/what-is-slippage-on-bnb-chain</guid>
       <pubDate>Sun, 19 Jul 2026 09:31:37 GMT</pubDate>
       <description>A risk-first guide to current-state estimates, constant-product price impact, minimum output, 20-minute deadlines, atomic reverts, and why wider tolerance cannot create liquidity or guarantee execution.</description>
-    </item>
-    <item>
-      <title>What does a token approval authorize on BNB Chain?</title>
-      <link>https://rugspull.com/what-is-a-token-approval</link>
-      <guid isPermaLink="true">https://rugspull.com/what-is-a-token-approval</guid>
-      <pubDate>Sun, 19 Jul 2026 09:03:07 GMT</pubDate>
-      <description>A spender-by-action guide for WBNB and RugToken allowances, actions that need no approval, exact-amount checks, and revocation limits. Correct approval hygiene does not guarantee contract safety, inclusion, price, liquidity, an exit, or recovery.</description>
     </item>
   </channel>
 </rss>

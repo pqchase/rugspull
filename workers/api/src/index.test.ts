@@ -570,6 +570,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/what-are-alternative-pools-on-bnb-chain",
       robots: "index, follow",
     });
+    await expect(seoForPath("/what-are-smart-contract-invariants")).resolves.toMatchObject({
+      title: "What Are Smart Contract Invariants? | Rugspull",
+      canonical: "https://rugspull.com/what-are-smart-contract-invariants",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/verified-source-code-does-not-mean-audited")).resolves.toMatchObject({
       title: "Verified Source Code Is Not an Audit | Rugspull",
       canonical: "https://rugspull.com/verified-source-code-does-not-mean-audited",
