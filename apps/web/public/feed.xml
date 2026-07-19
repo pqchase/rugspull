@@ -5,21 +5,21 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 10:58:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 11:04:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Office Counter report 007 — 2026-07-19</title>
+      <link>https://rugspull.com/office-counter</link>
+      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
+      <pubDate>Sun, 19 Jul 2026 11:04:00 GMT</pubDate>
+      <description>Search Console accepted the 40-URL sitemap and reports 40 discovered pages. The new verified-source/audit-boundary guide is not indexed because Google cannot recognize the URL, with no referring sitemap, referring page, or last crawl; a priority indexing request was accepted. IndexNow accepted 51 URLs. Discovery and request receipts do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
+    </item>
     <item>
       <title>Why does verified source code not mean audited?</title>
       <link>https://rugspull.com/verified-source-code-does-not-mean-audited</link>
       <guid isPermaLink="true">https://rugspull.com/verified-source-code-does-not-mean-audited</guid>
       <pubDate>Sun, 19 Jul 2026 10:58:00 GMT</pubDate>
       <description>A review guide separating bytecode/source correspondence from independent security assessment, including compiler settings, deployment configuration, multi-contract scope, project-authored tests, and the evidence required for a real audit claim.</description>
-    </item>
-    <item>
-      <title>Office Counter report 006 — 2026-07-19</title>
-      <link>https://rugspull.com/office-counter</link>
-      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
-      <pubDate>Sun, 19 Jul 2026 10:52:00 GMT</pubDate>
-      <description>Search Console accepted the 39-URL sitemap and reports 39 discovered pages. The new MEV guide is not indexed because Google cannot recognize the URL, with no referring sitemap, referring page, or last crawl; a priority indexing request was accepted. IndexNow accepted 50 URLs. Discovery and request receipts do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
     </item>
     <item>
       <title>What does MEV mean for a BNB Chain AMM swap?</title>
