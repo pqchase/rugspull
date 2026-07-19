@@ -580,6 +580,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/what-does-token-conservation-mean",
       robots: "index, follow",
     });
+    await expect(seoForPath("/what-does-wbnb-conservation-mean")).resolves.toMatchObject({
+      title: "What Does WBNB Conservation Mean? | Rugspull",
+      canonical: "https://rugspull.com/what-does-wbnb-conservation-mean",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/verified-source-code-does-not-mean-audited")).resolves.toMatchObject({
       title: "Verified Source Code Is Not an Audit | Rugspull",
       canonical: "https://rugspull.com/verified-source-code-does-not-mean-audited",

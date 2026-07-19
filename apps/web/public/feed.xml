@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 11:59:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 12:05:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What does WBNB conservation mean?</title>
+      <link>https://rugspull.com/what-does-wbnb-conservation-mean</link>
+      <guid isPermaLink="true">https://rugspull.com/what-does-wbnb-conservation-mean</guid>
+      <pubDate>Sun, 19 Jul 2026 12:05:00 GMT</pubDate>
+      <description>A Builder guide to WBNB movement through Factory fees, Creator stake, contributions, Failed and excess refunds, pool reserves, swap fee splits, the Founder sale, rounding residue, and invariant scope.</description>
+    </item>
     <item>
       <title>Office Counter report 011 — 2026-07-19</title>
       <link>https://rugspull.com/office-counter</link>
@@ -69,13 +76,6 @@
       <guid isPermaLink="true">https://rugspull.com/what-is-liquidity-on-bnb-chain</guid>
       <pubDate>Sun, 19 Jul 2026 10:12:00 GMT</pubDate>
       <description>A risk-first guide to token and WBNB reserve depth, price impact, Opening liquidity, the full Founder sale, stored-reserve reconciliation, and separate alternative pools. Liquidity does not guarantee price, execution, an exit, recovery, an audit, or safety.</description>
-    </item>
-    <item>
-      <title>How does a constant-product AMM calculate swaps?</title>
-      <link>https://rugspull.com/constant-product-amm-explained</link>
-      <guid isPermaLink="true">https://rugspull.com/constant-product-amm-explained</guid>
-      <pubDate>Sun, 19 Jul 2026 09:55:00 GMT</pubDate>
-      <description>A mechanism guide to stored RugToken/WBNB reserves, x times y, post-fee amount-out arithmetic, integer rounding, nondecreasing k, price impact, and direct-transfer surplus. A deterministic curve is not a liquidity, price, execution, audit, or safety guarantee.</description>
     </item>
   </channel>
 </rss>

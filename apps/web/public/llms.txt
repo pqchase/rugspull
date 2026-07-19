@@ -33,6 +33,7 @@
 - [BNB Chain canonical and alternative-pool guide](https://rugspull.com/what-are-alternative-pools-on-bnb-chain)
 - [Foundry smart-contract invariant testing guide](https://rugspull.com/what-are-smart-contract-invariants)
 - [RugToken fixed-supply and token-conservation guide](https://rugspull.com/what-does-token-conservation-mean)
+- [WBNB flow and conservation guide](https://rugspull.com/what-does-wbnb-conservation-mean)
 - [Verified-source and independent-audit boundary](https://rugspull.com/verified-source-code-does-not-mean-audited)
 - [Cloudflare D1 and on-chain financial-truth boundary](https://rugspull.com/why-d1-is-not-financial-truth)
 - [Third-party data integration package](https://rugspull.com/integration.json)

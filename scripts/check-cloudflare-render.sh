@@ -65,6 +65,7 @@ const routes = [
   { path: "/what-are-alternative-pools-on-bnb-chain", text: "ONE TOKEN CAN TRADE IN MANY POOLS. ONLY ONE IS CANONICAL" },
   { path: "/what-are-smart-contract-invariants", text: "A PROPERTY THAT SURVIVES MANY CALLS IS EVIDENCE. NOT PROOF OF SAFETY" },
   { path: "/what-does-token-conservation-mean", text: "TOKENS MOVE BETWEEN ACCOUNTS. THE SUPPLY DOES NOT APPEAR OR VANISH" },
+  { path: "/what-does-wbnb-conservation-mean", text: "WBNB CHANGES HOLDERS. ACCOUNTING MUST NOT LOSE A WEI" },
   { path: "/verified-source-code-does-not-mean-audited", text: "MATCHED BYTECODE IS EVIDENCE. IT IS NOT AN AUDIT" },
   { path: "/why-d1-is-not-financial-truth", text: "THE DATABASE REMEMBERS. THE CONTRACT DECIDES" },
   { path: "/ops", text: "BACKSTAGE" },

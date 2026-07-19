@@ -113,6 +113,7 @@ const EVERGREEN_ROUTE_LABELS = {
   "/what-are-alternative-pools-on-bnb-chain": "What are alternative pools on BNB Chain?",
   "/what-are-smart-contract-invariants": "What are smart contract invariants?",
   "/what-does-token-conservation-mean": "What does token conservation mean?",
+  "/what-does-wbnb-conservation-mean": "What does WBNB conservation mean?",
   "/verified-source-code-does-not-mean-audited": "Why verified source code is not an audit",
   "/why-d1-is-not-financial-truth": "Why D1 is not financial truth",
   "/testnet-lifecycle": "BSC Testnet lifecycle evidence",
@@ -324,7 +325,7 @@ export function socialImageForPath(pathname: string) {
   if (pathname.startsWith("/what-is-a-crypto-rug-pull") || pathname.startsWith("/rug-pull-vs-liquidity-pull") || pathname.startsWith("/crypto-rug-pull-red-flags")) {
     return "https://rugspull.com/assets/og-education.png";
   }
-  if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/what-are-smart-contract-invariants") || pathname.startsWith("/what-does-token-conservation-mean") || pathname.startsWith("/verified-source-code-does-not-mean-audited") || pathname.startsWith("/why-d1-is-not-financial-truth") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/failed-opening-refund-guide") || pathname.startsWith("/what-if-founder-never-rugs") || pathname.startsWith("/testnet-lifecycle") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
+  if (pathname.startsWith("/security-model") || pathname.startsWith("/api-reference") || pathname.startsWith("/transparency") || pathname.startsWith("/contracts") || pathname.startsWith("/how-to-check-a-smart-contract-on-bscscan") || pathname.startsWith("/what-are-smart-contract-invariants") || pathname.startsWith("/what-does-token-conservation-mean") || pathname.startsWith("/what-does-wbnb-conservation-mean") || pathname.startsWith("/verified-source-code-does-not-mean-audited") || pathname.startsWith("/why-d1-is-not-financial-truth") || pathname.startsWith("/rugpool-vs-pancakeswap") || pathname.startsWith("/failed-opening-refund-guide") || pathname.startsWith("/what-if-founder-never-rugs") || pathname.startsWith("/testnet-lifecycle") || pathname.startsWith("/office-counter") || pathname.startsWith("/lifecycle-templates") || pathname.startsWith("/creator-handbook") || pathname.startsWith("/community-safety") || pathname.startsWith("/stage-0-review")) {
     return "https://rugspull.com/assets/og-security.png";
   }
   if (pathname.startsWith("/how-it-works") || pathname.startsWith("/fees") || pathname.startsWith("/founder-allocation-explained") || pathname.startsWith("/why-trading-continues-after-rugged") || pathname.startsWith("/24-hour-opening-explained") || pathname.startsWith("/creator-stake-risk-explained") || pathname.startsWith("/why-founder-cannot-sell-in-parts") || pathname.startsWith("/can-the-creator-contribute") || pathname.startsWith("/can-the-creator-cancel-opening") || pathname.startsWith("/what-happens-to-excess-contributions") || pathname.startsWith("/who-can-finalize-an-opening") || pathname.startsWith("/how-to-claim-opening-tokens") || pathname.startsWith("/what-is-wbnb") || pathname.startsWith("/what-is-a-token-approval") || pathname.startsWith("/what-is-slippage-on-bnb-chain") || pathname.startsWith("/constant-product-amm-explained") || pathname.startsWith("/what-is-liquidity-on-bnb-chain") || pathname.startsWith("/how-to-read-amm-reserves-on-bscscan") || pathname.startsWith("/what-is-mev-on-bnb-chain") || pathname.startsWith("/what-are-alternative-pools-on-bnb-chain") || pathname.startsWith("/docs/risk")) {
@@ -446,6 +447,9 @@ export async function seoForPath(pathname: string, env?: Pick<Env, "DB" | "FACTO
   }
   if (pathname.startsWith("/what-does-token-conservation-mean")) {
     return { title: "What Does Token Conservation Mean? | Rugspull", description: "Trace RugToken's fixed supply across RugInstance, Opening claims, RugPool swaps, and the one-shot Founder sale—and learn what conservation does not prove.", robots: "index, follow", canonical };
+  }
+  if (pathname.startsWith("/what-does-wbnb-conservation-mean")) {
+    return { title: "What Does WBNB Conservation Mean? | Rugspull", description: "Trace WBNB through creation fees, Creator stake, contributions, refunds, RugPool swaps, protocol fees, and the Founder sale—and learn what conservation does not prove.", robots: "index, follow", canonical };
   }
   if (pathname.startsWith("/verified-source-code-does-not-mean-audited")) {
     return { title: "Verified Source Code Is Not an Audit | Rugspull", description: "Learn what explorer source verification proves, what it leaves unreviewed, and how to check compiler settings, configuration, contracts, tests, and audit scope.", robots: "index, follow", canonical };
