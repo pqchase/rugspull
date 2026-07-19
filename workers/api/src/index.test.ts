@@ -505,6 +505,11 @@ describe("rugspull worker", () => {
       canonical: "https://rugspull.com/api-reference",
       robots: "index, follow",
     });
+    await expect(seoForPath("/can-the-creator-contribute")).resolves.toMatchObject({
+      title: "Can the Creator Contribute? | Rugspull",
+      canonical: "https://rugspull.com/can-the-creator-contribute",
+      robots: "index, follow",
+    });
     await expect(seoForPath("/ops")).resolves.toMatchObject({ robots: "noindex, nofollow" });
   });
 

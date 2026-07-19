@@ -50,6 +50,7 @@ const routes = [
   { path: "/rug/56/not-an-address", text: "BRING A REAL" },
   { path: "/account/0x0000000000000000000000000000000000000001", text: "YOUR SEAT IN" },
   { path: "/docs/risk", text: "READ THIS BEFORE" },
+  { path: "/can-the-creator-contribute", text: "ONE ADDRESS IS BLOCKED. IDENTITIES ARE NOT SOLVED" },
   { path: "/ops", text: "BACKSTAGE" },
 ];
 
