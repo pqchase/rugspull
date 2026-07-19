@@ -5,8 +5,15 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 12:11:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 12:18:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What does no double claim mean?</title>
+      <link>https://rugspull.com/what-does-no-double-claim-mean</link>
+      <guid isPermaLink="true">https://rugspull.com/what-does-no-double-claim-mean</guid>
+      <pubDate>Sun, 19 Jul 2026 12:18:00 GMT</pubDate>
+      <description>A Builder guide to aggregate wallet entitlements, mutually exclusive successful and Failed claim paths, checks-effects-interactions, atomic rollback, Creator stake separation, invariant scope, and the difference between one-shot and fully settled.</description>
+    </item>
     <item>
       <title>Office Counter report 012 — 2026-07-19</title>
       <link>https://rugspull.com/office-counter</link>
@@ -69,13 +76,6 @@
       <guid isPermaLink="true">https://rugspull.com/how-to-read-amm-reserves-on-bscscan</guid>
       <pubDate>Sun, 19 Jul 2026 10:31:00 GMT</pubDate>
       <description>A source-first guide to deriving the canonical RugPool, reading stored RugToken and WBNB reserves, reconciling actual balances and Swap events, and separating surplus or alternative pools. Correct reconciliation is not an audit, liquidity guarantee, or safety verdict.</description>
-    </item>
-    <item>
-      <title>What does liquidity mean in a BNB Chain AMM?</title>
-      <link>https://rugspull.com/what-is-liquidity-on-bnb-chain</link>
-      <guid isPermaLink="true">https://rugspull.com/what-is-liquidity-on-bnb-chain</guid>
-      <pubDate>Sun, 19 Jul 2026 10:12:00 GMT</pubDate>
-      <description>A risk-first guide to token and WBNB reserve depth, price impact, Opening liquidity, the full Founder sale, stored-reserve reconciliation, and separate alternative pools. Liquidity does not guarantee price, execution, an exit, recovery, an audit, or safety.</description>
     </item>
   </channel>
 </rss>
