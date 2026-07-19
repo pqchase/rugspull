@@ -5,21 +5,21 @@
     <link>https://rugspull.com/</link>
     <description>Dated, risk-first Rugspull evidence and operating-gate updates. Not live analytics, investment advice, an audit, or a safety signal.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Jul 2026 12:05:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 12:11:00 GMT</lastBuildDate>
     <atom:link href="https://rugspull.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Office Counter report 012 — 2026-07-19</title>
+      <link>https://rugspull.com/office-counter</link>
+      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
+      <pubDate>Sun, 19 Jul 2026 12:11:00 GMT</pubDate>
+      <description>Search Console accepted the 45-URL sitemap and reports 45 discovered pages. The new WBNB-conservation guide is not indexed because Google cannot recognize the URL, with no referring sitemap, referring page, or last crawl; a priority indexing request was accepted. IndexNow accepted 56 URLs. Discovery and request receipts do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
+    </item>
     <item>
       <title>What does WBNB conservation mean?</title>
       <link>https://rugspull.com/what-does-wbnb-conservation-mean</link>
       <guid isPermaLink="true">https://rugspull.com/what-does-wbnb-conservation-mean</guid>
       <pubDate>Sun, 19 Jul 2026 12:05:00 GMT</pubDate>
       <description>A Builder guide to WBNB movement through Factory fees, Creator stake, contributions, Failed and excess refunds, pool reserves, swap fee splits, the Founder sale, rounding residue, and invariant scope.</description>
-    </item>
-    <item>
-      <title>Office Counter report 011 — 2026-07-19</title>
-      <link>https://rugspull.com/office-counter</link>
-      <guid isPermaLink="true">https://rugspull.com/office-counter</guid>
-      <pubDate>Sun, 19 Jul 2026 11:59:00 GMT</pubDate>
-      <description>Search Console accepted the 44-URL sitemap and reports 44 discovered pages. The new token-conservation guide is not indexed because Google cannot recognize the URL, with no referring sitemap, referring page, or last crawl; a priority indexing request was accepted. IndexNow accepted 55 URLs. Discovery and request receipts do not prove indexing, ranking, clicks, approval, audit, adoption, or endorsement.</description>
     </item>
     <item>
       <title>What does token conservation mean?</title>
