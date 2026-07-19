@@ -120,6 +120,14 @@ try {
   }
 
   await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${base}/how-to-read-event-logs-on-bscscan`, { waitUntil: "domcontentloaded", timeout: 15_000 });
+  await page.getByText("THE EVENT NAME IS A LABEL. THE EMITTER AND TOPICS ARE THE EVIDENCE", { exact: false }).first().waitFor({ timeout: 10_000 });
+  const factPageHasHorizontalOverflow = await page.evaluate(
+    () => document.documentElement.scrollWidth > window.innerWidth,
+  );
+  if (factPageHasHorizontalOverflow) {
+    throw new Error("Mobile event-log guide has horizontal overflow.");
+  }
   await page.goto(`${base}/`, { waitUntil: "domcontentloaded", timeout: 15_000 });
   await page.getByText("WE PUT THE RUG", { exact: false }).first().waitFor({ timeout: 10_000 });
   const hasHorizontalOverflow = await page.evaluate(

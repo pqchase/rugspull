@@ -190,7 +190,7 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wra
   padding: 10px clamp(18px, 4vw, 56px);
 }
 .footer-fine-print span { color: inherit; font-size: inherit; }
-.fact-page { display: grid; gap: 28px; }
+.fact-page { display: grid; gap: 28px; grid-template-columns: minmax(0, 1fr); min-width: 0; width: 100%; }
 .fact-page .page-intro { max-width: 900px; }
 .fact-page .page-intro h1 { max-width: 850px; }
 .fact-grid { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
