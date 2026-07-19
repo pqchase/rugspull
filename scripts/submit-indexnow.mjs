@@ -31,6 +31,10 @@ const machineReadableUrls = [
   "/.well-known/apis.json",
   "/.well-known/api-onboarding",
   "/.well-known/api-catalog",
+  "/abi/RugFactory.json",
+  "/abi/RugInstance.json",
+  "/abi/RugPool.json",
+  "/abi/RugToken.json",
 ].map((path) => new URL(path, sitemapUrls[0]).href);
 const urlList = [...new Set([...sitemapUrls, ...machineReadableUrls])];
 
