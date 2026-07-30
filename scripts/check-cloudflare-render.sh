@@ -134,8 +134,19 @@ try {
     }
   }
 
-  if (await page.locator('footer a[href="https://github.com/pqchase/rugspull/releases/tag/v0.4.0-evidence.1"]').count() !== 1) {
-    throw new Error("Global footer is missing the exact evidence prerelease link.");
+  await page.goto(`${base}/`, { waitUntil: "domcontentloaded", timeout: 15_000 });
+  const footerHrefs = await page.locator("footer .footer-links a").evaluateAll(
+    (links) => links.map((link) => link.getAttribute("href")),
+  );
+  const expectedFooterHrefs = [
+    "/docs/risk",
+    "https://github.com/pqchase/rugspull",
+    "https://x.com/rugspull",
+    "https://t.me/rugspullcom",
+    "mailto:info@rugspull.com",
+  ];
+  if (JSON.stringify(footerHrefs) !== JSON.stringify(expectedFooterHrefs)) {
+    throw new Error(`Global footer links do not match the compact production set: ${JSON.stringify(footerHrefs)}`);
   }
 
   await page.setViewportSize({ width: 390, height: 844 });
