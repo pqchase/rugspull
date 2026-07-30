@@ -2,23 +2,19 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { createRoot } from "react-dom/client";
 import {
   AlertTriangle,
-  AtSign,
   ArrowDownUp,
   CircleDollarSign,
   ClipboardList,
   ChevronDown,
   ExternalLink,
   FlaskConical,
-  FolderGit2,
   Gauge,
   Hand,
   Home,
   Loader2,
-  Mail,
   Plus,
   RefreshCw,
   ShieldAlert,
-  Send,
   Ticket,
   UserRound,
   Wallet,
@@ -577,113 +573,21 @@ function Shell({ children, path, wallet }: { children: React.ReactNode; path: st
       {children}
       <footer className="site-footer">
         <div className="footer-frame">
-          <section className="footer-office" aria-label="Rugspull office">
-            <span className="footer-stamp">OFFICE MEMO · BNB CHAIN</span>
-            <strong>RUGSPULL<br />OFFICE OF BAD DECISIONS</strong>
-            <p>Distribution is social. Settlement is on-chain. Regret is self-custodied.</p>
-            <a className="footer-email" href="mailto:info@rugspull.com">
-              <Mail size={19} aria-hidden="true" />
-              <span><small>Corrections, abuse & paperwork</small>info@rugspull.com</span>
-            </a>
-          </section>
-
-          <div className="footer-content">
-            <nav className="footer-switchboard" aria-label="Official channels">
-              <span className="footer-switchboard-label">Official-ish switchboard</span>
-              <a href="https://x.com/rugspull" target="_blank" rel="noreferrer" aria-label="Rugspull on X">
-                <AtSign size={17} aria-hidden="true" />
-                <span><strong>X</strong><small>@rugspull</small></span>
-                <ExternalLink size={12} aria-hidden="true" />
-              </a>
-              <a href="https://t.me/rugspullcom" target="_blank" rel="noreferrer" aria-label="Rugspull Telegram channel">
-                <Send size={17} aria-hidden="true" />
-                <span><strong>Telegram</strong><small>@rugspullcom</small></span>
-                <ExternalLink size={12} aria-hidden="true" />
-              </a>
-              <a href="https://github.com/pqchase/rugspull" target="_blank" rel="noreferrer" aria-label="Rugspull source code on GitHub">
-                <FolderGit2 size={17} aria-hidden="true" />
-                <span><strong>GitHub</strong><small>pqchase/rugspull</small></span>
-                <ExternalLink size={12} aria-hidden="true" />
-              </a>
-            </nav>
-
-            <nav className="footer-directory" aria-label="Rugspull resources">
-              <section className="footer-link-group">
-                <h2>Before the bad idea</h2>
-                <ul>
-                  <li><a href="/docs/risk">Read risk first</a></li>
-                  <li><a href="/security-model">Security model</a></li>
-                  <li><a href="/api-reference">Read API</a></li>
-                  <li><a href="/founder-allocation-explained">Founder allocation</a></li>
-                  <li><a href="/how-to-check-a-smart-contract-on-bscscan">Contract check</a></li>
-                  <li><a href="/verified-source-code-does-not-mean-audited">Verified source ≠ audit</a></li>
-                  <li><a href="/why-d1-is-not-financial-truth">D1 is not financial truth</a></li>
-                </ul>
-              </section>
-              <section className="footer-link-group">
-                <h2>Rugpull field guide</h2>
-                <ul>
-                  <li><a href="/crypto-rug-pull-red-flags">Risk signals</a></li>
-                  <li><a href="/what-is-a-crypto-rug-pull">Rug pull guide</a></li>
-                  <li><a href="/rug-pull-vs-liquidity-pull">Sell vs liquidity pull</a></li>
-                  <li><a href="/rugpool-vs-pancakeswap">RugPool vs PancakeSwap</a></li>
-                  <li><a href="/failed-opening-refund-guide">Failed refund guide</a></li>
-                  <li><a href="/what-if-founder-never-rugs">Founder never rugs?</a></li>
-                  <li><a href="/why-trading-continues-after-rugged">Trading after Rugged</a></li>
-                  <li><a href="/24-hour-opening-explained">24-hour Opening</a></li>
-                  <li><a href="/creator-stake-risk-explained">Creator stake risk</a></li>
-                  <li><a href="/why-founder-cannot-sell-in-parts">No partial Founder sale</a></li>
-                  <li><a href="/can-the-creator-contribute">Creator contribution rule</a></li>
-                  <li><a href="/can-the-creator-cancel-opening">No Opening cancellation</a></li>
-                  <li><a href="/what-happens-to-excess-contributions">Excess contributions</a></li>
-                  <li><a href="/who-can-finalize-an-opening">Permissionless finalization</a></li>
-                  <li><a href="/how-to-claim-opening-tokens">Opening token claim</a></li>
-                  <li><a href="/what-is-wbnb">What is WBNB?</a></li>
-                  <li><a href="/what-is-a-token-approval">Token approval guide</a></li>
-                  <li><a href="/what-is-slippage-on-bnb-chain">Slippage guide</a></li>
-                  <li><a href="/constant-product-amm-explained">Constant-product AMM</a></li>
-                  <li><a href="/what-is-liquidity-on-bnb-chain">Liquidity and reserve depth</a></li>
-                  <li><a href="/how-to-read-amm-reserves-on-bscscan">Read AMM reserves on BscScan</a></li>
-                  <li><a href="/what-is-mev-on-bnb-chain">MEV and transaction ordering</a></li>
-                  <li><a href="/what-are-alternative-pools-on-bnb-chain">Alternative pools</a></li>
-                  <li><a href="/what-are-smart-contract-invariants">Smart-contract invariants</a></li>
-                  <li><a href="/what-does-token-conservation-mean">Token conservation</a></li>
-                  <li><a href="/what-does-wbnb-conservation-mean">WBNB conservation</a></li>
-                  <li><a href="/what-does-no-double-claim-mean">No double claim</a></li>
-                  <li><a href="/what-does-no-double-rug-mean">No double rug</a></li>
-                  <li><a href="/what-does-reserve-reconciliation-mean">Reserve reconciliation</a></li>
-                  <li><a href="/what-does-founder-token-immobility-mean">Founder Token immobility</a></li>
-                  <li><a href="/what-does-protocol-fee-destination-mean">Protocol fee destination</a></li>
-                  <li><a href="/what-does-non-decreasing-amm-k-mean">Non-decreasing AMM k</a></li>
-                  <li><a href="/what-does-status-monotonicity-mean">Lifecycle-status monotonicity</a></li>
-                  <li><a href="/what-does-economic-allocation-consistency-mean">Economic-allocation consistency</a></li>
-                  <li><a href="/why-opening-price-is-not-below-initial-pool-price">Opening vs initial pool price</a></li>
-                  <li><a href="/why-pro-rata-claims-can-leave-rounding-residue">Pro-rata claim rounding</a></li>
-                  <li><a href="/what-does-settled-mean-for-claims-and-refunds">Claim and refund settlement</a></li>
-                  <li><a href="/how-to-verify-claims-and-refunds-on-bscscan">Verify claims and refunds</a></li>
-                  <li><a href="/what-is-a-transaction-receipt-on-bnb-chain">Transaction receipts</a></li>
-                  <li><a href="/how-to-read-event-logs-on-bscscan">Read event logs</a></li>
-                  <li><a href="/how-to-run-foundry-invariant-tests">Run Foundry invariant tests</a></li>
-                </ul>
-              </section>
-              <section className="footer-link-group footer-paperwork">
-                <h2>Public paperwork pile</h2>
-                <ul>
-                  <li><a href="/testnet-lifecycle">TESTNET evidence</a></li>
-                  <li><a href="/office-counter">Office counter</a></li>
-                  <li><a href="/lifecycle-templates">Lifecycle templates</a></li>
-                  <li><a href="/creator-handbook">Creator handbook</a></li>
-                  <li><a href="/community-safety">Community safety</a></li>
-                  <li><a href="/stage-0-review">Stage 0 review</a></li>
-                  <li><a href="https://github.com/pqchase/rugspull/releases/tag/v0.4.0-evidence.1" target="_blank" rel="noreferrer">Evidence prerelease</a></li>
-                </ul>
-              </section>
-            </nav>
-          </div>
+          <a className="footer-wordmark" href="/" aria-label="Rugspull home">
+            <strong>RUGSPULL</strong>
+            <span>Bad ideas. Clear rules.</span>
+          </a>
+          <nav className="footer-links" aria-label="Essential links">
+            <a href="/docs/risk">Risk</a>
+            <a href="https://github.com/pqchase/rugspull" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://x.com/rugspull" target="_blank" rel="noreferrer">X</a>
+            <a href="https://t.me/rugspullcom" target="_blank" rel="noreferrer">Telegram</a>
+            <a href="mailto:info@rugspull.com">Email</a>
+          </nav>
         </div>
         <div className="footer-fine-print">
-          <span>BNB Smart Chain · no reserve backdoor · no support DMs</span>
-          <span>© 2026 Rugspull. Keep your seed phrase out of the complaint form.</span>
+          <span>Never share your seed phrase or private key.</span>
+          <span>BNB Smart Chain · © 2026 Rugspull</span>
         </div>
       </footer>
     </div>
@@ -836,26 +740,6 @@ function HomePage() {
         <span>No pool-reserve withdrawal.</span>
         <span>0.30% total trading fee.</span>
         <span>Every settlement stays on-chain.</span>
-      </section>
-
-      <section className="testnet-evidence-callout" aria-labelledby="testnet-evidence-title">
-        <div className="testnet-evidence-copy">
-          <span className="testnet-evidence-stamp"><FlaskConical size={16} />BSC TESTNET ONLY</span>
-          <h2 id="testnet-evidence-title">Inspect two complete lifecycle paths.</h2>
-          <p>
-            Read the contracts, transaction receipts, and decoded events for a failed opening refund and
-            post-Rug trading. This is testnet evidence—not mainnet activity, an audit, or a safety guarantee.
-          </p>
-        </div>
-        <div className="testnet-evidence-paths" aria-label="Documented testnet paths">
-          <span><strong>Failed</strong> contribution returned after the opening misses launch conditions.</span>
-          <span><strong>Rugged</strong> founder action settles once; pool trading remains available afterward.</span>
-        </div>
-        <div className="testnet-evidence-actions">
-          <a className="primary" href="/testnet-lifecycle"><ClipboardList size={18} />Inspect TESTNET evidence</a>
-          <a className="secondary" href="/docs/risk"><ShieldAlert size={18} />Read risk disclosures</a>
-          <small>Historical receipts are incomplete. Exact-match checks are not an audit.</small>
-        </div>
       </section>
 
       <section className="notice-board page-board" id="rugs">
